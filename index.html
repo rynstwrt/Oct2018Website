@@ -1,51 +1,50 @@
-<!DOCTYPE html>
 <html>
 <head>
-<title>Ryan Stewart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ryan Stewart: Software developer and maker of cool things.">
-<meta name="keywords" content="software,developer,software developer,programming,programmer,commission,ryan,stewart,ryan stewart,ryan alexander stewart,plano,tx,plano tx,west plano,resurrection episcopal church">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="icon" type="image/png" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<title>Ryan Stewart</title> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<body> 
+    <div id="whiterect">
+        <div id="toppic"></div>
 
-<body>
+        <div id="profpic">
+            <img src="selfie.jpg">
+        </div>
 
-<!--Panel and copyright symbol-->
-<section> 
-	<!--Panel-->
-	<div id="panel"> 
-		<!--Image-->
-		<div id="image-container"><img id="image" src="img.png" alt="portrait"></div>
-		
-		<!--Text content-->
-		<div id="info"> 
-			<!--Title-->
-			<div class="offblack" id="title-container"><h1>Ryan Stewart</h1></div> 
-			
-			<!--Seperator-->
-			<div class="offblack" id="bar-container"><hr></div> 
-			
-			<!--Description-->
-			<div class="offblack" id="desc">coded with <span class="fa fa-heart"></span></div> 
-			
-			<!--Social buttons-->
-			<div id="social"> 
-				<a href="https://www.twitter.com/rynstwrt" target="_blank"><i class="fab fa-twitter-square offblack"></i></a>
-				<a href="https://www.linkedin.com/in/rynstwrt" target="_blank"><i class="fab fa-linkedin offblack"></i></a>
-				<a href="https://www.github.com/rynstwrt" target="_blank"><i class="fab fa-github-square offblack"></i></a>
-				<a href="mailto:ryanstewartalex@gmail.com" target="_blank"><i class="fas fa-envelope-square offblack"></i></a>
-			</div>
-			
-		</div>
-	</div>
-	
-	<!--Copyright-->
-	<div class="offblack" id="copyright"><p>&copy; Ryan Stewart <span id="year"></span></p></div>
-</section>
-
+        <div id="infocontainer">
+            <h1><b>Ryan Stewart</b></h1>
+            <p id="type"></p>
+            <ul>
+                <li><a href="https://www.twitter.com/rynstwrt" target="_blank"><i class="accenthover fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/rynstwrt" target="_blank"><i class="accenthover fab fa-instagram"></i></a></li>
+                <li><a href="https://www.github.com/rynstwrt" target="_blank"><i class="accenthover fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/rynstwrt/" target="_blank"><i class="accenthover fab fa-linkedin"></i></a></li>
+                <li><a href="https://stackoverflow.com/users/8146498/ryan-stewart" target="_blank"><i class="accenthover fab fa-stack-overflow"></i></a></li>                
+            </ul>
+        </div>
+        
+        
+        <div id="bottom">
+            <hr />
+            <button style="float: left;"><a class="accenthover" href="resume.pdf" target="_blank">DOWNLOAD CV&nbsp;&nbsp;<i class="fas fa-download"></i></span></button>
+            <button style="float: right;"><a class="accenthover" href="mailto:ryanstewartalex@gmail.com" target="_blank">EMAIL ME&nbsp;&nbsp;<i class="far fa-envelope"></i></span></button>
+        </div>
+    </div>
 </body>
-<script src="js/contentfiller.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/typeit@6.0.3/dist/typeit.min.js"></script>
+<script>
+const instance = new TypeIt('#type', {
+    strings: 'CS Major @ UT Dallas.',
+    speed: 100,
+    waitUntilVisible: true,
+    loop: true,
+    loopDelay: 10000,
+    startDelay: 250
+}).go();    
+</script>
+
 </html>
