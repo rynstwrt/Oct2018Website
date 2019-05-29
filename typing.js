@@ -15,8 +15,3 @@ function addLetterAndWait()
         setTimeout(addLetterAndWait, 50);
     }
 }
-
-$(window).bind("load", () =>
-{
-    addLetterAndWait();
-});
