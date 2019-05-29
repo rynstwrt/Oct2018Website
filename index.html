@@ -16,7 +16,7 @@
 
         <div id="infocontainer">
             <h1><b>Ryan Stewart</b></h1>
-            <p id="type">________ _______ _____ _ __ _______</p>
+            <p id="type"></p>
             <ul>
                 <li><a href="https://www.twitter.com/rynstwrt" target="_blank"><i class="accenthover fab fa-twitter"></i></a></li>
                 <li><a href="https://www.instagram.com/rynstwrt" target="_blank"><i class="accenthover fab fa-instagram"></i></a></li>
@@ -36,28 +36,5 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-<script src="main.js"></script>
-<script>
-var a = document.getElementById("type");
-var str = 'Computer science major @ UT Dallas.';
-var i = 0;
-function addLetterAndWait()
-{
-    if (i < str.length)
-    {
-        var first = a.innerHTML.substring(0, i);
-        var rest = a.innerHTML.substring(i + 1, str.length);
-        
-        a.innerHTML = first + str.charAt(i) + rest;
-        i++;
-        setTimeout(addLetterAndWait, 50);
-    }
-}
-
-$(window).bind("load", function()
-{
-    addLetterAndWait();
-});
-
-</script>
+<script src="typing.js"></script>
 </html>
