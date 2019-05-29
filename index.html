@@ -16,7 +16,7 @@
 
         <div id="infocontainer">
             <h1><b>Ryan Stewart</b></h1>
-            <p id="type"></p>
+            <p id="type">________ _______ _____ _ __ _______</p>
             <ul>
                 <li><a href="https://www.twitter.com/rynstwrt" target="_blank"><i class="accenthover fab fa-twitter"></i></a></li>
                 <li><a href="https://www.instagram.com/rynstwrt" target="_blank"><i class="accenthover fab fa-instagram"></i></a></li>
@@ -26,25 +26,32 @@
             </ul>
         </div>
         
-        
         <div id="bottom">
             <hr />
             <button style="float: left;"><a class="accenthover" href="resume.pdf" target="_blank">DOWNLOAD CV&nbsp;&nbsp;<i class="fas fa-download"></i></span></button>
             <button style="float: right;"><a class="accenthover" href="mailto:ryanstewartalex@gmail.com" target="_blank">EMAIL ME&nbsp;&nbsp;<i class="far fa-envelope"></i></span></button>
         </div>
+
     </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/typeit@6.0.3/dist/typeit.min.js"></script>
+<script src="main.js"></script>
 <script>
-const instance = new TypeIt('#type', {
-    strings: 'CS Major @ UT Dallas.',
-    speed: 100,
-    waitUntilVisible: true,
-    loop: true,
-    loopDelay: 10000,
-    startDelay: 250
-}).go();    
+var a = document.getElementById("type");
+var str = 'Computer science major @ UT Dallas.';
+var i = 0;
+function addLetterAndWait()
+{
+    if (i < str.length)
+    {
+        var first = a.innerHTML.substring(0, i);
+        var rest = a.innerHTML.substring(i + 1, str.length);
+        
+        a.innerHTML = first + str.charAt(i) + rest;
+        i++;
+        setTimeout(addLetterAndWait, 70);
+    }
+}
+addLetterAndWait();
 </script>
-
 </html>

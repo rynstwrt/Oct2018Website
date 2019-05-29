@@ -92,7 +92,7 @@ button:first-of-type
     width: 500px;
     height: auto;
     background-color: #31313a;
-    box-shadow: -13px -13px rgba(49, 49, 58, .4);
+    box-shadow: -15px -15px rgba(49, 49, 58, .2);
     border-radius: 1%;
     overflow: hidden;
 }
@@ -101,7 +101,7 @@ button:first-of-type
 {
     width: 100%;
     height: 300px;
-    background: url("toppic.jpg") no-repeat center center;
+    background: url("toppic.jpg") no-repeat top center;
 }
 
 #profpic
@@ -109,6 +109,7 @@ button:first-of-type
     width: 140px;
     margin: 0 auto;
     margin-top: -100px; 
+    z-index: 999999;
 }
 
 #profpic img
@@ -123,6 +124,7 @@ button:first-of-type
 #infocontainer
 {
     margin-top: 18px;
+    z-index: 9999999;
 }
 
 #bottom
