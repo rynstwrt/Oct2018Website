@@ -54,9 +54,10 @@ function addLetterAndWait()
     }
 }
 
-window.onload = (event) =>
+$(window).bind("load", function()
 {
     addLetterAndWait();
-};
+});
+
 </script>
 </html>
