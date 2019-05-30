@@ -1,6 +1,6 @@
 var a = document.getElementById("type");
 var str = 'Computer science major @ UT Dallas.';
-a.innerHTML = str.replace(/\S/g, "_")
+a.innerHTML = str.replace(/\S/g, "_");
 
 var i = 0;
 function addLetterAndWait()

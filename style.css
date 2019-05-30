@@ -166,16 +166,19 @@ button:first-of-type
         font-size: .7em;
     }
 
-    #bottom
+    #bottom > button
     {
-        font-size: .7em;
+        font-size: .5em
     }
+
 }
 
-/*s screens last mobile screen*/
 @media only screen and (min-width: 600px)
 {
-    /*none needed*/
+    #bottom > button
+    {
+        font-size: .7em
+    }
 }
 
 /*m screens*/
