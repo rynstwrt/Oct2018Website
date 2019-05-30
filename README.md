@@ -1,2 +1,2 @@
-# Oct2018Website
+# ryanstew.art
 Hosting for https://www.ryanstew.art/
