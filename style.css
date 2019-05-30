@@ -156,6 +156,12 @@ button:first-of-type
         width: 80%;
     }
 
+    #profpic
+    {
+        width: 115px;
+        margin-top: -90px;
+    }
+
     h1
     {
         font-size: 1.5em;
@@ -168,7 +174,7 @@ button:first-of-type
 
     #bottom > button
     {
-        font-size: .5em
+        font-size: .7em
     }
 
 }
