@@ -1,0 +1,10 @@
+# CORE
+Options -Indexes
+Options -MultiViews
+Options +FollowSymlinks
+AddDefaultCharset UTF-8
+ServerSignature Off
+FileETag none
+
+# ADMIN EMAIL
+SetEnv SERVER_ADMIN ryan@ryanstew.art
