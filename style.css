@@ -28,7 +28,7 @@ h1
 p
 {
     letter-spacing: .2ch;
-    color: #e49d87;
+    color: #99FFCC;
     font-size: .8em;
     margin-top: 20px;
 }
@@ -79,7 +79,7 @@ button:first-of-type
 
 .accenthover:hover
 {
-    color: #e49d87 !important;
+    color: #99FFCC !important;
 }
 
 #whiterect
@@ -92,7 +92,7 @@ button:first-of-type
     width: 500px;
     height: auto;
     background-color: #31313a;
-    box-shadow: -15px -15px rgba(49, 49, 58, .2);
+    box-shadow: -15px -15px rgba(7, 7, 8, 0.2);
     border-radius: 1%;
     overflow: hidden;
 }
@@ -101,7 +101,7 @@ button:first-of-type
 {
     width: 100%;
     height: 300px;
-    background: url("toppic.jpg") no-repeat top center;
+    background: url("toppic.jpg") no-repeat center top;
     z-index: 1;
 }
 
@@ -119,7 +119,7 @@ button:first-of-type
     width: 100%;
     height: auto;
     border: 4px solid #474751;
-    box-shadow: -8px 9px rgba(228, 157, 135, .4);
+    box-shadow: -6px 7px rgba(153, 255, 204, .4);
 }
 
 #infocontainer

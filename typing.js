@@ -1,16 +1,19 @@
-var a = document.getElementById("type");
-var str = 'Computer science major @ UT Dallas.';
-a.innerHTML = str.replace(/\S/g, "_");
+// Ryan Stewart Oct 31, 2019.
+var typeElem = document.getElementById("type");
+var placeHolder = '\u2022'
+var destString = 'Computer science major @ UT Dallas.';
+
+typeElem.innerHTML = destString.replace(/\S/g, placeHolder);
 
 var i = 0;
 function addLetterAndWait()
 {
-    if (i < str.length)
+    if (i < destString.length)
     {
-        var first = a.innerHTML.substring(0, i);
-        var rest = a.innerHTML.substring(i + 1, str.length);
+        var firstCharacter = typeElem.innerHTML.substring(0, i);
+        var remainingCharacters = typeElem.innerHTML.substring(i + 1, destString.length);
         
-        a.innerHTML = first + str.charAt(i) + rest;
+        typeElem.innerHTML = firstCharacter + destString.charAt(i) + remainingCharacters;
         i++;
         setTimeout(addLetterAndWait, 50);
     }
