@@ -9,5 +9,11 @@ FileETag none
 # ADMIN EMAIL
 SetEnv SERVER_ADMIN ryan@ryanstew.art
 
-RewriteEngine On
-RewriteRule   ^([A-Za-z0-9-]+)/?$  $1.html
+
+# MOD_REWRITE
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+RewriteRule ^(.*)$ $1.html [NC,L]
