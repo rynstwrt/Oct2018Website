@@ -13,23 +13,30 @@ a:any-link
 body
 {
 	background-color: #5CDB94;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #1A535C;
+	text-transform: uppercase;
+}
+
+#content
+{
+	width: 100vw;
+	height: 100vw;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 header
 {
-	text-transform: uppercase;
-	color: #1A535C;
-	font-family: 'Roboto Condensed', sans-serif;
 	display: flex;
 	flex-flow: row nowrap;
+	padding: 80px 94px;
 }
 
 header > h2
 {
-	font-size: 50px;
-	padding: 80px 94px;
+	font-size: 2.55em;
 	white-space: nowrap;
-	text-overflow: ellipsis;
 }
 
 #subtext
@@ -41,15 +48,12 @@ header > h2
 nav
 {
 	margin-left: auto;
-	align-self: center;
-	padding: 80px 94px;
-	font-family: 'Roboto', sans-serif;
-	white-space: nowrap;
+	align-self: center;	
 }
 
 nav > ul > li
 {
-	display: inline;
+	display: inline-block;
 	padding: 0 10px;
 }
 
@@ -58,11 +62,199 @@ nav > ul > li > a:hover
 	text-decoration: underline;
 }
 
-section
+main
 {
 	display: flex;
+	flex-direction: row;
+	margin: 0 100px;
 }
 
+main > img
+{
+	display: block;
+	margin: 0 auto;
+	height: auto;
+	width: 340px;
+}
 
+main > h1
+{
+	font-size: 3.65em;
+	font-weight: 500;
+	align-self: center;
+	padding-left: 3px;
+	text-align: right;
+}
 
+@media only screen and (max-width: 1176px)
+{	
+	
+	header > h2
+	{
+		font-size: 1.8em;
+	}
+	
+	main
+	{
+		margin-top: 43px;
+	}
+	
+	main > img
+	{
+		width: 290px;
+	}
+
+	main > h1
+	{
+		font-size: 3em;
+	}
+}
+
+@media only screen and (max-width: 954px)
+{
+	
+	header
+	{
+		padding: 50px 40px;
+	}
+	
+	header > h2
+	{
+		font-size: 1.7em;
+	}
+	
+	#subtext
+	{
+		font-size: .4em;
+	}
+	
+	nav > ul > li
+	{
+		font-size: .8em;
+	}
+	
+	main
+	{
+		margin: 110px 51px 0px 51px;
+	}
+	
+	main > img
+	{
+		width: 240px;
+	}
+}
+
+@media only screen and (max-width: 639px)
+{
+	header
+	{
+		flex-flow: column wrap;
+		text-align: center;
+	}
+	
+	header > h2
+	{
+		font-size: 2.6em;
+	}
+	
+	#subtext
+	{
+		display: block;
+		font-size: .44em;
+	}
+	
+	nav
+	{
+		margin: 10px 0 0 0;
+	}
+	
+	main > img
+	{
+		width: 180px;
+	}
+	
+	main > h1
+	{
+		font-size: 2.3em;
+	}
+}
+
+@media only screen and (max-width: 481px)
+{
+	header > h2
+	{
+		font-size: 3.1em;
+	}
+	
+	#subtext
+	{
+		font-size: .27em;
+	}
+	
+	nav
+	{
+		margin-top: 13px;
+	}
+	
+	main
+	{
+		margin-top: 30px;
+		flex-direction: column;
+	}
+	
+	main
+	{
+		margin-top: 10px;
+		padding-top: 0px;
+	}
+	
+	main > img
+	{
+		width: 220px;
+	}
+	
+	main > h1
+	{
+		font-size: 1em;
+		text-align: center;
+		margin-top: 95px;
+	}
+}
+
+@media only screen and (max-width: 393px)
+{
+	header > h2
+	{
+		font-size: 2.1em;
+	}
+	
+	#subtext
+	{
+		font-size: .32em;
+	}
+	
+	header > nav
+	{
+		margin-top: 20px;
+	}
+	
+	header > nav > ul > li
+	{
+		font-size: .9em;
+	}
+	
+	main 
+	{
+		
+	}
+	
+	main > h1
+	{
+		margin-top: 50px;
+		font-size: .9em;
+	}
+}
+	
+	
+	
 
