@@ -84,7 +84,7 @@ section {
     margin-bottom: 20px;
 }
 
-#newlink {
+.newlink {
     display: none;
 }
 
@@ -163,7 +163,7 @@ section {
         border-bottom: 0;
     }
 
-    #newlink {
+    .newlink {
         display: block;
     }
 }
