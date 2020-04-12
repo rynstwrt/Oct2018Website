@@ -4,11 +4,6 @@
 	padding: 0;
 }
 
-html
-{
-	background-color: #5CDB94;
-}
-
 a:any-link
 {
 	text-decoration: none;
@@ -22,9 +17,11 @@ a:hover
 
 body
 {
+	background-color: #5CDB94;
 	font-family: 'Roboto Condensed', sans-serif;
 	color: #1A535C;
 	text-transform: uppercase;
+	height: 100vh;
 }
 
 #content

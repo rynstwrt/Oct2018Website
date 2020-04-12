@@ -21,6 +21,7 @@ body
 	font-family: 'Roboto Condensed', sans-serif;
 	color: #1A535C;
 	text-transform: uppercase;
+	height: 100vh;
 }
 
 #content
