@@ -1,6 +1,7 @@
 # ryanstew.art
 Hosting for https://www.ryanstew.art/.
 
-No frameworks. Should be responsive.
-
-![website screenshot](https://i.imgur.com/w6732M3.png)
+Has included:
+- https://github.com/rynstwrt/TerminalWebsite
+- https://github.com/rynstwrt/linuxsystemstatuswebsite
+- https://github.com/rynstwrt/Sindivisible
