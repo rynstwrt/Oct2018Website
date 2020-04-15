@@ -24,16 +24,17 @@ $font: "Hind Siliguri", sans-serif;
 	box-sizing: border-box;
 }
 
-html
+html, body
 {
 	background-color: $background-color;
+	background-color: $background-color;
+	height: 100vh;
+	max-height: 100vh;
 }
 
 body
 {
-	height: 100vh;
 	overflow: hidden;
-	background-color: $background-color;
 	color: $text;
 	font-family: $font;
 
