@@ -27,9 +27,8 @@ $font: "Hind Siliguri", sans-serif;
 html, body
 {
 	background-color: $background-color;
-	background-color: $background-color;
-	height: 100vh;
 	max-height: 100vh;
+	max-height: -webkit-fill-available;
 }
 
 body
