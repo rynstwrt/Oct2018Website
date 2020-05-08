@@ -1,6 +1,6 @@
 // TODO: get array from Flickr API.
 const arrayOfImages = ["https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg", "https://live.staticflickr.com/65535/49870152143_c0e1935aa3_k.jpg"];
-const section = document.body.querySelector("section");
+
 
 
 //will actually pass a flickr url
