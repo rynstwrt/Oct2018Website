@@ -1,6 +1,4 @@
-const ACCESS_KEY = ACCESS_KEY;
-const REQ_URL = "https://api.unsplash.com/users/rynstwrt/statistics/?client_id=" + ACCESS_KEY;
-
+const REQ_URL = "https://api.unsplash.com/users/rynstwrt/statistics/?client_id=" + secrets.ACCESS_KEY;
 const http = new XMLHttpRequest();
 http.open("GET", REQ_URL, true);
 http.send();
