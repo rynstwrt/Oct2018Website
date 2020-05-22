@@ -3,38 +3,41 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css' />
+    <link rel='stylesheet' type='text/css' href='main.min.css' />
 	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.min.css" />
     <title>ryanstew.art</title>
 </head>
 <body>
 
+    <div class='container'>
+        <div class='row p-4 justify-content-center'>
+            <div class='col-auto text-center'>
+                <h1 class='border-bottom border-dark text-uppercase' id='nametext'>Ryan Stewart</h1>
+                <ul class='nav text-uppercase justify-content-center'>
+                    <li class='nav-item'><a class='nav-link' href='#'>Home</a></li>
+                    <li class='nav-item'><a class='nav-link' href='#'>My Content</a></li>
+                    <li class='nav-item'><a class='nav-link' href='#'>Contact</a></li>
+                </ul>
+            </div>
+        </div>
 
-	<header>
-        <h1><a href="/">Ryan Stewart</a></h1>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/websites">Websites</a></li>
-                <li><a href="/apps">Apps</a></li>
-                <li><a href="/photography">Photography</a></li>
-				<li><a href="/contact">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
+        <div class='row'>
+            <div class='col-2'></div>
+            <div class='col-12 float-right'>
+                <h1 class='text-right font-weight-bold'>This website has no purpose outside of looking kinda cool.</h1>
+            </div>
+        </div>
 
-	<section>
-		<h1>This website doesn't<br /> really have a purpose<br /> outside of looking<br /> kinda cool.</h1>
-	</section>
-
-    <div id="avatar">
-        <img src="char.png" alt="moving avatar" />
+        <div class='row'>
+            <div class='col-9' style='position: absolute; bottom: 0; overflow: hidden;'>
+                <img class='w-100' id='avatar' src='char.png' alt='avatar'/>
+            </div>
+        </div>
     </div>
 
-	<footer>
-	</footer>
-
-
+    <script src='jquery.min.js'></script>
+    <script src='bootstrap/js/bootstrap.min.js'></script>
 </body>
 </html>
