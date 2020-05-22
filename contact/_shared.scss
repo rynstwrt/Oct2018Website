@@ -33,6 +33,12 @@ a:active
 	color: inherit;
 }
 
+.list-group-item
+{
+	background-color: transparent;
+	border: 0;
+}
+
 #avatar
 {
 	animation: walk .83s infinite alternate;
