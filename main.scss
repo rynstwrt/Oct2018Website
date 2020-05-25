@@ -16,6 +16,7 @@ $color2: #3A2E39;
 body
 {
 	min-height: 100vh;
+	height: 100vh !important;
 	margin: 0;
 	background-color: $color1;
 	overflow: hidden;
@@ -24,6 +25,7 @@ body
 
 html
 {
+	height: 100vh;
 	overflow: hidden;
 	min-height: 100vh;
 }
