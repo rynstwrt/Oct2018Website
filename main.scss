@@ -20,6 +20,11 @@ body
 	color: $color2;
 }
 
+html, body
+{
+	min-height: 100%;
+}
+
 .nav-item
 {
 	font-size: .8rem;
