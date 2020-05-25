@@ -15,7 +15,8 @@ $color2: #3A2E39;
 
 body
 {
-	min-height: 100%;
+	min-height: 100vh;
+	margin: 0;
 	background-color: $color1;
 	overflow: hidden;
 	color: $color2;
@@ -23,7 +24,8 @@ body
 
 html
 {
-	height: 100%;
+	overflow: hidden;
+	height: 100vh;
 }
 
 .nav-item
