@@ -1,0 +1,68 @@
+$color1: white;
+$color2: rgb(41, 62, 43);
+$pathcolor: rgb(108, 158, 113);
+$suncolor: rgb(250, 255, 163);
+$animationduration: .3s;
+$animationtimingfunction: ease-in;
+
+*
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	background-color: $color1;
+}
+
+#bar-wrapper
+{
+	transition: height ($animationduration * 4) $animationtimingfunction;
+}
+
+#box1
+{
+	transition: background-color $animationduration $animationtimingfunction;
+
+	#sun
+	{
+		background-color: $suncolor;
+		clip-path: circle(0px at center);
+		transition: clip-path $animationduration $animationtimingfunction, -webkit-clip-path $animationduration $animationtimingfunction;
+		-webkit-clip-path: circle(0px at center);
+	}
+}
+
+#box2
+{
+	transition: background-color $animationduration $animationtimingfunction;
+
+	#path
+	{
+		transition: height $animationduration $animationtimingfunction;
+		background-color: $pathcolor;
+
+		mask: url('/trailmask.png') center;
+		mask-size: 100% 100%;
+		-webkit-mask: url('/trailmask.png') center;
+		-webkit-mask-size: 100% 100%;
+	}
+
+}
+
+.box
+{
+	background-color: $color1;
+}
+
+#bar
+{
+	background-color: $color2;
+	transition: width $animationduration $animationtimingfunction, top $animationduration $animationtimingfunction;
+}
+
+#bar2
+{
+	background-color: $color2;
+	transition: height $animationduration 1s $animationtimingfunction;
+}

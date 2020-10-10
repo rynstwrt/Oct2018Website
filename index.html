@@ -3,7 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='stylesheet' href='/bootstrap-4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/main.min.css' />
+    <title>ryanstew.art</title>
 </head>
-<body>
+<body class='overflow-hidden'>
+
+
+
+
+    <div id='bar-wrapper' class='position-absolute d-flex flex-column justify-content-center align-items-center' style='width: 100vw; height: 100vh;'>
+
+        <div id='box1' class='box w-100' style='height: 55%;'>
+            <div id='sun' class='float-right m-3' style='width: 100px; height: 100px;'></div>
+        </div>
+
+        <div id='bar' class='position-absolute' style='height: 6px; width: 0; top: 50% !important; z-index: 1;'></div>
+
+        <div id='box2' class='box w-100 flex-fill d-flex flex-column justify-content-end align-items-center'>
+            <div id='path' class='w-100' style='height: 0; width: 120px !important;'></div>
+        </div>
+
+        <div id='bar2' class='position-absolute' style='width: 6px; bottom: 0px; height: 0;'>
+
+        </div>
+
+    </div>
+
+
+
+    <script src='/jquery-3.5.1.min.js'></script>
+    <script src='/bootstrap-4.5.2/js/bootstrap.bundle.min.js'></script>
+    <script src='/introanim.js'></script>
 </body>
 </html>
