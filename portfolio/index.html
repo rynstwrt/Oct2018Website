@@ -8,17 +8,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel='stylesheet' href='main.min.css'>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src='preload.js'></script>
 	<title>Welcome.</title>
 </head>
 <body class='text-uppercase' style='font-family: "Handlee", cursive;'>
-	<div id='loadingscreen' class='position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center' style='opacity: 1; z-index: 2;'>
-		<div id='content' class='d-flex flex-column'>
-			<h1 style='opacity: 0;'>LOADING</h1>
-			<div id='underline' style='width: 0; height: 6px;'></div>
-		</div>
-	</div>
-	<div id='scrollercontainer' class='position-relative overflow-hidden d-flex flex-column' style='width: 100vw; height: 100vh; opacity: 0;'>
+	<div id='scrollercontainer' class='position-relative overflow-hidden d-flex flex-column' style='width: 100vw; height: 100vh;'>
 		<div class='arrowcontainer h-100 d-flex align-items-center position-absolute' style='top: 0; left: 0; z-index: 1;'>
 			<img src='assets/arrow.svg' alt='arrow' id='leftarrow' class='mx-1'/>
 		</div>

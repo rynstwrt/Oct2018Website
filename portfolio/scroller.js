@@ -1,4 +1,5 @@
 // Ryan Stewart 10/08/2020
+const browswertransitionevents = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
 $(document).ready(() =>
 {
 	// debounce function for the buttons
