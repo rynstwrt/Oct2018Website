@@ -14,19 +14,37 @@
 
     <div id='bar-wrapper' class='position-absolute d-flex flex-column justify-content-center align-items-center' style='width: 100vw; height: 100vh;'>
 
-        <div id='box1' class='box w-100' style='height: 55%;'>
-            <div id='sun' class='float-right m-3' style='width: 100px; height: 100px;'></div>
+        <div id='box1' class='box w-100 d-flex justify-content-center align-items-center' style='height: 30%;'>
+            <img src='/cloud.png' alt='cloud' style='opacity: 0; width: 150%;'/>
+            <div id='sun' class='position-absolute m-2' style='width: 150px; height: 150px; right: 0; top: 0; z-index: 2; opacity: 0;'></div>
         </div>
 
-        <div id='bar' class='position-absolute' style='height: 6px; width: 0; top: 50% !important; z-index: 1;'></div>
+        <div id='bar' class='position-absolute' style='height: 6px; width: 0; top: 50% !important; z-index: 2;'></div>
 
-        <div id='box2' class='box w-100 flex-fill d-flex flex-column justify-content-end align-items-center'>
-            <div id='path' class='w-100' style='height: 0; width: 120px !important;'></div>
+        <div id='box2' class='position-relative box w-100 flex-fill d-flex justify-content-center align-items-center' style='z-index: 1;'>
+            <div id='overlay' class='position-absolute w-100 h-100' style='opacity: 0;'></div>
+
+            <div class='container-fluid h-100'>
+                <div class='row h-100'>
+                    <div class='col d-flex justify-content-center align-items-start'>
+                        <div class='tree w-100 my-5' style='height: auto;'>
+                            <img src='./tree.png' alt='tree' class='w-100' style='transform-origin: 50% 100%; transform: scaleY(0) scaleX(0); mix-blend-mode: darken; opacity: .4;'/>
+                        </div>
+                    </div>
+                    <div class='col d-flex justify-content-center align-items-center'>
+                        <div id='path' style='width: 0; height: 0; z-index: 1;'></div>
+                    </div>
+                    <div class='col d-flex justify-content-center align-items-end'>
+                        <div class='tree w-100 my-5' style='height: auto;'>
+                            <img src='./tree.png' alt='tree' class='w-100' style='transform-origin: 50% 100%; transform: scaleY(0) scaleX(0); mix-blend-mode: darken; opacity: .4;'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
-        <div id='bar2' class='position-absolute' style='width: 6px; bottom: 0px; height: 0;'>
-
-        </div>
 
     </div>
 

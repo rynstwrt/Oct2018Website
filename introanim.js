@@ -1,38 +1,44 @@
 const transitionendevents = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
 const blueSky = '#489afa';
 const greenGrass = '#487c4e';
-let finished = false;
 
-$(document).ready(() =>
+$(window).on('load', () =>
 {
+	// first horizontal bar
 	$('#bar').css({'width': '100%'}).on(transitionendevents, () =>
 	{
-		if (finished) return;
-		$('#bar').attr('style', function(i,s) { return (s||'') + 'top: 55% !important;'}).on(transitionendevents, () =>
+		// horizontal bar moves up
+		$('#bar').attr('style', function(i,s) { return (s||'') + 'top: 30% !important;'}).on(transitionendevents, () =>
 		{
-			if (finished) return;
+			// bottom box turns green
 			$('#box2').css({'background-color': greenGrass}).on(transitionendevents, () =>
 			{
-				if (finished) return;
+				// top box turns blue
 				$('#box1').css({'background-color': blueSky}).on(transitionendevents, () =>
 				{
-					if (finished) return;
-					$('#sun').attr('style', function(i,s) { return (s||'') + 'clip-path: circle(50px at center);'}).on(transitionendevents, () =>
+					// fade in cloud
+					$('#box1 img').css({'opacity' : '.5'}).on(transitionendevents, () =>
 					{
-						if (finished) return;
-						$('#path').css({'height': '100%'}).on(transitionendevents, () =>
+						// fade in sun
+						$('#sun').css({'opacity': '1'}).on(transitionendevents, () =>
 						{
-							if (finished) return;
-							$('#bar2').css({'height': '100%'}).on(transitionendevents, () =>
+							// shrink bar
+							$('#bar').css({'height' : '0'}).on(transitionendevents, () =>
 							{
-								if (finished) return;
-								$('#bar2').css({'top': '0'});
-								$('#bar2').css({'height': '0'});
-								$('#bar').addClass('align-self-end');
-								$('#bar').css({'width': '0'});
-								$('#sun').attr('style', function(i,s) { return (s||'') + 'clip-path: circle(0px at center);'});
-								$('#bar-wrapper').css({'height': '0'});
-								finished = true;
+								// add box shadow to grass
+								$("#box2").css({'box-shadow': '0px -10px 10px rgba(0, 0, 0, .1)'}).on(transitionendevents, () =>
+								{
+									//fade in grass
+									$('#overlay').css({'opacity': '.1'}).on(transitionendevents, () =>
+									{
+										// scroll in path
+										$('#path').css({'width': '100%', 'height': '100%'}).on(transitionendevents, () =>
+										{
+											// scroll in trees
+											$('.tree img').css({'transform': 'scaleY(1) scaleX(1)'});
+										});
+									});
+								});
 							});
 						});
 					});

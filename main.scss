@@ -1,9 +1,9 @@
 $color1: white;
 $color2: rgb(41, 62, 43);
-$pathcolor: rgb(108, 158, 113);
+$pathcolor: rgb(185, 159, 128);
 $suncolor: rgb(250, 255, 163);
-$animationduration: .3s;
-$animationtimingfunction: ease-in;
+$animdur: .1s;
+$animationtimingfunction: linear;
 
 *
 {
@@ -15,39 +15,57 @@ body
 	background-color: $color1;
 }
 
-#bar-wrapper
-{
-	transition: height ($animationduration * 4) $animationtimingfunction;
-}
-
 #box1
 {
-	transition: background-color $animationduration $animationtimingfunction;
-
+	transition: background-color $animdur $animationtimingfunction;
+	img
+	{
+		transition: opacity $animdur $animationtimingfunction;
+	}
 	#sun
 	{
 		background-color: $suncolor;
-		clip-path: circle(0px at center);
-		transition: clip-path $animationduration $animationtimingfunction, -webkit-clip-path $animationduration $animationtimingfunction;
-		-webkit-clip-path: circle(0px at center);
+		mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
+		-webkit-mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
+		transition: opacity $animdur $animationtimingfunction;
 	}
 }
 
 #box2
 {
-	transition: background-color $animationduration $animationtimingfunction;
+	transition: background-color $animdur $animationtimingfunction, box-shadow $animdur $animationtimingfunction;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
+
+	#overlay
+	{
+		background-image: url('/grass2.png');
+		background-size: 50px auto;
+		background-attachment: fixed;
+		background-position: center;
+		background-blend-mode: overlay;
+		transition: opacity $animdur $animationtimingfunction;
+	}
 
 	#path
 	{
-		transition: height $animationduration $animationtimingfunction;
+		transition: width $animdur $animationtimingfunction, height $animdur $animationtimingfunction;
 		background-color: $pathcolor;
-
 		mask: url('/trailmask.png') center;
-		mask-size: 100% 100%;
 		-webkit-mask: url('/trailmask.png') center;
-		-webkit-mask-size: 100% 100%;
+		mask-size: 100% auto;
+		-webkit-mask-size: 100% auto;
+
+		-webkit-mask-repeat: repeat-y;
+		mask-repeat: repeat-y;
 	}
 
+	.tree
+	{
+		img
+		{
+			transition: transform $animdur $animationtimingfunction;
+		}
+	}
 }
 
 .box
@@ -58,11 +76,7 @@ body
 #bar
 {
 	background-color: $color2;
-	transition: width $animationduration $animationtimingfunction, top $animationduration $animationtimingfunction;
-}
-
-#bar2
-{
-	background-color: $color2;
-	transition: height $animationduration 1s $animationtimingfunction;
+	transition: width $animdur $animationtimingfunction 1s,
+				top $animdur $animationtimingfunction,
+				height $animdur $animationtimingfunction;
 }
