@@ -1,6 +1,8 @@
 const transitionendevents = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
 const blueSky = '#489afa';
 const greenGrass = '#487c4e';
+const cloudopacity = .5;
+const grassopacity = .08;
 
 $(window).on('load', () =>
 {
@@ -17,7 +19,7 @@ $(window).on('load', () =>
 				$('#box1').css({'background-color': blueSky}).on(transitionendevents, () =>
 				{
 					// fade in cloud
-					$('#box1 img').css({'opacity' : '.5'}).on(transitionendevents, () =>
+					$('#box1 img').css({'opacity' : cloudopacity}).on(transitionendevents, () =>
 					{
 						// fade in sun
 						$('#sun').css({'opacity': '1'}).on(transitionendevents, () =>
@@ -29,7 +31,7 @@ $(window).on('load', () =>
 								$("#box2").css({'box-shadow': '0px -10px 10px rgba(0, 0, 0, .1)'}).on(transitionendevents, () =>
 								{
 									//fade in grass
-									$('#overlay').css({'opacity': '.1'}).on(transitionendevents, () =>
+									$('#overlay').css({'opacity': grassopacity}).on(transitionendevents, () =>
 									{
 										// scroll in path
 										$('#path').css({'width': '100%', 'height': '100%'}).on(transitionendevents, () =>

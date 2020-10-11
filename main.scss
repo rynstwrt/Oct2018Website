@@ -2,8 +2,7 @@ $color1: white;
 $color2: rgb(41, 62, 43);
 $pathcolor: rgb(185, 159, 128);
 $suncolor: rgb(250, 255, 163);
-$animdur: .1s;
-$animationtimingfunction: linear;
+$animdur: .3s;
 
 *
 {
@@ -17,44 +16,43 @@ body
 
 #box1
 {
-	transition: background-color $animdur $animationtimingfunction;
+	transition: background-color $animdur;
 	img
 	{
-		transition: opacity $animdur $animationtimingfunction;
+		transition: opacity $animdur;
 	}
 	#sun
 	{
 		background-color: $suncolor;
 		mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
 		-webkit-mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
-		transition: opacity $animdur $animationtimingfunction;
+		transition: opacity $animdur;
 	}
 }
 
 #box2
 {
-	transition: background-color $animdur $animationtimingfunction, box-shadow $animdur $animationtimingfunction;
+	transition: background-color $animdur, box-shadow $animdur;
 	box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
 
 	#overlay
 	{
 		background-image: url('/grass2.png');
-		background-size: 50px auto;
+		background-size: 45px auto;
 		background-attachment: fixed;
 		background-position: center;
 		background-blend-mode: overlay;
-		transition: opacity $animdur $animationtimingfunction;
+		transition: opacity $animdur;
 	}
 
 	#path
 	{
-		transition: width $animdur $animationtimingfunction, height $animdur $animationtimingfunction;
+		transition: width $animdur, height $animdur;
 		background-color: $pathcolor;
 		mask: url('/trailmask.png') center;
 		-webkit-mask: url('/trailmask.png') center;
 		mask-size: 100% auto;
 		-webkit-mask-size: 100% auto;
-
 		-webkit-mask-repeat: repeat-y;
 		mask-repeat: repeat-y;
 	}
@@ -63,7 +61,9 @@ body
 	{
 		img
 		{
-			transition: transform $animdur $animationtimingfunction;
+			//convert to dark green https://codepen.io/sosuke/pen/Pjoqqp
+			filter: invert(19%) sepia(12%) saturate(1132%) hue-rotate(75deg) brightness(101%) contrast(93%);
+			transition: transform $animdur;
 		}
 	}
 }
@@ -76,7 +76,5 @@ body
 #bar
 {
 	background-color: $color2;
-	transition: width $animdur $animationtimingfunction 1s,
-				top $animdur $animationtimingfunction,
-				height $animdur $animationtimingfunction;
+	transition: width $animdur 1s, top $animdur, height $animdur;
 }
