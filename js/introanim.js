@@ -4,6 +4,7 @@ const greenGrass = getComputedStyle(document.documentElement).getPropertyValue('
 
 $(window).on('load', () =>
 {
+	$('#introanimation').css({'display': 'block'});
 	// first horizontal bar
 	$('#bar').css({'width': '100%'}).on(transitionendevents, () =>
 	{
@@ -47,9 +48,7 @@ $(window).on('load', () =>
 														$('#introanimation').css({'display': 'none'});
 														setTimeout(() =>
 														{
-															$('#circle').css({'clip-path': 'circle(0vmin)'}).on(transitionendevents, () =>
-															{
-															});
+															$('#circle').css({'clip-path': 'circle(0vmin)'});
 														}, 500);
 													});
 												}, 500);
