@@ -1,0 +1,41 @@
+body
+{
+	background-color: pink;
+}
+
+a
+{
+	color: inherit;
+	text-decoration: none;
+	&:hover
+	{
+		color: inherit;
+	}
+}
+
+#landing
+{
+	#graphic
+	{
+		background-color: rgba(0, 0, 0, .1);
+
+		.point
+		{
+			width: 2px;
+			height: 2px;
+			background-color: black;
+		}
+
+		.line
+		{
+			width: 2px;
+			height: 2px;
+			background-color: red;
+		}
+	}
+
+	a
+	{
+		font-size: .8rem;
+	}
+}
