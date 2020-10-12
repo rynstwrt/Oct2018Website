@@ -1,4 +1,3 @@
-$color1: white;
 $color2: #2BA040;
 $suncolor: rgb(250, 255, 163);
 $animdur: .2s;
@@ -13,7 +12,7 @@ $longanimdur: .4s;
 
 body
 {
-	background-color: $color1;
+	background-color: red;
 }
 
 #circle
@@ -23,11 +22,6 @@ body
 
 #introanimation
 {
-
-	.box
-	{
-		background-color: $color1;
-	}
 
 	#box1
 	{
@@ -107,9 +101,12 @@ body
 			mask-repeat: repeat-y;
 		}
 	}
+}
 
-	// Small devices (landscape phones, 576px and up)
-	@media (min-width: 576px)
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
+{
+	#introanimation
 	{
 		#box1
 		{
@@ -129,15 +126,18 @@ body
 			margin-top: 0rem !important;
 		}
 	}
+}
 
-	// Medium devices (tablets, 768px and up)
-	@media (min-width: 768px)
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
+{
+	:root
 	{
-		:root
-		{
-			--unitwidth: 100px;
-		}
+		--unitwidth: 100px;
+	}
 
+	#introanimation
+	{
 		#box1
 		{
 			height: 30% !important;
@@ -165,11 +165,13 @@ body
 			}
 		}
 	}
+}
 
-	// Large devices (desktops, 992px and up)
-	@media (min-width: 992px)
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+{
+	#introanimation
 	{
-
 		#box1
 		{
 			height: 50% !important;
@@ -191,15 +193,18 @@ body
 			}
 		}
 	}
+}
 
-	// Extra large devices (large desktops, 1200px and up)
-	@media (min-width: 1200px)
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+{
+	:root
 	{
-		:root
-		{
-			--unitwidth: 150px;
-		}
+		--unitwidth: 150px;
+	}
 
+	#introanimation
+	{
 		#box1
 		{
 			height: 40% !important;

@@ -42,7 +42,7 @@ $(window).on('load', () =>
 												// circle take over screen
 												setTimeout(() =>
 												{
-													$('#circle').attr('style', function(i,s) { return (s||'') + `clip-path: circle(60vmax) !important;`}).on(transitionendevents, () =>
+													$('#circle').attr('style', function(i,s) { return (s||'') + `clip-path: circle(100vmax) !important;`}).on(transitionendevents, () =>
 													{
 														$('#introanimation').css({'display': 'none'});
 														setTimeout(() =>
