@@ -1,9 +1,15 @@
 $color1: white;
 $color2: #2BA040;
 $suncolor: rgb(250, 255, 163);
-$animdur: .25s;
-$longanimdur: .5s;
-$unitwidth: 45px;
+$animdur: .2s;
+$longanimdur: .4s;
+
+:root
+{
+	--skycolor: #489afa;
+	--grasscolor: #2BA040;
+	--unitwidth: 45px;
+}
 
 body
 {
@@ -41,60 +47,175 @@ body
 	{
 		transition: opacity $longanimdur;
 		background-image: url('/grass.png');
-		background-size: $unitwidth auto;
+		background-size: var(--unitwidth) auto;
 		background-position: center center;
 	}
-	.row
+
+	.tree
 	{
-		.col
+		transition: height $animdur, filter $animdur;
+		width: var(--unitwidth);
+		.treetop
+		{
+			transition: background-size $animdur;
+			background-image: url('/treetop.png');
+			background-size: 100% 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.treebottom
+		{
+			transition: background-size $animdur;
+			background-image: url('/treebottom.png');
+			background-size: 100% 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	#fence-container
+	{
+		margin-top: 4.5rem;
+		width: var(--unitwidth);
+		height: var(--unitwidth);
+		#fence
+		{
+			transition: height $animdur, filter $animdur;
+			background-image: url('/fence.png');
+			background-size: 100% 100%;
+			background-position: center;
+		}
+	}
+	#path
+	{
+		transition: width $animdur, height $animdur;
+		background-image: url('/dirt.png');
+		background-size: var(--unitwidth) auto;
+		background-position: center;
+		mask: url('/trailmask.png') center;
+		-webkit-mask: url('/trailmask.png') center;
+		mask-size: 100% auto;
+		-webkit-mask-size: 100% auto;
+		-webkit-mask-repeat: repeat-y;
+		mask-repeat: repeat-y;
+	}
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
+{
+	#box1
+	{
+		height: 45% !important;
+	}
+
+	.col:first-of-type
+	{
+		.tree
+		{
+			margin-bottom: 6rem !important;
+		}
+	}
+
+	#fence-container
+	{
+		margin-top: 0rem !important;
+	}
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
+{
+	:root
+	{
+		--unitwidth: 100px;
+	}
+
+	#box1
+	{
+		height: 30% !important;
+
+		#sun
+		{
+			width: 260px !important;
+			height: 260px !important;
+		}
+	}
+
+	#box2
+	{
+		.col:first-of-type
 		{
 			.tree
 			{
-				transition: height $animdur, filter $animdur;
-				width: $unitwidth;
-				.treetop
-				{
-					transition: background-size $animdur;
-					background-image: url('/treetop.png');
-					background-size: 100% 100%;
-					background-position: center;
-					background-repeat: no-repeat;
-				}
-				.treebottom
-				{
-					transition: background-size $animdur;
-					background-image: url('/treebottom.png');
-					background-size: 100% 100%;
-					background-position: center;
-					background-repeat: no-repeat;
-				}
+				margin-bottom: 17rem !important;
 			}
-			#fence-container
+		}
+
+		#fence-container
+		{
+			margin-top: 10rem !important;
+		}
+	}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+{
+
+	#box1
+	{
+		height: 50% !important;
+	}
+
+	#box2
+	{
+		.col:first-of-type
+		{
+			.tree
 			{
-				margin-top: 4.5rem;
-				width: $unitwidth;
-				height: $unitwidth;
-				#fence
-				{
-					transition: height $animdur, filter $animdur;
-					background-image: url('/fence.png');
-					background-size: 100% 100%;
-					background-position: center;
-				}
+				margin-bottom: 8rem !important;
 			}
-			#path
+		}
+
+		#fence-container
+		{
+			margin-top: 2rem !important;
+		}
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+{
+	:root
+	{
+		--unitwidth: 150px;
+	}
+
+	#box1
+	{
+		height: 40% !important;
+
+		#sun
+		{
+			width: 300px !important;
+			height: 300px !important;
+		}
+	}
+
+	#box2
+	{
+		.col:first-of-type
+		{
+			.tree
 			{
-				transition: width $animdur, height $animdur;
-				background-image: url('/dirt.png');
-				background-size: $unitwidth auto;
-				background-position: center;
-				mask: url('/trailmask.png') center;
-				-webkit-mask: url('/trailmask.png') center;
-				mask-size: 100% auto;
-				-webkit-mask-size: 100% auto;
-				-webkit-mask-repeat: repeat-y;
-				mask-repeat: repeat-y;
+				margin-bottom: 14rem !important;
 			}
+		}
+
+		#fence-container
+		{
+			margin-top: 2rem !important;
 		}
 	}
 }
