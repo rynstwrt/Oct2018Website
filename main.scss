@@ -16,206 +16,215 @@ body
 	background-color: $color1;
 }
 
-.box
+#circle
 {
-	background-color: $color1;
+	transition: clip-path $longanimdur;
 }
 
-#box1
+#introanimation
 {
-	transition: background-color $animdur;
-	#sun
-	{
-		background-color: $suncolor;
-		mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
-		-webkit-mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
-		transition: opacity $longanimdur;
-	}
-}
 
-#bar
-{
-	background-color: $color2;
-	transition: width $animdur 1s, top $animdur, opacity $animdur;
-}
-
-#box2
-{
-	transition: background-color $animdur, box-shadow $animdur;
-	box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
-	#overlay
+	.box
 	{
-		transition: opacity $longanimdur;
-		background-image: url('/grass.png');
-		background-size: var(--unitwidth) auto;
-		background-position: center center;
+		background-color: $color1;
 	}
 
-	.tree
-	{
-		transition: height $animdur, filter $animdur;
-		width: var(--unitwidth);
-		.treetop
-		{
-			transition: background-size $animdur;
-			background-image: url('/treetop.png');
-			background-size: 100% 100%;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-		.treebottom
-		{
-			transition: background-size $animdur;
-			background-image: url('/treebottom.png');
-			background-size: 100% 100%;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-	}
-	#fence-container
-	{
-		margin-top: 4.5rem;
-		width: var(--unitwidth);
-		height: var(--unitwidth);
-		#fence
-		{
-			transition: height $animdur, filter $animdur;
-			background-image: url('/fence.png');
-			background-size: 100% 100%;
-			background-position: center;
-		}
-	}
-	#path
-	{
-		transition: width $animdur, height $animdur;
-		background-image: url('/dirt.png');
-		background-size: var(--unitwidth) auto;
-		background-position: center;
-		mask: url('/trailmask.png') center;
-		-webkit-mask: url('/trailmask.png') center;
-		mask-size: 100% auto;
-		-webkit-mask-size: 100% auto;
-		-webkit-mask-repeat: repeat-y;
-		mask-repeat: repeat-y;
-	}
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px)
-{
 	#box1
 	{
-		height: 45% !important;
+		transition: background-color $animdur;
+		#sun
+		{
+			background-color: $suncolor;
+			mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
+			-webkit-mask-image: radial-gradient(closest-side at center, black 50%, rgba(0, 0, 0, .2) 75%, rgba(255, 255, 255, 0) 100%);
+			transition: opacity $longanimdur;
+		}
 	}
 
-	.col:first-of-type
+	#bar
 	{
+		background-color: $color2;
+		transition: width $animdur 1s, top $animdur, opacity $animdur;
+	}
+
+	#box2
+	{
+		transition: background-color $animdur, box-shadow $animdur;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, .1);
+		#overlay
+		{
+			transition: opacity $longanimdur;
+			background-image: url('/grass.png');
+			background-size: var(--unitwidth) auto;
+			background-position: center center;
+		}
+
 		.tree
 		{
-			margin-bottom: 6rem !important;
+			transition: height $animdur, filter $animdur;
+			width: var(--unitwidth);
+			.treetop
+			{
+				transition: background-size $animdur;
+				background-image: url('/treetop.png');
+				background-size: 100% 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			.treebottom
+			{
+				transition: background-size $animdur;
+				background-image: url('/treebottom.png');
+				background-size: 100% 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
 		}
-	}
-
-	#fence-container
-	{
-		margin-top: 0rem !important;
-	}
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px)
-{
-	:root
-	{
-		--unitwidth: 100px;
-	}
-
-	#box1
-	{
-		height: 30% !important;
-
-		#sun
+		#fence-container
 		{
-			width: 260px !important;
-			height: 260px !important;
+			margin-top: 4.5rem;
+			width: var(--unitwidth);
+			height: var(--unitwidth);
+			#fence
+			{
+				transition: height $animdur, filter $animdur;
+				background-image: url('/fence.png');
+				background-size: 100% 100%;
+				background-position: center;
+			}
+		}
+		#path
+		{
+			transition: width $animdur, height $animdur;
+			background-image: url('/dirt.png');
+			background-size: var(--unitwidth) auto;
+			background-position: center;
+			mask: url('/trailmask.png') center;
+			-webkit-mask: url('/trailmask.png') center;
+			mask-size: 100% auto;
+			-webkit-mask-size: 100% auto;
+			-webkit-mask-repeat: repeat-y;
+			mask-repeat: repeat-y;
 		}
 	}
 
-	#box2
+	// Small devices (landscape phones, 576px and up)
+	@media (min-width: 576px)
 	{
+		#box1
+		{
+			height: 45% !important;
+		}
+
 		.col:first-of-type
 		{
 			.tree
 			{
-				margin-bottom: 17rem !important;
+				margin-bottom: 6rem !important;
 			}
 		}
 
 		#fence-container
 		{
-			margin-top: 10rem !important;
+			margin-top: 0rem !important;
 		}
 	}
-}
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px)
-{
-
-	#box1
+	// Medium devices (tablets, 768px and up)
+	@media (min-width: 768px)
 	{
-		height: 50% !important;
-	}
-
-	#box2
-	{
-		.col:first-of-type
+		:root
 		{
-			.tree
+			--unitwidth: 100px;
+		}
+
+		#box1
+		{
+			height: 30% !important;
+
+			#sun
 			{
-				margin-bottom: 8rem !important;
+				width: 260px !important;
+				height: 260px !important;
 			}
 		}
 
-		#fence-container
+		#box2
 		{
-			margin-top: 2rem !important;
-		}
-	}
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px)
-{
-	:root
-	{
-		--unitwidth: 150px;
-	}
-
-	#box1
-	{
-		height: 40% !important;
-
-		#sun
-		{
-			width: 300px !important;
-			height: 300px !important;
-		}
-	}
-
-	#box2
-	{
-		.col:first-of-type
-		{
-			.tree
+			.col:first-of-type
 			{
-				margin-bottom: 14rem !important;
+				.tree
+				{
+					margin-bottom: 17rem !important;
+				}
+			}
+
+			#fence-container
+			{
+				margin-top: 10rem !important;
+			}
+		}
+	}
+
+	// Large devices (desktops, 992px and up)
+	@media (min-width: 992px)
+	{
+
+		#box1
+		{
+			height: 50% !important;
+		}
+
+		#box2
+		{
+			.col:first-of-type
+			{
+				.tree
+				{
+					margin-bottom: 8rem !important;
+				}
+			}
+
+			#fence-container
+			{
+				margin-top: 2rem !important;
+			}
+		}
+	}
+
+	// Extra large devices (large desktops, 1200px and up)
+	@media (min-width: 1200px)
+	{
+		:root
+		{
+			--unitwidth: 150px;
+		}
+
+		#box1
+		{
+			height: 40% !important;
+
+			#sun
+			{
+				width: 300px !important;
+				height: 300px !important;
 			}
 		}
 
-		#fence-container
+		#box2
 		{
-			margin-top: 2rem !important;
+			.col:first-of-type
+			{
+				.tree
+				{
+					margin-bottom: 14rem !important;
+				}
+			}
+
+			#fence-container
+			{
+				margin-top: 2rem !important;
+			}
 		}
 	}
 }
