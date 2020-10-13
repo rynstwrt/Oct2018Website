@@ -3,16 +3,20 @@ let isMoving = false;
 
 function moveRight()
 {
-	if (isMoving) return;
-	isMoving = true;
 	const active = $('.active');
 	const next = active.next();
-	if (!next.hasClass('polaroid-wrapper')) return;
+	if (!next.hasClass('polaroid-wrapper'))
+	{
+		isMoving = false;
+		return;
+	}
 	active.removeClass('active');
 	next.addClass('active');
 
 	const width = $(next).width();
 	leftValue -= width;
+	const margin = parseInt($(next).css('margin-left'));
+	leftValue -= margin;
 	$.each($('#scroller').children(), (i, v) =>
 	{
 		$(v).css({'left': leftValue + 'px'});
@@ -22,16 +26,20 @@ function moveRight()
 
 function moveLeft()
 {
-	if (isMoving) return;
-	isMoving = true;
 	const active = $('.active');
 	const next = active.prev();
-	if (!next.hasClass('polaroid-wrapper')) return;
+	if (!next.hasClass('polaroid-wrapper'))
+	{
+		isMoving = false;
+		return;
+	}
 	active.removeClass('active');
 	next.addClass('active');
 
 	const width = $(next).width();
 	leftValue += width;
+	const margin = parseInt($(next).css('margin-left'));
+	leftValue += margin;
 	$.each($('#scroller').children(), (i, v) =>
 	{
 		$(v).css({'left': leftValue + 'px'});
@@ -41,33 +49,49 @@ function moveLeft()
 
 $('#leftarrow').on('click', () =>
 {
-	moveLeft();
+	if (!isMoving)
+	{
+		isMoving = true;
+		moveLeft();
+	}
 });
 
 $('#rightarrow').on('click', () =>
 {
-	moveRight();
+	if (!isMoving)
+	{
+		isMoving = true;
+		moveRight();
+	}
 });
 
 $(window).on('keydown', (e) =>
 {
-	switch(e.which)
+	if (!isMoving)
 	{
-		case 37:
-			moveLeft();
-			break;
+		isMoving = true;
+		switch(e.which)
+		{
+			case 37:
+				moveLeft();
+				break;
 
-		case 39:
-			moveRight();
-			break;
+			case 39:
+				moveRight();
+				break;
 
-		default: return;
+			default: return;
+		}
+		e.preventDefault();
 	}
-	e.preventDefault();
 });
 
 $(window).bind('mousewheel DOMMouseScroll', (e) =>
 {
-	//scroll up : scroll down
-	(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) ? moveLeft() : moveRight();
+	if (!isMoving)
+	{
+		isMoving = true;
+		//scroll up : scroll down
+		(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) ? moveLeft() : moveRight();
+	}
 });
