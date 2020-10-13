@@ -48,6 +48,7 @@ $(window).on('load', () =>
 														setTimeout(() =>
 														{
 															$('#circle').css({'clip-path': 'circle(0vmin)'});
+															$('#landingbackground').css({'display': 'block'});
 														}, 500);
 													});
 												}, 500);
