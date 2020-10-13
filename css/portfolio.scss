@@ -28,11 +28,18 @@ a
 		// margin-left: 1rem;
 		// margin-right: 1rem;
 		transform: scale(.9);
-		transition: transform .4s;
+		transition: transform .4s, left .4s;
 
 		.polaroid
 		{
+			width: 150px;
+			height: 190px;
 			background-color: #dbdbdb;
+
+			.polaroid-inner
+			{
+				height: 85%;
+			}
 		}
 	}
 }
