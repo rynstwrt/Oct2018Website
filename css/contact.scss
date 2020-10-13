@@ -1,6 +1,6 @@
 body
 {
-	background-color: pink;
+	background-color: rgb(161, 222, 255);
 }
 
 a
@@ -15,155 +15,182 @@ a
 	}
 }
 
-#landingbackground
+#landingcontainer
 {
-	background-image: url('/assets/shapes.png');
-	background-size: 300px;
-}
-
-#landing
-{
-	background-color: rgba(0, 0, 0, .2);
-	transition: box-shadow 1s;
-
-	#headertext
-	{
-		font-size: 2.5rem;
-	}
-
-	.nav
-	{
-		a
-		{
-			font-size: .8rem;
-			transition: background-color .3s;
-
-			&:hover
-			{
-				background-color: rgba(255, 255, 255, .2);
-			}
-		}
-	}
-}
-
-@media (min-width: 768px) // tablets (md)
-{
-	#landingbackground
-	{
-		background-size: 500px;
-	}
 
 	#landing
 	{
-		h1
+		background-color: rgba(0, 0, 0, .2);
+		transition: box-shadow 1s .3s;
+
+		#headertext
 		{
-			font-size: 3.5rem;
+			font-size: 2.5rem;
 		}
 
 		.nav
 		{
 			a
 			{
-				font-size: 1rem;
+				font-size: .8rem;
+				transition: background-color .3s;
+
+				&:hover
+				{
+					background-color: rgba(255, 255, 255, .2);
+				}
 			}
+		}
+	}
+
+	&::before
+	{
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: url('/assets/shapes.png');
+		background-size: 300px;
+		mix-blend-mode: overlay;
+		opacity: .2;
+	}
+}
+
+@media (min-width: 768px) // tablets (md)
+{
+	#landingcontainer
+	{
+		#landing
+		{
+			h1
+			{
+				font-size: 3.5rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1rem;
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 500px;
 		}
 	}
 }
 
 @media (min-width: 1200px) // larger desktops (xl)
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 600px;
-	}
-
-	#landing
-	{
-		h1
+		#landing
 		{
-			font-size: 3.5rem;
+			h1
+			{
+				font-size: 3.5rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1.1rem;
+				}
+			}
 		}
 
-		.nav
+		&::before
 		{
-			a
-			{
-				font-size: 1.1rem;
-			}
+			background-size: 600px;
 		}
 	}
 }
 
 @media (min-width: 1400px) // even larger desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 700px;
-	}
-
-	#landing
-	{
-		h1
+		#landing
 		{
-			font-size: 4.5rem;
+			h1
+			{
+				font-size: 4.5rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1.4rem;
+				}
+			}
 		}
 
-		.nav
+		&::before
 		{
-			a
-			{
-				font-size: 1.4rem;
-			}
+			background-size: 700px;
 		}
 	}
 }
 
 @media (min-width: 2000px) // even LARGER desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 900px;
-	}
-
-	#landing
-	{
-		h1
+		#landing
 		{
-			font-size: 6rem;
+			h1
+			{
+				font-size: 6rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1.7rem;
+				}
+			}
 		}
 
-		.nav
+		&::before
 		{
-			a
-			{
-				font-size: 1.7rem;
-			}
+			background-size: 900px;
 		}
 	}
 }
 
 @media (min-width: 3000px) // even LARGER desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 1500px;
-	}
-
-	#landing
-	{
-		h1
+		#landing
 		{
-			font-size: 12rem;
-		}
-
-		.nav
-		{
-			a
+			h1
 			{
-				font-size: 3rem;
-				margin-left: 4rem !important;
-				margin-right: 4rem !important;
+				font-size: 12rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 3rem;
+					margin-left: 4rem !important;
+					margin-right: 4rem !important;
+				}
 			}
 		}
+	}
+
+	&::before
+	{
+		background-size: 1500px;
 	}
 }

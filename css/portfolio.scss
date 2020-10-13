@@ -1,6 +1,8 @@
+$color1: rgb(233, 208, 255);
+
 body
 {
-	background-color: pink;
+	background-color: $color1;
 }
 
 a
@@ -15,70 +17,85 @@ a
 	}
 }
 
-#houseicon
+#landingcontainer
 {
-	background-image: url('/assets/house.png');
-	background-size: cover;
-}
-
-#landingbackground
-{
-	background-image: url('/assets/shapes.png');
-	background-size: 300px;
-}
-
-#scroller
-{
-	a
+	#landing
 	{
-		margin-left: .5rem;
-		margin-right: .5rem;
-		transform: scale(.8);
-		left: 0;
-		transition: transform .4s, left .4s;
+		transition: box-shadow 1s .3s;
+		background-color: rgba(0, 0, 0, .2);
+	}
 
-		.polaroid
+	#scroller
+	{
+		a
 		{
-			width: 150px;
-			height: 190px;
-			background-color: #dbdbdb;
+			margin-left: .5rem;
+			margin-right: .5rem;
+			left: 0;
+			transition: transform .3s, left .3s;
+			pointer-events: none;
 
-			.polaroid-inner
+			.polaroid
 			{
-				height: 150px;
-				background-size: cover;
-				background-position: center;
+				transition: height .3s;
+				width: 150px;
+				height: 190px;
+				background-color: #dbdbdb;
 
-				&::before
+				.polaroid-inner
 				{
-					content: ' ';
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					background-image: linear-gradient(to bottom, white 0%, pink 100%);
-					opacity: .5;
-					transition: opacity .4s;
+					height: 150px;
+					background-size: cover;
+					background-position: center;
+
+					&::before
+					{
+						content: ' ';
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						background-image: linear-gradient(to bottom, white 0%, $color1 100%);
+						opacity: .5;
+						transition: opacity .3s;
+					}
+				}
+
+				h1
+				{
+					font-size: 1rem;
+					font-family: 'Nanum Brush Script', cursive;
 				}
 			}
-
-			h1
-			{
-				font-size: 1rem;
-				font-family: 'Nanum Brush Script', cursive;
-			}
 		}
+	}
+
+	&::before
+	{
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: url('/assets/shapes.png');
+		background-size: 300px;
+		mix-blend-mode: overlay;
+		opacity: .2;
 	}
 }
 
 .active
 {
 	transform: scale(1) !important;
+	pointer-events: all !important;
 
 	.polaroid
 	{
+		transition: box-shadow .3s !important;
 		background-color: white !important;
+		box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .2) !important;
 
 		.polaroid-inner
 		{
@@ -92,40 +109,151 @@ a
 
 @media (min-width: 768px) // tablets (md)
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 500px;
+		#scroller
+		{
+			.polaroid
+			{
+				width: 200px !important;
+				height: 253px !important;
+
+				.polaroid-inner
+				{
+					height: 210px !important;
+				}
+
+				h1
+				{
+					font-size: 1.3rem !important;
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 500px;
+		}
 	}
 }
 
 @media (min-width: 1200px) // larger desktops (xl)
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 600px;
+
+		#scroller
+		{
+			a
+			{
+				margin-left: 1rem;
+				margin-right: 1rem;
+
+				.polaroid
+				{
+					width: 300px !important;
+					height: 380px !important;
+
+					.polaroid-inner
+					{
+						height: 310px !important;
+					}
+
+					h1
+					{
+						font-size: 1.8rem !important;
+					}
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 600px;
+		}
 	}
 }
 
 @media (min-width: 1400px) // even larger desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 700px;
+
+		#landing
+		{
+			width: 75px !important;
+			height: 75px !important;
+		}
+
+		#scroller
+		{
+			.polaroid
+			{
+				width: 400px !important;
+				height: 507px !important;
+
+				.polaroid-inner
+				{
+					height: 420px !important;
+				}
+
+				h1
+				{
+					font-size: 2.5rem !important;
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 700px;
+		}
 	}
 }
 
 @media (min-width: 2000px) // even LARGER desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 900px;
+		#scroller
+		{
+			.polaroid
+			{
+				width: 500px !important;
+				height: 633px !important;
+
+				.polaroid-inner
+				{
+					height: 540px !important;
+				}
+
+				h1
+				{
+					font-size: 3.2rem !important;
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 900px;
+		}
 	}
 }
 
 @media (min-width: 3000px) // even LARGER desktops
 {
-	#landingbackground
+	#landingcontainer
 	{
-		background-size: 1500px;
+		#landing
+		{
+			width: 110px !important;
+			height: 110px !important;
+		}
+
+		&::before
+		{
+			background-size: 1500px;
+		}
 	}
 }

@@ -95,3 +95,8 @@ $(window).bind('mousewheel DOMMouseScroll', (e) =>
 		(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) ? moveLeft() : moveRight();
 	}
 });
+
+$(window).on('load', () =>
+{
+	$('#scroller a').css({'transform': 'scale(.8);'});
+});

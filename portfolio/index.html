@@ -9,59 +9,54 @@
     <title>ryanstew.art</title>
 </head>
 <body class='overflow-hidden'>
+    <div id='landingcontainer' class='w-100 h-100'>
+        <a href='/' id='landing' class='position-absolute m-4' style='z-index: 1; width: 45px; height: 45px; top: 0; left: 0;'><img src='/assets/house.png' alt='house' class='w-100 h-100 p-2' style='opacity: .83;'/></a>
 
-    <a href='/' id='houseicon' class='position-absolute m-3' style='width: 25px; height: 25px; top: 0; left: 0; opacity: .6; z-index: 5'></a>
+        <div class='overflow-hidden d-flex justify-content-between align-items-center w-100' style='height: 100vh;'>
+            <div id='leftarrow' class='position-absolute mx-2' style='width: 50px; z-index: 2; transform: rotate(-90deg); left: 0;'>
+                <img src='/assets/arrow.svg' alt='left arrow' class='w-100 h-100'/>
+            </div>
 
-    <div class='w-100 position-absolute d-flex justify-content-center align-items-center text-uppercase' id='landingcontainer' style='height: 100vh;'>
-        <div class='position-absolute w-100 h-100' id='landingbackground' style='mix-blend-mode: overlay; opacity: .2;'></div>
-    </div>
 
-    <div class='overflow-hidden d-flex justify-content-between align-items-center w-100' style='height: 100vh;'>
-        <div id='leftarrow' class='mx-2' style='width: 50px; z-index: 2; transform: rotate(-90deg);'>
-            <img src='/assets/arrow.svg' alt='left arrow' class='w-100 h-100'/>
+    		<div id='scroller' class='d-flex w-100 justify-content-center align-items-center' style='z-index: 1;'>
+                <a href='/art/eyes.jpg' target='_blank' class='position-relative polaroid-wrapper'>
+    				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2 p-xl-3'>
+    					<div class='polaroid-inner w-100' style='background-image: url("/art/eyes.jpg");'></div>
+                        <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
+    				</div>
+    			</a>
+                <a href='/art/face.jpg' target='_blank' class='position-relative polaroid-wrapper'>
+    				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2 p-xl-3'>
+    					<div class='polaroid-inner w-100' style='background-image: url("/art/face.jpg");'></div>
+                        <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
+    				</div>
+    			</a>
+    			<a href='/art/scale.jpg' target='_blank' class='position-relative polaroid-wrapper active'>
+    				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2 p-xl-3'>
+    					<div class='polaroid-inner w-100' style='background-image: url("/art/scale.jpg");'></div>
+                        <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
+    				</div>
+    			</a>
+                <a href='/art/sphere.jpg' target='_blank' class='position-relative polaroid-wrapper'>
+    				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2 p-xl-3'>
+    					<div class='polaroid-inner w-100' style='background-image: url("/art/sphere.jpg");'></div>
+                        <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
+    				</div>
+    			</a>
+                <a href='/art/wedge.png' target='_blank' class='position-relative polaroid-wrapper'>
+    				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2 p-xl-3'>
+    					<div class='polaroid-inner w-100' style='background-image: url("/art/wedge.png");'></div>
+                        <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
+    				</div>
+    			</a>
+    		</div>
+
+
+            <div id='rightarrow' class='position-absolute mx-2' style='width: 50px; z-index: 2; transform: rotate(90deg); right: 0;'>
+                <img src='/assets/arrow.svg' alt='right arrow' class='w-100 h-100'/>
+            </div>
         </div>
-
-
-		<div id='scroller' class='d-flex w-100 overflow-hidden justify-content-center align-items-center' style='z-index: 1;'>
-            <a href='/art/eyes.jpg' target='_blank' class='position-relative polaroid-wrapper'>
-				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2'>
-					<div class='polaroid-inner w-100' style='background-image: url("/art/eyes.jpg");'></div>
-                    <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
-				</div>
-			</a>
-            <a href='/art/face.jpg' target='_blank' class='position-relative polaroid-wrapper'>
-				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2'>
-					<div class='polaroid-inner w-100' style='background-image: url("/art/face.jpg");'></div>
-                    <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
-				</div>
-			</a>
-			<a href='/art/scale.jpg' target='_blank' class='position-relative polaroid-wrapper active'>
-				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2'>
-					<div class='polaroid-inner w-100' style='background-image: url("/art/scale.jpg");'></div>
-                    <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
-				</div>
-			</a>
-            <a href='/art/sphere.jpg' target='_blank' class='position-relative polaroid-wrapper'>
-				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2'>
-					<div class='polaroid-inner w-100' style='background-image: url("/art/sphere.jpg");'></div>
-                    <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
-				</div>
-			</a>
-            <a href='/art/wedge.png' target='_blank' class='position-relative polaroid-wrapper'>
-				<div class='polaroid d-flex flex-column justify-content-between align-items-center p-2'>
-					<div class='polaroid-inner w-100' style='background-image: url("/art/wedge.png");'></div>
-                    <h1 class='position-absolute text-uppercase' style='bottom: 0;'>Ryan Stewart</h1>
-				</div>
-			</a>
-		</div>
-
-
-        <div id='rightarrow' class='mx-2' style='width: 50px; z-index: 2; transform: rotate(90deg);'>
-            <img src='/assets/arrow.svg' alt='right arrow' class='w-100 h-100'/>
-        </div>
-
     </div>
-
 
 
 
