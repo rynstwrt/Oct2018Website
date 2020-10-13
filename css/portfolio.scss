@@ -45,11 +45,10 @@ a
 		background-color: rgba(0, 0, 0, .2);
 		padding: 1rem;
 		color: white;
-		transition: box-shadow 1s 6s;
-		//transition: box-shadow 1s;
-		box-shadow: -8px 8px 0 0 rgba(0, 0, 0, .35);
+		transition: box-shadow 1s;
+        box-shadow: -8px 8px 0 0 rgba(0, 0, 0, .35);
 
-		#headertext:hover
+        #headertext:hover
         {
             text-decoration: none;
         }
