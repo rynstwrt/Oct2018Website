@@ -7,54 +7,163 @@ a
 {
 	color: inherit;
 	text-decoration: none;
+
 	&:hover
 	{
 		color: inherit;
+		text-decoration: none;
 	}
 }
 
-
-#landingcontainer
+#landingbackground
 {
-	.point
+	background-image: url('/assets/shapes.png');
+	background-size: 300px;
+}
+
+#landing
+{
+	background-color: rgba(0, 0, 0, .2);
+	transition: box-shadow 1s;
+
+	#headertext
 	{
-		position: absolute;
+		font-size: 2.5rem;
 	}
 
-	.line
+	.nav
 	{
-		height: 2px;
-		width: 0;
-		background-color: red;
-		position: absolute;
-		transform-origin: top left;
-		transition: width .2s;
-	}
+		a
+		{
+			font-size: .8rem;
+			transition: background-color .3s;
 
+			&:hover
+			{
+				background-color: rgba(255, 255, 255, .2);
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) // tablets (md)
+{
 	#landingbackground
 	{
-		background-image: url('/assets/shapes.png');
-		background-size: 300px;
-		mix-blend-mode: overlay;
-		opacity: .2;
+		background-size: 500px;
 	}
 
 	#landing
 	{
-
-		background-color: rgba(0, 0, 0, .2);
-		padding: 1rem;
-		color: white;
-		transition: box-shadow 1s;
-
-        #headertext:hover
-        {
-            text-decoration: none;
-        }
-
-		a
+		h1
 		{
-			font-size: .8rem;
+			font-size: 3.5rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) // larger desktops (xl)
+{
+	#landingbackground
+	{
+		background-size: 600px;
+	}
+
+	#landing
+	{
+		h1
+		{
+			font-size: 3.5rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1400px) // even larger desktops
+{
+	#landingbackground
+	{
+		background-size: 700px;
+	}
+
+	#landing
+	{
+		h1
+		{
+			font-size: 4.5rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 2000px) // even LARGER desktops
+{
+	#landingbackground
+	{
+		background-size: 900px;
+	}
+
+	#landing
+	{
+		h1
+		{
+			font-size: 6rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: 1.7rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 3000px) // even LARGER desktops
+{
+	#landingbackground
+	{
+		background-size: 1500px;
+	}
+
+	#landing
+	{
+		h1
+		{
+			font-size: 12rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: 3rem;
+				margin-left: 4rem !important;
+				margin-right: 4rem !important;
+			}
 		}
 	}
 }
