@@ -58,3 +58,26 @@ a
 		}
 	}
 }
+
+#scrollcontainer
+{
+
+	background-color: rgba(0, 0, 0, .2);
+	padding: 1rem 0 1rem 0;
+	transition: box-shadow 1s, margin-left .5s;
+
+	.active
+	{
+		transform: scale(1.2);
+	}
+
+	a
+	{
+		transform: scale(.8);
+	}
+
+	.polaroid
+	{
+		transition: transform .2s;
+	}
+}
