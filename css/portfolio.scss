@@ -1,0 +1,71 @@
+body
+{
+	background-color: pink;
+}
+
+a
+{
+	color: inherit;
+	text-decoration: none;
+
+	&:hover
+	{
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+#landingbackground
+{
+	background-image: url('/assets/shapes.png');
+	background-size: 300px;
+}
+
+#scroller
+{
+	a
+	{
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+}
+
+@media (min-width: 768px) // tablets (md)
+{
+	#landingbackground
+	{
+		background-size: 500px;
+	}
+}
+
+@media (min-width: 1200px) // larger desktops (xl)
+{
+	#landingbackground
+	{
+		background-size: 600px;
+	}
+}
+
+@media (min-width: 1400px) // even larger desktops
+{
+	#landingbackground
+	{
+		background-size: 700px;
+	}
+}
+
+@media (min-width: 2000px) // even LARGER desktops
+{
+	#landingbackground
+	{
+		background-size: 900px;
+	}
+}
+
+@media (min-width: 3000px) // even LARGER desktops
+{
+	#landingbackground
+	{
+		background-size: 1500px;
+	}
+}
