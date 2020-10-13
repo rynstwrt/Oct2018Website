@@ -8,16 +8,16 @@
     <link rel='stylesheet' href='/css/main.min.css' />
     <title>ryanstew.art</title>
 </head>
-<body class=''>
+<body class='overflow-hidden'>
 
-    <div class='position-absolute w-100 h-100' id='circle' style='z-index: 5; background-color: black; clip-path: circle(0vmax);'></div>
-    <div id='introanimation' style='display: none;'>
+    <div class='position-absolute w-100 h-100' id='circle' style='z-index: 99; background-color: black; clip-path: circle(0vmax);'></div>
+    <div id='introanimation' style='display: none; z-index: 5;'>
         <div class='position-absolute d-flex flex-column justify-content-center align-items-center' style='width: 100vw; height: 100vh;'>
             <div id='box1' class='w-100 d-flex justify-content-center align-items-center' style='height: 30%; background-color: white;'>
-                <div id='sun' class='position-absolute m-2 m-md-4 m-lg-4' style='width: 150px; height: 150px; left: 0; top: 0; z-index: 2; opacity: 0;'></div>
+                <div id='sun' class='position-absolute m-2 m-md-4 m-lg-4' style='width: 150px; height: 150px; left: 0; top: 0; z-index: 7; opacity: 0;'></div>
             </div>
-            <div id='bar' class='position-absolute' style='height: 3px; width: 0; top: 50% !important; z-index: 2;'></div>
-            <div id='box2' class='position-relative w-100 flex-fill d-flex justify-content-center align-items-center' style='z-index: 1; background-color: white;'>
+            <div id='bar' class='position-absolute' style='height: 3px; width: 0; top: 50% !important; z-index: 7;'></div>
+            <div id='box2' class='position-relative w-100 flex-fill d-flex justify-content-center align-items-center' style='z-index: 6; background-color: white;'>
                 <div id='overlay' class='position-absolute w-100 h-100' style='opacity: 0;'></div>
                 <div class='container-fluid h-100'>
                     <div class='row h-100'>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class='col d-flex justify-content-center align-items-center'>
-                            <div id='path' style='width: 0; height: 0; z-index: 1;'></div>
+                            <div id='path' style='width: 0; height: 0; z-index: 6;'></div>
                         </div>
                         <div class='col d-flex justify-content-center'>
                             <div class='d-flex flex-column justify-content-end position-absolute' id='fence-container' style='top: 0;'>
@@ -51,15 +51,14 @@
 
 
     <div class='w-100 h-100 position-absolute d-flex justify-content-center align-items-center text-uppercase' id='landingcontainer'>
+        <div class='position-absolute w-100 h-100' id='landingbackground'></div>
         <div class='position-relative d-flex flex-column justify-content-center align-items-center' id='landing'>
 
 
             <h1 class='text-center' style='font-size: 2.5rem; z-index: 1;'>Ryan Stewart</h1>
 
-            <div class='position-absolute' id='graphic' style='width: 150px; height: 150px; right: 0;'></div>
 
             <div class='d-flex' style='z-index: 1;'>
-                <a class='mx-3' href='/'>Home</a>
                 <a class='mx-3' href='/'>Portfolio</a>
                 <a class='mx-3' href='/'>Contact</a>
             </div>
@@ -72,6 +71,7 @@
 
     <script src='/js/jquery-3.5.1.min.js'></script>
     <script src='/js/bootstrap.bundle.min.js'></script>
+    <script src='/js/globals.js'></script>
     <!-- <script src='/js/introanim.js'></script> -->
     <script src='/js/main.js'></script>
 </body>

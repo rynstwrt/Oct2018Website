@@ -1,4 +1,3 @@
-const transitionendevents = 'transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd';
 const blueSky = getComputedStyle(document.documentElement).getPropertyValue('--skycolor');
 const greenGrass = getComputedStyle(document.documentElement).getPropertyValue('--grasscolor');
 
