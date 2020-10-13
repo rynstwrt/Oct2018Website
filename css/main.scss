@@ -13,29 +13,38 @@ a
 	}
 }
 
-#landing
+
+#landingcontainer
 {
-	#graphic
+	.point
 	{
-		background-color: rgba(0, 0, 0, .1);
-
-		.point
-		{
-			width: 2px;
-			height: 2px;
-			background-color: black;
-		}
-
-		.line
-		{
-			width: 2px;
-			height: 2px;
-			background-color: red;
-		}
+		position: absolute;
+		z-index: 1;
 	}
 
-	a
+	.line
 	{
-		font-size: .8rem;
+		height: 1px;
+		width: 0;
+		background-color: red;
+		position: absolute;
+		transform-origin: top left;
+		transition: width .2s;
+	}
+
+	#landing
+	{
+
+		#graphic
+		{
+			background-image: url('/assets/treetop.png');
+			background-size: cover;
+			background-position: center;
+		}
+
+		a
+		{
+			font-size: .8rem;
+		}
 	}
 }
