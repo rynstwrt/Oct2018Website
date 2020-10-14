@@ -100,4 +100,7 @@ $(window).on('load', () =>
 {
 	$('#landing').css({'box-shadow': '-4px 4px 0 0 rgba(0, 0, 0, .35)'});
 
+	//make center active
+	const a = Math.floor($('#scroller').children().length / 2);
+	$($('#scroller').children()[a]).addClass('active');
 });
