@@ -19,10 +19,30 @@ a
 
 #landingcontainer
 {
+
 	#landing
 	{
-		transition: box-shadow 1s .3s;
 		background-color: rgba(0, 0, 0, .2);
+		transition: box-shadow 1s .3s;
+
+		#headertext
+		{
+			font-size: 2.5rem;
+		}
+
+		.nav
+		{
+			a
+			{
+				font-size: .8rem;
+				transition: background-color .3s;
+
+				&:hover
+				{
+					background-color: rgba(255, 255, 255, .2);
+				}
+			}
+		}
 	}
 
 	#scroller
@@ -112,28 +132,18 @@ a
 {
 	#landingcontainer
 	{
-
 		#landing
 		{
-			width: 40px !important;
-			height: 40px !important;
-		}
-
-		#scroller
-		{
-			.polaroid
+			h1
 			{
-				width: 200px !important;
-				height: 253px !important;
+				font-size: 3.5rem;
+			}
 
-				.polaroid-inner
+			.nav
+			{
+				a
 				{
-					height: 210px !important;
-				}
-
-				h1
-				{
-					font-size: 1.3rem !important;
+					font-size: 1rem;
 				}
 			}
 		}
@@ -149,28 +159,18 @@ a
 {
 	#landingcontainer
 	{
-
-		#scroller
+		#landing
 		{
-			a
+			h1
 			{
-				margin-left: 1rem;
-				margin-right: 1rem;
+				font-size: 3.5rem;
+			}
 
-				.polaroid
+			.nav
+			{
+				a
 				{
-					width: 250px !important;
-					height: 310px !important;
-
-					.polaroid-inner
-					{
-						height: 260px !important;
-					}
-
-					h1
-					{
-						font-size: 1.7rem !important;
-					}
+					font-size: 1.1rem;
 				}
 			}
 		}
@@ -186,31 +186,18 @@ a
 {
 	#landingcontainer
 	{
-
 		#landing
 		{
-			width: 55px !important;
-			height: 55px !important;
-		}
-
-		#scroller
-		{
-			a
+			h1
 			{
-				.polaroid
+				font-size: 4.5rem;
+			}
+
+			.nav
+			{
+				a
 				{
-					width: 400px !important;
-					height: 507px !important;
-
-					.polaroid-inner
-					{
-						height: 420px !important;
-					}
-
-					h1
-					{
-						font-size: 2.5rem !important;
-					}
+					font-size: 1.4rem;
 				}
 			}
 		}
@@ -226,32 +213,18 @@ a
 {
 	#landingcontainer
 	{
-
 		#landing
 		{
-			width: 75px !important;
-			height: 75px !important;
-		}
-
-		#scroller
-		{
-			a
+			h1
 			{
-				.polaroid
+				font-size: 5rem;
+			}
+
+			.nav
+			{
+				a
 				{
-					width: 550px !important;
-					height: 650px !important;
-					padding: 1rem !important;
-
-					.polaroid-inner
-					{
-						height: 540px !important;
-					}
-
-					h1
-					{
-						font-size: 3.2rem !important;
-					}
+					font-size: 1.3rem;
 				}
 			}
 		}
@@ -267,9 +240,27 @@ a
 {
 	#landingcontainer
 	{
-		&::before
+		#landing
 		{
-			background-size: 1500px;
+			h1
+			{
+				font-size: 12rem;
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 3rem;
+					margin-left: 4rem !important;
+					margin-right: 4rem !important;
+				}
+			}
 		}
+	}
+
+	&::before
+	{
+		background-size: 1500px;
 	}
 }
