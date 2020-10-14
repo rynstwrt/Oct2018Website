@@ -32,12 +32,13 @@ a
 			margin-left: .5rem;
 			margin-right: .5rem;
 			left: 0;
+			transform: scale(.9);
 			transition: transform .3s, left .3s;
 			pointer-events: none;
 
 			.polaroid
 			{
-				transition: height .3s;
+				transition: height .3s, box-shadow .3s;
 				width: 150px;
 				height: 190px;
 				background-color: #dbdbdb;
@@ -93,7 +94,6 @@ a
 
 	.polaroid
 	{
-		transition: box-shadow .3s !important;
 		background-color: white !important;
 		box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .2) !important;
 
@@ -111,6 +111,13 @@ a
 {
 	#landingcontainer
 	{
+
+		#landing
+		{
+			width: 40px !important;
+			height: 40px !important;
+		}
+
 		#scroller
 		{
 			.polaroid
@@ -151,17 +158,17 @@ a
 
 				.polaroid
 				{
-					width: 300px !important;
-					height: 380px !important;
+					width: 250px !important;
+					height: 310px !important;
 
 					.polaroid-inner
 					{
-						height: 310px !important;
+						height: 260px !important;
 					}
 
 					h1
 					{
-						font-size: 1.8rem !important;
+						font-size: 1.7rem !important;
 					}
 				}
 			}
@@ -181,25 +188,28 @@ a
 
 		#landing
 		{
-			width: 75px !important;
-			height: 75px !important;
+			width: 55px !important;
+			height: 55px !important;
 		}
 
 		#scroller
 		{
-			.polaroid
+			a
 			{
-				width: 400px !important;
-				height: 507px !important;
-
-				.polaroid-inner
+				.polaroid
 				{
-					height: 420px !important;
-				}
+					width: 400px !important;
+					height: 507px !important;
 
-				h1
-				{
-					font-size: 2.5rem !important;
+					.polaroid-inner
+					{
+						height: 420px !important;
+					}
+
+					h1
+					{
+						font-size: 2.5rem !important;
+					}
 				}
 			}
 		}
@@ -215,21 +225,32 @@ a
 {
 	#landingcontainer
 	{
+
+		#landing
+		{
+			width: 75px !important;
+			height: 75px !important;
+		}
+
 		#scroller
 		{
-			.polaroid
+			a
 			{
-				width: 500px !important;
-				height: 633px !important;
-
-				.polaroid-inner
+				.polaroid
 				{
-					height: 540px !important;
-				}
+					width: 550px !important;
+					height: 650px !important;
+					padding: 1rem !important;
 
-				h1
-				{
-					font-size: 3.2rem !important;
+					.polaroid-inner
+					{
+						height: 540px !important;
+					}
+
+					h1
+					{
+						font-size: 3.2rem !important;
+					}
 				}
 			}
 		}
@@ -245,12 +266,6 @@ a
 {
 	#landingcontainer
 	{
-		#landing
-		{
-			width: 110px !important;
-			height: 110px !important;
-		}
-
 		&::before
 		{
 			background-size: 1500px;

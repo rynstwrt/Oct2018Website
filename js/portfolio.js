@@ -98,5 +98,6 @@ $(window).bind('mousewheel DOMMouseScroll', (e) =>
 
 $(window).on('load', () =>
 {
-	$('#scroller a').css({'transform': 'scale(.8);'});
+	$('#landing').css({'box-shadow': '-4px 4px 0 0 rgba(0, 0, 0, .35)'});
+
 });
