@@ -1,0 +1,95 @@
+<!-- Ryan Stewart 10/08/2020 -->
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
+	<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel='stylesheet' href='main.min.css'>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src='preload.js'></script>
+	<title>ryanstew.art</title>
+</head>
+<body class='text-uppercase' style='font-family: "Handlee", cursive;'>
+	<div id='loadingscreen' class='position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center' style='opacity: 1; z-index: 2;'>
+		<div id='content' class='d-flex flex-column'>
+			<h1 style='opacity: 0;'>LOADING</h1>
+			<div id='underline' style='width: 0; height: 6px;'></div>
+		</div>
+	</div>
+	<div id='scrollercontainer' class='position-relative overflow-hidden d-flex flex-column' style='width: 100vw; height: 100vh; opacity: 0;'>
+		<div class='arrowcontainer h-100 d-flex align-items-center position-absolute' style='top: 0; left: 0; z-index: 1;'>
+			<img src='/assets/arrow.svg' alt='arrow' id='leftarrow' class='mx-1'/>
+		</div>
+		<div id='text-container' class='waves d-flex flex-column justify-content-center h-100 text-center' style='background-size: cover;'>
+			<h1 class='font-italic'></h1>
+		</div>
+		<div id='scroller' class='h-100 d-flex justify-content-center align-items-center'>
+			<a href='assets/eyes.jpg' target='_blank' class='position-relative text-decoration-none mx-3'>
+				<div class='overlay position-absolute w-100 h-100'></div>
+				<div class='polaroid pl-2 pt-2 pr-2 pl-md-3 pt-md-3 pr-md-3 mx-auto d-flex flex-column justify-content-between'>
+					<div class='polaroid-inner w-100 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden' style='height: 83%; background-color: black;'>
+						<div class='hovercontainer position-absolute w-100 h-100 d-flex justify-content-center align-items-center'>
+							<h1 class='text-white'>CLICK TO VIEW</h1>
+						</div>
+						<img src='/art/eyes.jpg' alt='"Eyes"' class='w-100'/>
+					</div>
+				</div>
+			</a>
+			<a href='assets/face.jpg' target='_blank' class='position-relative text-decoration-none mx-3'>
+				<div class='overlay position-absolute w-100 h-100'></div>
+				<div class='polaroid pl-2 pt-2 pr-2 pl-md-3 pt-md-3 pr-md-3 mx-auto d-flex flex-column justify-content-between'>
+					<div class='polaroid-inner w-100 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden' style='height: 83%; background-color: black;'>
+						<div class='hovercontainer position-absolute w-100 h-100 d-flex justify-content-center align-items-center'>
+							<h1 class='text-white'>CLICK TO VIEW</h1>
+						</div>
+						<img src='/art/face.jpg' alt='"Face"' class='h-100'/>
+					</div>
+				</div>
+			</a>
+			<a href='assets/scale.jpg' target='_blank' class='position-relative text-decoration-none mx-3 active'>
+				<div class='overlay position-absolute w-100 h-100'></div>
+				<div class='polaroid pl-2 pt-2 pr-2 pl-md-3 pt-md-3 pr-md-3 mx-auto d-flex flex-column justify-content-between'>
+					<div class='polaroid-inner w-100 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden' style='height: 83%; background-color: black;'>
+						<div class='hovercontainer position-absolute w-100 h-100 d-flex justify-content-center align-items-center'>
+							<h1 class='text-white'>CLICK TO VIEW</h1>
+						</div>
+						<img src='/art/scale.jpg' alt='"Scale"' class='w-100'/>
+					</div>
+				</div>
+			</a>
+			<a href='assets/sphere.jpg' target='_blank' class='position-relative text-decoration-none mx-3'>
+				<div class='overlay position-absolute w-100 h-100'></div>
+				<div class='polaroid pl-2 pt-2 pr-2 pl-md-3 pt-md-3 pr-md-3 mx-auto d-flex flex-column justify-content-between'>
+					<div class='polaroid-inner w-100 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden' style='height: 83%; background-color: black;'>
+						<div class='hovercontainer position-absolute w-100 h-100 d-flex justify-content-center align-items-center'>
+							<h1 class='text-white'>CLICK TO VIEW</h1>
+						</div>
+						<img src='/art/sphere.jpg' alt='"Sphere"' class='w-100'/>
+					</div>
+				</div>
+			</a>
+			<a href='assets/wedge.png' target='_blank' class='position-relative text-decoration-none mx-3'>
+				<div class='overlay position-absolute w-100 h-100'></div>
+				<div class='polaroid pl-2 pt-2 pr-2 pl-md-3 pt-md-3 pr-md-3 mx-auto d-flex flex-column justify-content-between'>
+					<div class='polaroid-inner w-100 d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden' style='height: 83%; background-color: black;'>
+						<div class='hovercontainer position-absolute w-100 h-100 d-flex justify-content-center align-items-center'>
+							<h1 class='text-white'>CLICK TO VIEW</h1>
+						</div>
+						<img src='/art/wedge.png' alt='"Wedge"' class='w-100'/>
+					</div>
+				</div>
+			</a>
+
+		</div>
+		<div id='wave2' class='h-100' style='background-size: cover;'></div>
+		<div class='arrowcontainer h-100 d-flex align-items-center position-absolute' style='top: 0; right: 0; z-index: 1;'>
+			<img src='/assets/arrow.svg' alt='arrow' id='rightarrow' class='mx-1'/>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src='scroller.js'></script>
+</body>
+</html>
