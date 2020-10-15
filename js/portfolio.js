@@ -71,3 +71,8 @@ $(document).ready(() =>
 {
 	offset = $('.active').offset().left;
 });
+
+$('.polaroid').hover(() =>
+{
+	$('.picture:before').css({'opacity': '.5'});
+});

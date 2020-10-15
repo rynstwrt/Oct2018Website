@@ -91,10 +91,34 @@ a
 		.picture
 		{
 			height: 255px;
+			position: relative;
 			background-color: #dbdbdb;
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
+
+			&:before
+			{
+				content: 'Click to View The Uncropped Version';
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				background-color: black;
+				color: white;
+				font-size: .7rem;
+				opacity: 0;
+				transition: opacity $transitionTime;
+			}
+
+			&:hover:before
+			{
+				opacity: .5;
+			}
 		}
 
 		.label
