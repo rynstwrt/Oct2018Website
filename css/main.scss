@@ -45,7 +45,7 @@ a
 			a
 			{
 				font-size: .8rem;
-				transition: background-color .3s;
+				transition: background-color $transitionTime / 4;
 
 				&:hover
 				{
