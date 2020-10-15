@@ -2,6 +2,7 @@ $transitionTime: 1s;
 
 :root
 {
+	--transitionTime: '#{$transitionTime}';
 	--bgcolor: #FFC4C1;
 	--bgcolor2: #a1deff;
 }
@@ -9,7 +10,6 @@ $transitionTime: 1s;
 body
 {
 	background-color: var(--bgcolor);
-	transition: background-color $transitionTime * 2;
 }
 
 a
@@ -34,7 +34,10 @@ a
 
 		#headertext
 		{
-			font-size: 2.5rem;
+			h1
+			{
+				font-size: 2.5rem;
+			}
 		}
 
 		.nav
@@ -83,69 +86,57 @@ a
 	}
 }
 
-@media (min-width: 768px) // tablets (md)
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px)
 {
 	#landing-container
 	{
+
 		#landing
 		{
-			h1
+			height: 270px;
+
+			#headertext
 			{
-				font-size: 3.5rem;
+				h1
+				{
+					font-size: 3rem;
+				}
 			}
 
 			.nav
 			{
 				a
 				{
-					font-size: 1rem;
+					font-size: .9rem;
 				}
 			}
 		}
 
 		&::before
 		{
-			background-size: 500px;
+			background-size: 350px;
 		}
 	}
 }
 
-@media (min-width: 1200px) // larger desktops (xl)
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px)
 {
 	#landing-container
 	{
+
 		#landing
 		{
-			h1
-			{
-				font-size: 3.5rem;
-			}
+			height: 400px;
 
-			.nav
+			#headertext
 			{
-				a
+				h1
 				{
-					font-size: 1.1rem;
+					font-size: 4rem;
 				}
-			}
-		}
-
-		&::before
-		{
-			background-size: 600px;
-		}
-	}
-}
-
-@media (min-width: 1400px) // even larger desktops
-{
-	#landing-container
-	{
-		#landing
-		{
-			h1
-			{
-				font-size: 4.5rem;
 			}
 
 			.nav
@@ -159,63 +150,75 @@ a
 
 		&::before
 		{
+			background-size: 500px;
+		}
+	}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px)
+{
+	#landing-container
+	{
+
+		#landing
+		{
+			height: 350px;
+
+			#headertext
+			{
+				h1
+				{
+					font-size: 4rem;
+				}
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1.1rem;
+				}
+			}
+		}
+
+		&::before
+		{
+			background-size: 650px;
+		}
+	}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px)
+{
+	#landing-container
+	{
+
+		#landing
+		{
+			height: 440px;
+
+			#headertext
+			{
+				h1
+				{
+					font-size: 5rem;
+				}
+			}
+
+			.nav
+			{
+				a
+				{
+					font-size: 1.5rem;
+				}
+			}
+		}
+
+		&::before
+		{
 			background-size: 700px;
-		}
-	}
-}
-
-@media (min-width: 2000px) // even LARGER desktops
-{
-	#landing-container
-	{
-		#landing
-		{
-			h1
-			{
-				font-size: 5rem;
-			}
-
-			.nav
-			{
-				a
-				{
-					font-size: 1.3rem;
-				}
-			}
-		}
-
-		&::before
-		{
-			background-size: 900px;
-		}
-	}
-}
-
-@media (min-width: 3000px) // even LARGER desktops
-{
-	#landing-container
-	{
-		#landing
-		{
-			h1
-			{
-				font-size: 12rem;
-			}
-
-			.nav
-			{
-				a
-				{
-					font-size: 3rem;
-					margin-left: 4rem !important;
-					margin-right: 4rem !important;
-				}
-			}
-		}
-
-		&::before
-		{
-			background-size: 1500px;
 		}
 	}
 }
