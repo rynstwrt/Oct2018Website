@@ -11,40 +11,16 @@
 </head>
 <body class='d-flex justify-content-center align-items-center' style='height: 100vh;'>
 
-	<div id='leftarrow' class='arrow' style='left: 0;'>
+	<div id='leftarrow' class='arrow' style='left: 0;'></div>
 
-	</div>
-
-	<div id='polaroid-container' class='d-flex'>
-		<a class='polaroid'>
-			<div class='picture'></div>
-			<div class='label'><h2>"Test"</h2></div>
-		</a>
-
-		<a class='polaroid'>
-			<div class='picture'></div>
-			<div class='label'><h2>"Test"</h2></div>
-		</a>
-
-		<a class='polaroid active'>
-			<div class='picture'></div>
-			<div class='label'><h2>"Test"</h2></div>
-		</a>
-
-		<a class='polaroid'>
-			<div class='picture'></div>
-			<div class='label'><h2>"Test"</h2></div>
-		</a>
-
-		<a class='polaroid'>
-			<div class='picture'></div>
-			<div class='label'><h2>"Test"</h2></div>
+	<div id='polaroid-container' class='d-flex position-relative' style='left: 0;'>
+		<a href='#' target='_blank' class='polaroid d-flex flex-column justify-content-between bg-white text-uppercase p-2 active' style='z-index: 1;'>
+			<div class='picture w-100'></div>
+			<div class='label text-center flex-grow-1 d-flex justify-content-center align-items-center '><h2>...</h2></div>
 		</a>
 	</div>
 
-	<div id='rightarrow' class='arrow' style='right: 0;'>
-
-	</div>
+	<div id='rightarrow' class='arrow' style='right: 0;'></div>
 
 	<script src="/js/bootstrap.bundle.min.js"></script>
 	<script src='/js/portfolio.js'></script>
