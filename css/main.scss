@@ -1,4 +1,7 @@
 $transitionTime: 1s;
+$polaroidWidth: 250px;
+$transitionTime: .5s;
+$polaroidHeightProportion: 1.2;
 
 :root
 {
@@ -24,13 +27,20 @@ a
 	}
 }
 
+.disabled
+{
+	background-color: #444444 !important;
+	opacity: .4;
+}
+
 #landing-container
 {
 	#landing
 	{
 		background-color: rgba(0, 0, 0, .2);
 		height: 250px;
-		transition: box-shadow $transitionTime .3s;
+		opacity: 1;
+		transition: box-shadow $transitionTime .3s, opacity $transitionTime;
 
 		#headertext
 		{
@@ -83,6 +93,118 @@ a
 		background-size: 300px;
 		mix-blend-mode: overlay;
 		opacity: .2;
+	}
+
+	#art
+	{
+		height: 0;
+		display: none;
+		overflow: hidden;
+		opacity: 0;
+		transition: opacity $transitionTime;
+
+		.arrow
+		{
+			$width: 50px;
+			width: $width;
+			height: $width;
+			position: absolute;
+			z-index: 2;
+
+			&::before
+			{
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				background-image: url('/assets/arrow.svg');
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		}
+
+		#leftarrow
+		{
+			&::before
+			{
+				transform: rotate(-90deg);
+			}
+		}
+
+		#rightarrow
+		{
+			&::before
+			{
+				transform: rotate(90deg);
+			}
+		}
+
+
+		#polaroid-container
+		{
+			left: calc(50% - (#{$polaroidWidth} / 2));
+			transition: left $transitionTime;
+
+			.polaroid
+			{
+				width: $polaroidWidth;
+				height: $polaroidWidth * $polaroidHeightProportion;
+				border-bottom: 7px solid #dbdbdb;
+				padding: .65rem .65rem 0 .65rem;
+				transform: scale(.9);
+				transition: transform $transitionTime, box-shadow $transitionTime;
+
+				.picture
+				{
+					height: 255px;
+					position: relative;
+					background-color: #dbdbdb;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center;
+
+					&::before
+					{
+						content: 'Click to View The Uncropped Version';
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						background-color: black;
+						color: white;
+						font-size: .7rem;
+						opacity: 0;
+						transition: opacity $transitionTime;
+					}
+
+					&:hover::before
+					{
+						opacity: .5;
+					}
+				}
+
+				.label
+				{
+					h2
+					{
+						font-size: .7rem;
+					}
+				}
+			}
+
+			.active
+			{
+				box-shadow: 0 6px 10px rgba(0, 0, 0, .3);
+				transform: scale(1) !important;
+			}
+		}
+
 	}
 }
 

@@ -24,19 +24,29 @@ $(document).ready(() =>
 {
     $('#landing').css({'box-shadow': '-8px 8px 0 0 rgba(0, 0, 0, .35)'});
     $('body').css({'transition': `background-color ${transitionTime.replace(/[^\d.]/g, '') * 2}s`})
+});
 
-    $('#headertext').click(() =>
-    {
-        if ($('#home').css('display') == 'flex') return;
-        $('#content-box').one(browswertransitionevents, changeToHome);
-        $('body').css({'background-color': bgcolor});
-        $('#content-box').css({'max-height': '0'});
-    });
+$('#headertext').click(() =>
+{
+    if ($('#home').css('display') == 'flex') return;
+    $('#content-box').one(browswertransitionevents, changeToHome);
+    $('body').css({'background-color': bgcolor});
+    $('#content-box').css({'max-height': '0'});
+});
 
-    $('#contact-button').click(() =>
-    {
-        $('#content-box').one(browswertransitionevents, changeToContact);
-        $('body').css({'background-color': bgcolor2});
-        $('#content-box').css({'max-height': '0'});
-    });
+$('#art-button').click(() =>
+{
+    // $('#landing').css({'opacity': '0'});
+    // $('#art').css({'display': 'flex'});
+    // $('#landing').one(browswertransitionevents, () =>
+    // {
+    //     $('#art').css({'opacity': '1'});
+    // });
+});
+
+$('#contact-button').click(() =>
+{
+    $('#content-box').one(browswertransitionevents, changeToContact);
+    $('body').css({'background-color': bgcolor2});
+    $('#content-box').css({'max-height': '0'});
 });
