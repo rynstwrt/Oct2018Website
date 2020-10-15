@@ -66,3 +66,8 @@ $(document).bind('mousewheel DOMMouseScroll', (e) =>
 {
 	e.originalEvent.deltaY > 0 ? moveRight() : moveLeft();
 });
+
+$(document).ready(() =>
+{
+	offset = $('.active').offset().left;
+});
