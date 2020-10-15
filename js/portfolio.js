@@ -37,42 +37,42 @@ function moveRight()
 	isMidTransition = false;
 }
 
-$('#leftarrow').click(() =>
-{
-	moveLeft();
-});
-
-$('#rightarrow').click(() =>
-{
-	moveRight();
-});
-
-$(document).keydown((e) =>
-{
-	switch(e.key)
-	{
-		case 'ArrowLeft':
-			moveLeft();
-			break;
-		case 'ArrowRight':
-			moveRight();
-			break;
-		default: return;
-	}
-	e.preventDefault();
-});
-
-$(document).bind('mousewheel DOMMouseScroll', (e) =>
-{
-	e.originalEvent.deltaY > 0 ? moveRight() : moveLeft();
-});
-
 $(document).ready(() =>
 {
 	offset = $('.active').offset().left;
-});
 
-$('.polaroid').hover(() =>
-{
-	$('.picture:before').css({'opacity': '.5'});
+	$('#leftarrow').click(() =>
+	{
+		moveLeft();
+	});
+
+	$('#rightarrow').click(() =>
+	{
+		moveRight();
+	});
+
+	$(document).keydown((e) =>
+	{
+		switch(e.key)
+		{
+			case 'ArrowLeft':
+				moveLeft();
+				break;
+			case 'ArrowRight':
+				moveRight();
+				break;
+			default: return;
+		}
+		e.preventDefault();
+	});
+
+	$(document).bind('mousewheel DOMMouseScroll', (e) =>
+	{
+		e.originalEvent.deltaY > 0 ? moveRight() : moveLeft();
+	});
+
+	$('.polaroid').hover(() =>
+	{
+		$('.picture:before').css({'opacity': '.5'});
+	});
 });

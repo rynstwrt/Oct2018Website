@@ -1,6 +1,15 @@
+$transitionTime: 1s;
+
+:root
+{
+	--bgcolor: #FFC4C1;
+	--bgcolor2: #a1deff;
+}
+
 body
 {
-	background-color: #FFC4C1;
+	background-color: var(--bgcolor);
+	transition: background-color $transitionTime * 2;
 }
 
 a
@@ -15,13 +24,13 @@ a
 	}
 }
 
-#landingcontainer
+#landing-container
 {
-
 	#landing
 	{
 		background-color: rgba(0, 0, 0, .2);
-		transition: box-shadow 1s .3s;
+		height: 250px;
+		transition: box-shadow $transitionTime .3s;
 
 		#headertext
 		{
@@ -39,6 +48,22 @@ a
 				{
 					background-color: rgba(255, 255, 255, .2);
 				}
+			}
+		}
+
+		#content-box
+		{
+			max-height: 100%;
+			transition: max-height $transitionTime;
+
+			#home
+			{
+				display: flex;
+			}
+
+			#contact
+			{
+				display: none;
 			}
 		}
 	}
@@ -60,7 +85,7 @@ a
 
 @media (min-width: 768px) // tablets (md)
 {
-	#landingcontainer
+	#landing-container
 	{
 		#landing
 		{
@@ -87,7 +112,7 @@ a
 
 @media (min-width: 1200px) // larger desktops (xl)
 {
-	#landingcontainer
+	#landing-container
 	{
 		#landing
 		{
@@ -114,7 +139,7 @@ a
 
 @media (min-width: 1400px) // even larger desktops
 {
-	#landingcontainer
+	#landing-container
 	{
 		#landing
 		{
@@ -141,7 +166,7 @@ a
 
 @media (min-width: 2000px) // even LARGER desktops
 {
-	#landingcontainer
+	#landing-container
 	{
 		#landing
 		{
@@ -168,7 +193,7 @@ a
 
 @media (min-width: 3000px) // even LARGER desktops
 {
-	#landingcontainer
+	#landing-container
 	{
 		#landing
 		{
@@ -187,7 +212,7 @@ a
 				}
 			}
 		}
-		
+
 		&::before
 		{
 			background-size: 1500px;

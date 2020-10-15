@@ -97,7 +97,7 @@ a
 			background-repeat: no-repeat;
 			background-position: center;
 
-			&:before
+			&::before
 			{
 				content: 'Click to View The Uncropped Version';
 				display: flex;
@@ -115,7 +115,7 @@ a
 				transition: opacity $transitionTime;
 			}
 
-			&:hover:before
+			&:hover::before
 			{
 				opacity: .5;
 			}
@@ -125,7 +125,7 @@ a
 		{
 			h2
 			{
-				font-size: 1rem;
+				font-size: .7rem;
 			}
 		}
 	}
@@ -149,10 +149,16 @@ a
 		.polaroid
 		{
 			// set width/height
+			
 
 			.picture
 			{
 				// set height
+
+				&::before
+				{
+					// set font-size
+				}
 			}
 
 			.label
@@ -190,6 +196,11 @@ a
 			.picture
 			{
 				// set height
+
+				&::before
+				{
+					// set font-size
+				}
 			}
 
 			.label
@@ -227,6 +238,11 @@ a
 			.picture
 			{
 				// set height
+
+				&::before
+				{
+					// set font-size
+				}
 			}
 
 			.label
@@ -264,6 +280,11 @@ a
 			.picture
 			{
 				// set height
+
+				&::before
+				{
+					// set font-size
+				}
 			}
 
 			.label
@@ -302,6 +323,11 @@ a
 			.picture
 			{
 				// set height
+
+				&::before
+				{
+					// set font-size
+				}
 			}
 
 			.label
