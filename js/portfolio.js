@@ -1,106 +1,92 @@
-let leftValue = 0;
-let isMoving = false;
-
-function moveRight()
+// Ryan Stewart 10/08/2020
+$(document).ready(() =>
 {
-	const active = $('.active');
-	const next = active.next();
-	if (!next.hasClass('polaroid-wrapper'))
+	// debounce function for the buttons
+	const debounceTime = 300;
+	let canClick = true;
+	function debounce()
 	{
-		isMoving = false;
-		return;
+		canClick = true;
 	}
-	active.removeClass('active');
-	next.addClass('active');
 
-	const width = $(next).width();
-	leftValue -= width;
-	const margin = parseInt($(next).css('margin-left'));
-	leftValue -= margin;
-	$.each($('#scroller').children(), (i, v) =>
+	// change the title text to the current photo
+	function changeTitle(currPolaroid)
 	{
-		$(v).css({'left': leftValue + 'px'});
+		$('#text-container h1').css({'opacity': '0'});
+		$('#text-container h1').on(browswertransitionevents, () =>
+		{
+			$('#text-container h1').text($($($(currPolaroid.children()[1]).children()[0]).children()[1]).attr('alt'));
+			$('#text-container h1').css({'opacity': '1'});
+		});
+	}
+	const scroller = $('#scroller');
+	const numPolaroids = Math.ceil(scroller.children().length / 2);
+	changeTitle($(scroller.children()[numPolaroids - 1]));
+
+	function moveRight()
+	{
+		if (!canClick) return;
+		canClick = false;
+		setTimeout(debounce, debounceTime);
+		let currActive = $('.active');
+		const nextActive = currActive.next();
+		if (nextActive.length != 0)
+		{
+			$(currActive).removeClass('active');
+			$(nextActive).addClass('active');
+			prevActive = currActive.next();
+			const diff = Math.abs(prevActive.offset().left - currActive.offset().left);
+			$.each($('#scroller').children(), (i, v) =>
+			{
+				const currentPosition = $(v).offset();
+				$(v).offset({top: currentPosition.top, left: (currentPosition.left - diff)});
+			});
+			changeTitle(nextActive);
+		}
+	}
+
+	function moveLeft()
+	{
+		if (!canClick) return;
+		canClick = false;
+		setTimeout(debounce, debounceTime);
+		let currActive = $('.active');
+		const nextActive = currActive.prev();
+		if (nextActive.length != 0)
+		{
+			$(currActive).removeClass('active');
+			$(nextActive).addClass('active');
+			prevActive = currActive.prev();
+			const diff = Math.abs(prevActive.offset().left - currActive.offset().left);
+			$.each($('#scroller').children(), (i, v) =>
+			{
+				const currentPosition = $(v).offset();
+				$(v).offset({top: currentPosition.top, left: (currentPosition.left + diff)});
+			});
+			changeTitle(nextActive);
+		}
+	}
+
+	$('#rightarrow').click(() => moveRight());
+	$('#leftarrow').click(() => moveLeft());
+	$(document).on('mousewheel DOMMouseScroll MozMousePixelScroll', (e, delta) =>
+	{
+		e.originalEvent.wheelDelta > 0 ? moveLeft() : moveRight();
 	});
-	isMoving = false;
-}
-
-function moveLeft()
-{
-	const active = $('.active');
-	const next = active.prev();
-	if (!next.hasClass('polaroid-wrapper'))
+	document.onkeydown = function(e)
 	{
-		isMoving = false;
-		return;
-	}
-	active.removeClass('active');
-	next.addClass('active');
-
-	const width = $(next).width();
-	leftValue += width;
-	const margin = parseInt($(next).css('margin-left'));
-	leftValue += margin;
-	$.each($('#scroller').children(), (i, v) =>
-	{
-		$(v).css({'left': leftValue + 'px'});
-	});
-	isMoving = false;
-}
-
-$('#leftarrow').on('click', () =>
-{
-	if (!isMoving)
-	{
-		isMoving = true;
-		moveLeft();
-	}
-});
-
-$('#rightarrow').on('click', () =>
-{
-	if (!isMoving)
-	{
-		isMoving = true;
-		moveRight();
-	}
-});
-
-$(window).on('keydown', (e) =>
-{
-	if (!isMoving)
-	{
-		isMoving = true;
 		switch(e.which)
 		{
+			// left
 			case 37:
 				moveLeft();
 				break;
 
+			// right
 			case 39:
 				moveRight();
 				break;
-
-			default: return;
 		}
-		e.preventDefault();
-	}
-});
+	};
 
-$(window).bind('mousewheel DOMMouseScroll', (e) =>
-{
-	if (!isMoving)
-	{
-		isMoving = true;
-		//scroll up : scroll down
-		(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) ? moveLeft() : moveRight();
-	}
-});
-
-$(window).on('load', () =>
-{
-	$('#landing').css({'box-shadow': '-4px 4px 0 0 rgba(0, 0, 0, .35)'});
-
-	//make center active
-	const a = Math.floor($('#scroller').children().length / 2);
-	$($('#scroller').children()[a]).addClass('active');
 });
