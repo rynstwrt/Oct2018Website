@@ -26,12 +26,12 @@ a:hover
 	align-items: center;
 	text-transform: uppercase;
 	font-family: 'Arimo', sans-serif;
-
 }
 
 #content > h1
 {
-	font-size: 3rem;
+	font-size: 2rem;
+	text-align: center;
 }
 
 #content > #links
@@ -44,5 +44,18 @@ a:hover
 {
 	margin-left: .5rem;
 	margin-right: .5rem;
-	font-size: .9rem;
+	font-size: .6rem;
+}
+
+@media (min-width: 768px)
+{
+	#content > h1
+	{
+		font-size: 3rem;
+	}
+
+	#content > #links > a
+	{
+		font-size: .9rem;
+	}
 }
