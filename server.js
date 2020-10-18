@@ -1,18 +1,19 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
+const path = require('path');
 const app = express();
-app.set('views', __dirname);
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-app.use(express.static(__dirname));
 
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) =>
+const router = express.Router();
+
+// get home page
+router.get('/', (req, res) =>
 {
 	try
 	{
-		res.render('index');
+		res.render('views/index');
 	}
 	catch
 	{
@@ -20,12 +21,13 @@ app.get('/', (req, res) =>
 	}
 });
 
-app.get('/portfolio/', (req, res) =>
+// get portfolio page
+router.get('/portfolio/', (req, res) =>
 {
+	console.log('asfasdf');
 	try
 	{
-		console.log('access key before send' + process.env.ACCESS_KEY);
-		res.render('/portfolio/portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
+		res.render('views/portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
 	}
 	catch
 	{
@@ -33,7 +35,8 @@ app.get('/portfolio/', (req, res) =>
 	}
 });
 
-const server = app.listen(process.env.PORT || 8080, () =>
+const port = process.env.PORT || 8080;
+const server = app.listen(port, () =>
 {
-	console.log('listening');
+	console.log('listening on port ' + port);
 });

@@ -1,4 +1,3 @@
-const accessKey = ACCESS_KEY;
 const url = 'https://api.unsplash.com/users/rynstwrt/photos?client_id=' + accessKey;
 
 async function fetchAsync(url)
