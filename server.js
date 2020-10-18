@@ -24,6 +24,7 @@ app.get('/portfolio/', (req, res) =>
 {
 	try
 	{
+		console.log('access key before send' + process.env.ACCESS_KEY);
 		res.render('/portfolio/portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
 	}
 	catch
