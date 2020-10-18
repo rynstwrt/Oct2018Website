@@ -3,38 +3,20 @@ dotenv.config();
 const express = require('express');
 const path = require('path');
 const app = express();
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 app.engine('.html', require('ejs').renderFile);
 
-const router = express.Router();
-
 // get home page
-router.get('/', (req, res) =>
+app.get('/', (req, res) =>
 {
-	try
-	{
-		res.render('index');
-	}
-	catch
-	{
-		res.end('something went wrong');
-	}
+	res.render('index');
 });
 
-// get portfolio page
-router.get('/portfolio/', (req, res) =>
+app.get('/portfolio/', (req, res) =>
 {
-	console.log('asfasdf');
-	try
-	{
-		res.render('portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
-	}
-	catch
-	{
-		res.end('something went wrong');
-	}
+	res.render('portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
 });
 
 const port = process.env.PORT || 8080;
