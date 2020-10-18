@@ -1,8 +1,13 @@
+let line;
+let animationframe;
+let points;
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setViewport(0, 0, window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement);
 
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
 camera.position.set(0, 0, 130);
 camera.lookAt(0, 0, 0);
 
@@ -10,11 +15,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 const material = new THREE.LineBasicMaterial({color: 0xffc3b6});
 
-let line;
-let animationframe;
-let points;
-
-const animationStep = .0002;
+const animationStep = .0005;
 function animate()
 {
 	animationframe = requestAnimationFrame(animate);
@@ -38,7 +39,7 @@ function getRandomVector3()
 function getNetPoints()
 {
 	points = [];
-	for (let i = 0; i < 250; ++i)
+	for (let i = 0; i < 190; ++i)
 	{
 		points.push(getRandomVector3());
 	}
@@ -54,19 +55,14 @@ function drawLines()
 	renderer.render(scene, camera);
 }
 
+
 window.addEventListener('resize', () =>
 {
-	 cancelAnimationFrame(animationframe);
-	 animationFrame = undefined;
-	 scene.remove.apply(scene, scene.children);
-	 renderer.setSize(window.innerWidth, window.innerHeight);
-	 camera.aspect = window.innerWidth / window.innerHeight;
-	 renderer.render(scene, camera);
-
-	 getNetPoints();
-	 drawLines();
-	 animate();
-});
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
+}, false);
 
 
 getNetPoints();
