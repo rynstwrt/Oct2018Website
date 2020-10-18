@@ -1,16 +1,38 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
-const port = 8080;
-
-app.use(express.static(__dirname));
 app.set('views', __dirname);
-app.set('view engine', 'jade');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.use(express.static(__dirname));
 
-app.get('/', (req, res) => {
-	res.render('index');
-})
 
-app.listen(port, (err) => {
-	if (err) console.log(err);
- 	console.log(`App listening at http://localhost:${port}`)
-})
+app.get('/', (req, res) =>
+{
+	try
+	{
+		res.render('index');
+	}
+	catch
+	{
+		res.end('something went wrong');
+	}
+});
+
+app.get('/portfolio/', (req, res) =>
+{
+	try
+	{
+		res.render('/portfolio/portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
+	}
+	catch
+	{
+		res.end('something went wrong');
+	}
+});
+
+const server = app.listen(8080, () =>
+{
+	console.log('listening');
+});
