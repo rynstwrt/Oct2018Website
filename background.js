@@ -11,13 +11,13 @@ scene.background = new THREE.Color(0xffffff);
 const material = new THREE.MeshBasicMaterial({color: 0xffc3b6});
 
 let points = [];
-for (let i = 0; i < 1000; ++i)
+for (let i = 0; i < 300; ++i)
 {
 	points.push(getRandomVector3());
 }
+points.push(points[0]); // draw last lin
 
 const geometry = new THREE.BufferGeometry().setFromPoints(points);
-
 const line = new THREE.Line(geometry, material);
 scene.add(line);
 
