@@ -3,35 +3,27 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
-camera.position.set(0, 0, 50);
+camera.position.set(0, 0, 130);
 camera.lookAt(0, 0, 0);
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
-const material = new THREE.MeshBasicMaterial({color: 0xffc3b6});
+const material = new THREE.LineBasicMaterial({color: 0xffc3b6});
 
-let points = [];
-for (let i = 0; i < 300; ++i)
-{
-	points.push(getRandomVector3());
-}
-points.push(points[0]); // draw last lin
+let line;
+let animationframe;
+let points;
 
-const geometry = new THREE.BufferGeometry().setFromPoints(points);
-const line = new THREE.Line(geometry, material);
-scene.add(line);
-
-const animationStep = .0005;
+const animationStep = .0002;
 function animate()
 {
-	requestAnimationFrame(animate);
+	animationframe = requestAnimationFrame(animate);
 
 	line.rotation.y -= animationStep;
 	line.rotation.x -= animationStep;
 
 	renderer.render(scene, camera);
 }
-animate();
 
 function getRandomVector3()
 {
@@ -42,3 +34,41 @@ function getRandomVector3()
 	const z = Math.random() * (max - min) + min;
 	return new THREE.Vector3(x, y, z);
 }
+
+function getNetPoints()
+{
+	points = [];
+	for (let i = 0; i < 250; ++i)
+	{
+		points.push(getRandomVector3());
+	}
+	points.push(points[0]); // close the shape
+}
+
+function drawLines()
+{
+	scene.remove.apply(scene, scene.children);
+	const geometry = new THREE.BufferGeometry().setFromPoints(points);
+	line = new THREE.Line(geometry, material);
+	scene.add(line);
+	renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', () =>
+{
+	 cancelAnimationFrame(animationframe);
+	 animationFrame = undefined;
+	 scene.remove.apply(scene, scene.children);
+	 renderer.setSize(window.innerWidth, window.innerHeight);
+	 camera.aspect = window.innerWidth / window.innerHeight;
+	 renderer.render(scene, camera);
+
+	 getNetPoints();
+	 drawLines();
+	 animate();
+});
+
+
+getNetPoints();
+drawLines();
+animate();
