@@ -4,7 +4,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.engine('.html', require('ejs').renderFile);
 
 const router = express.Router();
 
@@ -13,7 +15,7 @@ router.get('/', (req, res) =>
 {
 	try
 	{
-		res.render('views/index');
+		res.render('index');
 	}
 	catch
 	{
@@ -27,7 +29,7 @@ router.get('/portfolio/', (req, res) =>
 	console.log('asfasdf');
 	try
 	{
-		res.render('views/portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
+		res.render('portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
 	}
 	catch
 	{
