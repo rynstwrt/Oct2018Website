@@ -1,4 +1,4 @@
-const accessKey = (ACCESS_KEY || secrets.ACCESS_KEY || ${{secrets.ACCESS_KEY}});
+const accessKey = (ACCESS_KEY || process.env.ACCESS_KEY);
 const url = 'https://api.unsplash.com/users/rynstwrt/photos?client_id=' + accessKey;
 
 async function fetchAsync(url)
