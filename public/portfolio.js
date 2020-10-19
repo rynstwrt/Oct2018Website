@@ -1,5 +1,4 @@
-const url = 'https://api.unsplash.com/users/rynstwrt/photos?client_id=' + accessKey;
-console.log(url);
+let url;
 
 async function fetchAsync(url)
 {
@@ -34,6 +33,9 @@ async function createElement(url, outerUrl, alt)
 			window.open(images[i].src, '_blank');
 		});
 	}
+
+	url = 'https://api.unsplash.com/users/rynstwrt/photos?client_id=' + accessKey;
+	console.log(url);
 
 	const data = await fetchAsync(url);
 	for(let i = 0; i < data.length; ++i)
