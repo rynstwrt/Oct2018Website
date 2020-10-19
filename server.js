@@ -16,7 +16,9 @@ app.get('/', (req, res) =>
 
 app.get('/portfolio/', (req, res) =>
 {
-	res.render('portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
+	const json = {};
+	json.ACCESS_KEY = process.env.ACCESS_KEY;
+	res.render('portfolio', {json: json});
 });
 
 const port = process.env.PORT || 8080;
