@@ -28,8 +28,8 @@ function animate()
 
 function getRandomVector3()
 {
-	const max = 10;
-	const min = -10;
+	const max = 11;
+	const min = -11;
 	const x = Math.random() * (max - min) + min;
 	const y = Math.random() * (max - min) + min;
 	const z = Math.random() * (max - min) + min;
