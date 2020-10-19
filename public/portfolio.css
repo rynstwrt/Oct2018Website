@@ -18,6 +18,11 @@ a
 	text-decoration: none;
 }
 
+a:first-of-type
+{
+	width: 100%;
+}
+
 .image-container
 {
 	width: 300px;
