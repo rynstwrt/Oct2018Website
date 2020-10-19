@@ -2,7 +2,7 @@ let line;
 let animationframe;
 let points;
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight, false);
 renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
