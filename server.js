@@ -8,6 +8,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('.html', require('ejs').renderFile);
 
+app.locals({key: {ACCESS_KEY: process.env.ACCESS_KEY}});
+
 // get home page
 app.get('/', (req, res) =>
 {
