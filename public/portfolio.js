@@ -1,12 +1,9 @@
-const url = 'https://api.unsplash.com/users/rynstwrt/photos';
+const url = 'https://api.unsplash.com/users/rynstwrt/photos?client_id=' + accessKey;
+console.log(url);
 
 async function fetchAsync(url)
 {
-	const options =
-	{
-		headers: new Headers({'Authorization': `Client-ID ${accessKey}`})
-	}
-	const resp = await fetch(url, options);
+	const resp = await fetch(url);
 	const data = await resp.json();
 	return data;
 }
