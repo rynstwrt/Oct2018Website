@@ -10,10 +10,9 @@
 </head>
 <body>
 
-	<% if (json) { %>
+	<% if (ACCESS_KEY) { %>
 		<script>
-			let json = <%- JSON.stringify(json) %>;
-			let accessKey = json.ACCESS_KEY;
+			let accessKey = <%- ACCESS_KEY %>;
 		</script>
 	<% } %>
 
