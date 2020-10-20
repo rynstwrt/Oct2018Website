@@ -1,0 +1,67 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	overflow: hidden;
+}
+
+a
+{
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover:not(#homebutton)
+{
+	text-decoration: underline;
+}
+
+#content
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	font-family: 'Arimo', sans-serif;
+}
+
+#content > a > h1
+{
+	font-size: 2rem;
+	text-align: center;
+}
+
+#content > #links
+{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+}
+
+#content > #links > a
+{
+	margin-left: .5rem;
+	margin-right: .5rem;
+	font-size: .6rem;
+}
+
+@media (min-width: 768px)
+{
+	#content > a > h1
+	{
+		font-size: 3rem;
+	}
+
+	#content > #links > a
+	{
+		font-size: .9rem;
+	}
+}

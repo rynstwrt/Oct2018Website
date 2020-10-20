@@ -19,6 +19,11 @@ app.get('/portfolio/', (req, res) =>
 	res.render('portfolio', {ACCESS_KEY: process.env.ACCESS_KEY});
 });
 
+app.get('/projects/', (req, res) =>
+{
+	res.render('projects');
+});
+
 const port = process.env.PORT || 8080;
 const server = app.listen(port, () =>
 {
