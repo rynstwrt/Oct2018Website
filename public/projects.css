@@ -44,6 +44,7 @@ a:hover:not(#homebutton)
 	display: flex;
 	justify-content: space-between;
 	margin-top: 1rem;
+	text-align: center;
 }
 
 #content > #links > a
