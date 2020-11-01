@@ -1,7 +1,6 @@
 $color1: #ffb19d;
 $color2: white;
 
-
 *
 {
 	margin: 0 !important;
@@ -22,12 +21,34 @@ body
 	overflow: hidden;
 }
 
+a
+{
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	text-transform: uppercase;
+	font-size: 1rem;
+	letter-spacing: .1rem;
+	transition: transform .1s linear;
+
+	&:hover
+	{
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
 h1
 {
 	text-transform: uppercase;
 	font-weight: bold;
 	width: 100%;
-	line-height: 4.7rem;
+	line-height: 5rem;
+}
+
+.hidden
+{
+	display: none !important;
 }
 
 .colorblock
@@ -35,22 +56,58 @@ h1
 	background-color: $color1;
 	color: $color2;
 	height: 350px;
+	position: relative;
+}
+
+#colorblock2
+{
+	background-color: $color1;
+	top: 5rem;
+
+	h1
+	{
+		font-size: 3rem;
+		transform-origin: bottom right;
+		transition: transform .1s linear;
+	}
+
+	&::before
+	{
+		background-color: $color2;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: -3rem;
+		top: -3rem;
+		z-index: -1;
+		border: 1px solid $color1;
+	}
+}
+
+#arrow
+{
+	color: $color1;
+	font-weight: 100;
+	font-size: 4.5rem;
+	transition: transform .1s linear;
+	cursor: pointer;
 }
 
 .line1
 {
-	letter-spacing: .5rem;
+	letter-spacing: 1rem;
 	font-size: 4.5rem;
 }
 
 .line2
 {
-	letter-spacing: .8rem;
+	letter-spacing: 1.2rem;
 	font-size: 4.2rem;
 }
 
 .line3
 {
-	letter-spacing: 1rem;
+	letter-spacing: 1.5rem;
 	font-size: 4.5rem;
 }

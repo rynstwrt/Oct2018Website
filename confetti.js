@@ -1,4 +1,3 @@
-$('#left').css({'background-color': red});
 
 // let isAnimating = false;
 //
