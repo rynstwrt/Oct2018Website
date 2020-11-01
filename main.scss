@@ -1,0 +1,56 @@
+$color1: #ffb19d;
+$color2: white;
+
+
+*
+{
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+}
+
+html, body
+{
+	height: 100%;
+}
+
+body
+{
+	background-color: $color2;
+	color: $color1;
+	font-family: 'Heebo', sans-serif;
+	overflow: hidden;
+}
+
+h1
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	width: 100%;
+	line-height: 4.7rem;
+}
+
+.colorblock
+{
+	background-color: $color1;
+	color: $color2;
+	height: 350px;
+}
+
+.line1
+{
+	letter-spacing: .5rem;
+	font-size: 4.5rem;
+}
+
+.line2
+{
+	letter-spacing: .8rem;
+	font-size: 4.2rem;
+}
+
+.line3
+{
+	letter-spacing: 1rem;
+	font-size: 4.5rem;
+}
