@@ -1,0 +1,15 @@
+{
+	"name": "ryanstew.art",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"dotenv": "^8.2.0",
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"path": "^0.12.7"
+	},
+	"author": "Ryan Stewart",
+	"live": "nodemon server.js"
+}
