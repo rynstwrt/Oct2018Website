@@ -348,13 +348,33 @@ h1
 
 @media (min-width: 1850px)
 {
+	a
+	{
+		font-size: 1.9rem;
+		line-height: 3.5rem;
+	}
+
 	#square
 	{
-		
+		width: 650px;
+		height: 650px;
+
+		#text
+		{
+			font-size: 3.5rem;
+			line-height: 7rem;
+			right: -30%;
+		}
 	}
 
 	#accentsquare
 	{
+		width: 500px;
+		height: 500px;
 
+		h1
+		{
+			font-size: 3.5rem;
+		}
 	}
 }
