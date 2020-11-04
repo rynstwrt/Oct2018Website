@@ -140,7 +140,37 @@ a
 
 @media (min-width: 768px)
 {
+	$size: 400px;
 
+	#square1
+	{
+		width: $size;
+		height: $size;
+	}
+
+	#square3
+	{
+		width: $size;
+		height: $size;
+
+		h1
+		{
+			font-size: 4rem;
+			top: -4.7rem;
+			left: .5rem;
+		}
+
+		#icon-row
+		{
+			font-size: 1.5rem;
+			padding-right: 1rem;
+
+			a
+			{
+				margin-left: 1rem;
+			}
+		}
+	}
 }
 
 @media (min-width: 992px)
