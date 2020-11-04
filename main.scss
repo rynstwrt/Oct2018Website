@@ -175,7 +175,37 @@ a
 
 @media (min-width: 992px)
 {
+	$size: 300px;
 
+	#square1
+	{
+		width: $size;
+		height: $size;
+	}
+
+	#square3
+	{
+		width: $size;
+		height: $size;
+
+		h1
+		{
+			font-size: 3rem;
+			top: -3.7rem;
+			left: .5rem;
+		}
+
+		#icon-row
+		{
+			font-size: 1.3rem;
+			padding-right: 1rem;
+
+			a
+			{
+				margin-left: .7rem;
+			}
+		}
+	}
 }
 
 @media(min-width: 1200px)
