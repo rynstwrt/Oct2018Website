@@ -28,6 +28,12 @@ a
 {
 	color: inherit;
 	text-decoration: none;
+
+	&:hover
+	{
+		transform: scale(1.2);
+	}
+	transition: transform .05s;
 }
 
 #square1
