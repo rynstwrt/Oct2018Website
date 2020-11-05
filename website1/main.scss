@@ -1,3 +1,20 @@
+$color1: #1D2023;
+$color2: white;
+$color3: darken($color1, 2%);
+$color4: #ffc8a6;
+
+:root
+{
+    --shape-size: 13px;
+    --shape-margin: 2px;
+}
+
+@keyframes wave
+{
+    50% { transform: scale(1.1); background-color: $color4 }
+    100% { transform: scale(1); background-color: $color3 }
+}
+
 *
 {
     margin: 0;
@@ -14,43 +31,72 @@ body
 {
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
+    background-color: $color1;
+    color: $color2;
+}
+
+#text-container
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    line-height: 3rem;
+    z-index: 1;
+
+    h1
+    {
+        font-size: 3rem;
+        letter-spacing: .25rem;
+        position: relative;
+        margin-bottom: 1rem;
+
+        &::before
+        {
+            content: '';
+            background-color: $color2;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: -.5rem;
+            left: 0;
+        }
+    }
+
+    h2
+    {
+        font-size: .75rem;
+        letter-spacing: .25rem;
+    }
+}
+
+#shape-container
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-image: url('landing.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    overflow: hidden;
 
-ul
-{
-    display: flex;
-    align-items: center;
-    padding: 5% 0;
-
-    li
+    .row
     {
-        list-style: none;
-        margin: 0 .5rem;
-
-        a
-        {
-            color: white;
-            text-decoration: none;
-            $spacing: .5rem;
-            text-indent: $spacing;
-            letter-spacing: $spacing;
-            font-size: 1rem;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-}
 
-h1
-{
-    font-size: 3rem;
-    text-align: center;
-    letter-spacing: .75rem;
+    .shape
+    {
+        width: var(--shape-size);
+        height: var(--shape-size);
+        margin: var(--shape-margin);
+        background-color: $color3;
+        border-radius: 50%;
+    }
 }
