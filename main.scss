@@ -8,6 +8,13 @@ $color3: #ffc8a6;
     --shape-margin: 2px;
 }
 
+@font-face
+{
+    font-family: 'Space Grotesk';
+    src: url('SpaceGrotesk-VariableFont.ttf') format('truetype');
+    font-weight: 300 700;
+}
+
 @keyframes fadeIn
 {
     100% { opacity: 1; }
@@ -32,7 +39,7 @@ html, body
 
 body
 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-transform: uppercase;
     background-color: $color1;
     color: $color2;
@@ -72,7 +79,7 @@ body
     h1
     {
         font-size: 3rem;
-        letter-spacing: .25rem;
+        letter-spacing: .5rem;
         position: relative;
         margin-bottom: 1rem;
 
