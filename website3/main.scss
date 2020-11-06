@@ -1,15 +1,5 @@
 $color1: #1C1C1C;
 
-@keyframes underline
-{
-    100% { width: 40%; }
-}
-
-@keyframes name
-{
-    100% { opacity: 1; }
-}
-
 *
 {
     margin: 0;
@@ -26,24 +16,23 @@ body
 {
     background-color: $color1;
     color: white;
+    font-family: 'Rajdhani', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding: 10%;
 }
 
 h1
 {
     text-transform: uppercase;
-    opacity: 0;
-    animation: name 1s .5s ease-in-out forwards;
+    font-size: 2.5rem;
+    margin: 7.5% 0;
 }
 
-#underline
+#cursor
 {
-    background-color: white;
-    width: 0;
-    height: 5px;
-    animation: underline .5s ease-in-out forwards;
-    margin-top: 2.5%;
+    background-color: orange;
+    height: 100%;
+    width: 5px;
 }
