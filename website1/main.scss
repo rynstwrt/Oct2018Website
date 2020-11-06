@@ -1,7 +1,6 @@
 $color1: #1D2023;
 $color2: white;
-$color3: darken($color1, 2%);
-$color4: #ffc8a6;
+$color3: #ffc8a6;
 
 :root
 {
@@ -9,10 +8,14 @@ $color4: #ffc8a6;
     --shape-margin: 2px;
 }
 
+@keyframes fadeIn
+{
+    100% { opacity: 1; }
+}
+
 @keyframes wave
 {
-    50% { transform: scale(1.1); background-color: $color4 }
-    100% { transform: scale(1); background-color: $color3 }
+    100% { transform: rotate(180deg); }
 }
 
 *
@@ -33,14 +36,35 @@ body
     text-transform: uppercase;
     background-color: $color1;
     color: $color2;
+    padding-top: 25%;
 }
 
-#text-container
+#shape-container
+{
+    width: 60vmin;
+    height: 60vmin;
+    margin: 0 auto;
+    transform: rotate(45deg);
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1s .5s ease-out;
+    animation-fill-mode: forwards;
+
+    .shape
+    {
+        background-color: $color3;
+        width: 100%;
+        height: 2.5%;
+        margin: 5% 0;
+    }
+}
+
+#footer
 {
     position: absolute;
     bottom: 0;
     left: 0;
-    padding-bottom: .5rem;
+    padding-bottom: 1rem;
     padding-left: 1rem;
     line-height: 3rem;
     z-index: 1;
@@ -68,35 +92,24 @@ body
     {
         font-size: .75rem;
         letter-spacing: .25rem;
+        margin-bottom: 1rem;
     }
-}
 
-#shape-container
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    .row
+    #link-container
     {
         display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        margin-bottom: 1rem;
 
-    .shape
-    {
-        width: var(--shape-size);
-        height: var(--shape-size);
-        margin: var(--shape-margin);
-        background-color: $color3;
-        border-radius: 50%;
+        a
+        {
+            margin-right: 10%;
+            color: white;
+            text-decoration: none;
+
+            &:hover
+            {
+                color: $color3;
+            }
+        }
     }
 }
