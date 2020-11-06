@@ -75,6 +75,9 @@ body
     padding-left: 1rem;
     line-height: 3rem;
     z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s ease-in-out;
+    animation-fill-mode: forwards;
 
     h1
     {
@@ -99,24 +102,43 @@ body
     {
         font-size: .75rem;
         letter-spacing: .25rem;
-        margin-bottom: 1rem;
     }
 
     #link-container
     {
         display: flex;
-        margin-bottom: 1rem;
+        position: relative;
+        top: -1rem;
 
         a
         {
             margin-right: 10%;
             color: white;
             text-decoration: none;
+            font-size: 1.25rem;
+            transition: color .3s ease-in-out;
 
             &:hover
             {
                 color: $color3;
             }
+        }
+    }
+
+    #website-link
+    {
+        color: white;
+        text-decoration: none;
+        font-size: .75rem;
+        letter-spacing: .2rem;
+        position: relative;
+        top: -1rem;
+        text-decoration: none;
+        transition: color .3s ease-in-out;
+
+        &:hover
+        {
+            color: $color3;
         }
     }
 }
@@ -134,6 +156,12 @@ body
     body
     {
         padding-top: 25%;
+    }
+
+    #shape-container
+    {
+        width: 50vmin;
+        height: 50vmin;
     }
 
     #footer
