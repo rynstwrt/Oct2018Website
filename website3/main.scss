@@ -1,5 +1,10 @@
 $color1: #1C1C1C;
 
+@keyframes blink
+{
+    100% { opacity: 0; }
+}
+
 *
 {
     margin: 0;
@@ -25,14 +30,17 @@ body
 
 h1
 {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin: 7.5% 0;
+    font-size: 1.5rem;
+    white-space: pre-line;
+    position: relative;
 }
 
 #cursor
 {
     background-color: orange;
-    height: 100%;
-    width: 5px;
+    width: 1px;
+    height: 30px;
+    margin-left: 5px;
+    position: absolute;
+    animation: blink .5s infinite alternate;
 }
