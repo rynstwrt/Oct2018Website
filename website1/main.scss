@@ -113,3 +113,61 @@ body
         }
     }
 }
+
+@media (min-width: 576px)
+{
+    body
+    {
+        padding-top: 10%;
+    }
+}
+
+@media (min-width: 768px)
+{
+    body
+    {
+        padding-top: 25%;
+    }
+
+    #footer
+    {
+        padding-bottom: 2rem;
+        padding-left: 2rem;
+
+        h1
+        {
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+
+        h2
+        {
+            font-size: 1.25rem;
+        }
+
+        #link-container
+        {
+            font-size: 1.5rem;
+            a
+            {
+                margin-right: 7.5%;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px)
+{
+    body
+    {
+        padding-top: 15%;
+    }
+}
+
+@media (min-width: 1200px)
+{
+    body
+    {
+        padding-top: 10%;
+    }
+}
