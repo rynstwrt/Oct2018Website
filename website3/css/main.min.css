@@ -1,0 +1,1 @@
+*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}body{background-color:#1f2ef1;font-family:'Rajdhani', sans-serif;display:flex;flex-direction:column;justify-content:flex-end}#char{width:50px;height:100px;background-color:black;position:relative}#ground{background-color:#6fe96c;height:30%}
