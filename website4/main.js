@@ -1,3 +1,4 @@
+const numPoints = 40;
 const letterDelay = 30;
 const lineDelay = 2000;
 
@@ -69,16 +70,15 @@ function drawLineBetweenPoints(p1, p2)
  *
  * @param {number} amount The amount of points to create.
 */
-function fillBackground(amount)
+function fillBackground()
 {
-    for (let i = 0; i < amount; ++i)
+    for (let i = 0; i < numPoints; ++i)
     {
-        const xMid = document.documentElement.clientWidth / 2;
-        const yMid = document.documentElement.clientHeight / 2;
-        const maxOffset = xMid * .6; // 60% of half the window;
+        const xMid = background.clientWidth / 2;
+        const yMid = background.clientHeight / 2;
 
-        const x = xMid + (Math.random() * (maxOffset * 2) - maxOffset);
-        const y = yMid + (Math.random() * (maxOffset * 2) - maxOffset);
+        const x = xMid + (Math.random() * (xMid * 2) - xMid);
+        const y = yMid + (Math.random() * (yMid * 2) - yMid);
 
         const point = { left: x, top: y };
         points.push(point);
@@ -116,7 +116,7 @@ async function start()
     cursorMargin = getComputedStyle(cursor).marginLeft;
     cursor.style.marginLeft = 0;
 
-    fillBackground(50);
+    fillBackground();
 
     await type('Hey... ');
     await type('are you there?');
@@ -127,7 +127,7 @@ async function start()
 
     background.style.transition = 'opacity 2s ease-in-out';
     background.style.opacity = 1;
-    window.requestAnimationFrame(animateBackground);
+    animationFrame = window.requestAnimationFrame(animateBackground);
 
     await type(undefined, 2000);
     await type();
@@ -159,4 +159,15 @@ async function start()
     }, 3000);
 }
 
-animationFrame = window.addEventListener('load', () => start() );
+window.addEventListener('load', () => start() );
+
+window.addEventListener('resize', () =>
+{
+    window.cancelAnimationFrame(animationFrame);
+    points = [];
+    while (background.firstChild)
+        background.firstChild.remove();
+
+    fillBackground();
+    animationFrame = window.requestAnimationFrame(animateBackground);
+});
