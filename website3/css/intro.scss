@@ -32,6 +32,7 @@
 
     h1
     {
+        color: $color2;
         font-size: 1.5rem;
         white-space: pre-line;
         position: relative;
@@ -40,7 +41,7 @@
 
     #cursor
     {
-        background-color: $color2;
+        background-color: $color3;
         width: 1px;
         height: 30px;
         margin-left: 5px;
@@ -63,7 +64,7 @@
 
         .line
         {
-            background-color: $color2;
+            background-color: $color3;
             position: absolute;
             height: 1px;
             transform-origin: left center;
