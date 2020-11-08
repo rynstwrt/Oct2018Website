@@ -43,10 +43,9 @@ body
 	{
 		background-color: transparent;
 		border: 0;
-		color: $color2;
-		text-transform: uppercase;
-		letter-spacing: .13rem;
 		border-bottom: 1px solid $color3;
+		width: 50px;
+		height: 30px;
 	}
 
 	&::after
