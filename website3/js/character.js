@@ -68,8 +68,7 @@ function jump()
 	{
 		isJumping = false;
 
-		while(!checkForCollision('top'))
-			char.style.bottom = char.style.bottom - 1 + 'px';
+		char.style.bottom = 0;
 
 	}, { once: true });
 }
