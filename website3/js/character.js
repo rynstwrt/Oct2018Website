@@ -27,9 +27,11 @@ function checkForCollision(dir)
 		const left = item.offsetLeft;
 		const top = item.offsetTop;
 
+		const isInHeightRange = charTop <= top + height && charTop + charHeight >= top;
+
 		if (dir === 'left')
 		{
-			if (left + width >= charLeft && charLeft >= left && charTop + charHeight > top + height && charTop + charHeight >= top)
+			if (left + width >= charLeft && charLeft >= left && isInHeightRange)
 			{
 				isColliding = true;
 			}
@@ -37,7 +39,7 @@ function checkForCollision(dir)
 
 		if (dir === 'right')
 		{
-			if (charLeft + charWidth >= left && charLeft + charWidth <= left + width && charTop + charHeight > top + height && charTop + charHeight >= top)
+			if (charLeft + charWidth >= left && charLeft + charWidth <= left + width && isInHeightRange)
 			{
 				isColliding = true;
 			}
