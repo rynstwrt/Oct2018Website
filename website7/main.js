@@ -1,15 +1,14 @@
 function createScene(canvas, engine)
 {
 	const scene = new BABYLON.Scene(engine);
-	const camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(-10, 10, 30), scene);
-	camera.setTarget(BABYLON.Vector3.Zero());
-	camera.attachControl(canvas, false);
-	//camera.inputs.clear();
 
-	const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(-10, 10, 30), scene);
 
+	const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(-1, -1, 0), scene);
+	// light.intensity = 3;
+
+	const colors = ['#ffa372', '#ed6663', '#43658b', '#4e89ae'];
 	const boxSize = 3;
-	const points = getPoints(50, boxSize);
+	const points = getPoints(20, boxSize);
 	for (let i = 0; i < points.length; ++i)
 	{
 		const point = points[i];
@@ -17,11 +16,14 @@ function createScene(canvas, engine)
 		const box = BABYLON.MeshBuilder.CreateBox('box', { width: boxSize, height: boxSize, depth: boxSize }, scene);
 		box.position = point;
 
-		// const material = new BABYLON.StandardMaterial(scene);
-		// material.alpha = 1;
-		// material.diffuseColor = new BABYLON.Color3(1, .2, .7);
+		const material = new BABYLON.StandardMaterial(scene);
+		material.diffuseColor = BABYLON.Color3.FromHexString(colors[Math.floor(Math.random() * colors.length)]);
 		box.material = material;
 	}
+
+	const camera = new BABYLON.ArcRotateCamera('camera', 90 * (Math.PI / 180), 90 * (Math.PI / 180), 100, BABYLON.Vector3.Zero(), scene);
+	camera.attachControl(canvas, false);
+	//camera.inputs.clear();
 
 	return scene;
 }
