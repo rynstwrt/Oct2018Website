@@ -55,6 +55,16 @@ body
     background-repeat: no-repeat;
 }
 
+.block
+{
+    background-color: blue;
+    width: $blockSize;
+    height: $blockSize;
+    position: absolute;
+    bottom: 35%;
+    left: 20%;
+}
+
 #ground
 {
     $height: 30%;
@@ -66,7 +76,7 @@ body
 
     #firstrow
     {
-        height: $height;
+        height: $blockSize;
         background-image: url('../assets/grass.png');
         background-size: $blockSize;
     }

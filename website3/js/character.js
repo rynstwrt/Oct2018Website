@@ -5,13 +5,53 @@ let animationFrame;
 let left = false;
 let right = false;
 let isJumping = false;
-
 const moveOffset = 1.5;
+
+function checkForCollision(dir)
+{
+	const char = document.querySelector('#char');
+	const charWidth = char.offsetWidth;
+	const charHeight = char.offsetHeight;
+	const charLeft = char.offsetLeft;
+	const charTop = char.offsetTop;
+
+	let collidable = document.querySelectorAll('.collidable');
+	collidable = Array.prototype.slice.call(collidable);
+
+	let isColliding = false;
+
+	collidable.forEach((item) =>
+	{
+		const width = item.offsetWidth;
+		const height = item.offsetHeight;
+		const left = item.offsetLeft;
+		const top = item.offsetTop;
+
+		if (dir === 'left')
+		{
+			if (left + width >= charLeft && charLeft >= left && charTop + charHeight > top + height && charTop + charHeight >= top)
+			{
+				isColliding = true;
+			}
+		}
+
+		if (dir === 'right')
+		{
+			if (charLeft + charWidth >= left && charLeft + charWidth <= left + width && charTop + charHeight > top + height && charTop + charHeight >= top)
+			{
+				isColliding = true;
+			}
+		}
+	});
+
+	return isColliding;
+}
 
 function jump()
 {
 	if (isJumping) return;
-	char.style.bottom = `${charHeight}px`;
+
+	char.style.bottom = `${charHeight * 2}px`;
 
 	char.addEventListener('transitionend', () =>
 	{
@@ -22,16 +62,19 @@ function jump()
 
 function animate()
 {
-	if (left)
+	if (left && !checkForCollision('left'))
 	{
 		const newLeft = (char.style.left) ? parseFloat(char.style.left) - moveOffset : -moveOffset;
 		char.style.left = `${newLeft}px`;
 	}
-	else if (right)
+	else if (right && !checkForCollision('right'))
 	{
 		const newLeft = (char.style.left) ? parseFloat(char.style.left) + moveOffset : moveOffset;
 		char.style.left = `${newLeft}px`;
 	}
+
+	console.log('collision left: ' + checkForCollision('left'));
+	console.log('collision right: ' + checkForCollision('right'));
 
 	animationFrame = window.requestAnimationFrame(animate);
 }
@@ -44,18 +87,15 @@ window.addEventListener('load', () => {
 
 document.addEventListener('keydown', e =>
 {
-	if (document.querySelector('#intro')) return;
 
 	switch(e.which)
 	{
 		case 32: // space
-
 			jump();
 			isJumping = true;
 			break;
 
 		case 87: // w
-
 		 	jump();
 			isJumping = true;
 			break;
