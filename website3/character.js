@@ -4,7 +4,8 @@ let animationFrame;
 
 let left = false;
 let right = false;
-let isJumping = false;
+let jump = false;
+const jumpTime = 100;
 const moveOffset = 1.5;
 
 function checkForCollision(dir)
@@ -58,21 +59,6 @@ function checkForCollision(dir)
 	return isColliding;
 }
 
-function jump()
-{
-	if (isJumping) return;
-
-	char.style.bottom = `${charHeight * 2}px`;
-
-	char.addEventListener('transitionend', () =>
-	{
-		isJumping = false;
-
-		char.style.bottom = 0;
-
-	}, { once: true });
-}
-
 function animate()
 {
 	if (left && !checkForCollision('left'))
@@ -86,8 +72,31 @@ function animate()
 		char.style.left = `${newLeft}px`;
 	}
 
-	console.log('collision left: ' + checkForCollision('left'));
-	console.log('collision right: ' + checkForCollision('right'));
+	if (jump)
+	{
+		// jump = false;
+		//
+		// let amount = 0;
+		// while (amount <= charHeight * 2 && !checkForCollision('top'))
+		// {
+		// 	console.log('asdfds');
+		// 	char.style.bottom = `${amount}px`;
+		// 	++amount;
+		// }
+		//
+		// setTimeout(() =>
+		// {
+		// 	char.style.bottom = 0;
+		// }, jumpTime);
+
+		char.style.bottom = `${char.style.bottom + 1}px`;
+
+		if (checkForCollision('top'))
+		{
+			console.log('no');
+			jump = false;
+		}
+	}
 
 	animationFrame = window.requestAnimationFrame(animate);
 }
@@ -104,13 +113,11 @@ document.addEventListener('keydown', e =>
 	switch(e.which)
 	{
 		case 32: // space
-			jump();
-			isJumping = true;
+			jump = true;
 			break;
 
 		case 87: // w
-		 	jump();
-			isJumping = true;
+		 	jump = true;
 			break;
 
 		case 65: // a
