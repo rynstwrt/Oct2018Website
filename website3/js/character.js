@@ -44,6 +44,15 @@ function checkForCollision(dir)
 				isColliding = true;
 			}
 		}
+
+		if (dir === 'top')
+		{
+			if (isInHeightRange)
+			{
+				isColliding = true;
+			}
+		}
+
 	});
 
 	return isColliding;
@@ -58,7 +67,10 @@ function jump()
 	char.addEventListener('transitionend', () =>
 	{
 		isJumping = false;
-		char.style.bottom = 0;
+
+		while(!checkForCollision('top'))
+			char.style.bottom = char.style.bottom - 1 + 'px';
+
 	}, { once: true });
 }
 
