@@ -82,4 +82,70 @@ class Color
 	{
 		return new Color(this.hue - hue, this.sat, this.lum);
 	}
+
+	complement()
+	{
+		return this.rotateHue(50);
+	}
+
+	getMonochromaticScheme(steps, range)
+	{
+		let colors = [];
+
+		steps -= 1;
+
+		const minLum = Math.round(this.darken(range).lum);
+		const maxLum = Math.round(this.lighten(range).lum);
+		const step = (maxLum - minLum) / steps;
+
+		for (let i = minLum; i <= maxLum; i += step)
+			colors.push(new Color(this.hue, this.sat, i).getHSL());
+
+		return colors;
+	}
+
+	getAnalogousScheme(steps, range)
+	{
+		let colors = [];
+
+		steps -= 1;
+
+		const minHue = Math.round(this.rotateHue(-range).hue);
+		const maxHue = Math.round(this.rotateHue(range).hue);
+		const step = (maxHue - minHue) / steps;
+
+		for (let i = minHue; i <= maxHue; i += step)
+			colors.push(new Color(i, this.sat, this.lum).getHSL());
+
+		return colors;
+	}
+
+	getSplitComplementaryScheme(range)
+	{
+		return [
+			this.rotateHue(-range).getHSL(),
+			this.complement().getHSL(),
+			this.rotateHue(range).getHSL()
+		];
+	}
+
+	getTriadicScheme()
+	{
+		return [
+			this.getHSL(),
+			this.subtractHue(120).getHSL(),
+			this.addHue(120).getHSL()
+		];
+	}
+
+	getTetradicScheme()
+	{
+		return [
+			this.getHSL(),
+			this.rotateHue(25).getHSL(),
+			this.rotateHue(50).getHSL(),
+			this.rotateHue(75).getHSL()
+		];
+	}
+
 }

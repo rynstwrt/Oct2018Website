@@ -1,49 +1,48 @@
-function start(container, hex)
+function createOrChangeBoxes(container, colors)
 {
+	const currentBoxes = document.querySelectorAll(`#${container.id} .color-box`);
 
-	let color = new Color(hex);
-
-	const colors = [
-		color.getHSL(),
-		color.darken(50).getHSL(),
-		color.lighten(50).getHSL(),
-		color.rotateHue(10).getHSL(),
-		color.addHue(180).getHSL(),
-		color.subtractHue(180).getHSL()
-	];
-
-	const boxes = getBoxes(container, colors.length);
-	boxes.forEach((box, i) =>
+	if (currentBoxes.length === colors.length)
 	{
-		box.style.backgroundColor = colors[i];
-	});
-}
+		currentBoxes.forEach((box, i) => {
+			box.style.backgroundColor = colors[i];
+		});
 
-function getBoxes(container, amount)
-{
-	const currentBoxes = document.querySelectorAll('.color-box');
-
-	if (currentBoxes.length === amount) return currentBoxes;
+		return;
+	}
 
 	while (container.firstChild) container.firstChild.remove();
 
-	let boxes = [];
-	for (let i = 0; i < amount; ++i)
+	colors.forEach(color =>
 	{
 		const box = document.createElement('div');
 		box.classList.add('color-box');
-		boxes.push(box);
+		box.style.backgroundColor = color;
 		container.append(box);
-	}
+	});
+}
 
-	return boxes;
+function start(hex, numColors, range)
+{
+	let color = new Color(hex);
+
+	createOrChangeBoxes(document.querySelector('#monochromatic'), color.getMonochromaticScheme(numColors, range));
+	createOrChangeBoxes(document.querySelector('#analogous'), color.getAnalogousScheme(numColors, range));
+	createOrChangeBoxes(document.querySelector('#complement'), [color.getHSL(), color.complement().getHSL()]);
+	createOrChangeBoxes(document.querySelector('#splitcomplementary'), color.getSplitComplementaryScheme(10));
+	createOrChangeBoxes(document.querySelector('#triadic'), color.getTriadicScheme());
+	createOrChangeBoxes(document.querySelector('#tetradic'), color.getTetradicScheme());
 }
 
 window.addEventListener('load', () =>
 {
-	const input = document.querySelector('#color-input');
-	const colorContainer = document.querySelector('#color-container');
+	const colorInput = document.querySelector('#color-input');
+	const numColorsInput = document.querySelector('#numcolors-input');
+	const rangeInput = document.querySelector('#range-input');
 
-	start(colorContainer, input.value);
-	input.addEventListener('input', () => start(colorContainer, input.value));
+	start(colorInput.value, numColorsInput.value, rangeInput.value);
+
+	[colorInput, numColorsInput, rangeInput].forEach((input, i) => {
+		input.addEventListener('input', () => start(colorInput.value, numColorsInput.value, rangeInput.value));
+	});
 });

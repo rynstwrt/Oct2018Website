@@ -23,14 +23,14 @@ body
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 10% 0;
 }
 
-#input-row
+.input-row
 {
 	display: flex;
-	margin-top: 20%;
-	margin-bottom: 10%;
 	position: relative;
+	margin: 2rem 0;
 
 	h1
 	{
@@ -42,6 +42,9 @@ body
 	input
 	{
 		background-color: transparent;
+		color: $color2;
+		text-align: center;
+		font-size: 1rem;
 		border: 0;
 		border-bottom: 1px solid $color3;
 		width: 50px;
@@ -66,7 +69,17 @@ h2
 {
 	font-weight: normal;
 	font-size: 1.25rem;
-	padding: 2.5% 0;
+	text-align: left;
+}
+
+.section
+{
+	text-align: center;
+	margin: 2% 0;
+	padding: 3%;
+	background-color: transparentize($color3, .5);
+	border-radius: 10px;
+	box-shadow: 0 10px 10px transparentize(black, .6);
 }
 
 .color-row
@@ -90,6 +103,7 @@ h2
 	margin: 3%;
 	padding: 1%;
 	border-radius: 10px;
+	box-shadow: 0 5px 10px transparentize(black, .6);
 
 	p
 	{
