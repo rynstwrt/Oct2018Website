@@ -16,6 +16,11 @@ function createScene(canvas, engine)
 
 		const box = BABYLON.MeshBuilder.CreateBox('box', { width: boxSize, height: boxSize, depth: boxSize }, scene);
 		box.position = point;
+
+		// const material = new BABYLON.StandardMaterial(scene);
+		// material.alpha = 1;
+		// material.diffuseColor = new BABYLON.Color3(1, .2, .7);
+		box.material = material;
 	}
 
 	return scene;
@@ -24,7 +29,7 @@ function createScene(canvas, engine)
 function getPoints(amount, cubeSize)
 {
 	const points = [];
-	const margin = 1;
+	const margin = 0;
 
 	for (let i = -amount / 2; i < amount / 2; ++i)
 	{
