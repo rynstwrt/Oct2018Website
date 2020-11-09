@@ -73,6 +73,7 @@ body
         position: absolute;
         bottom: $blockSize + 1;
         left: calc(50% - 2 * #{$blockSize});
+        visibility: hidden;
     }
 }
 
