@@ -8,10 +8,6 @@ function createScene(canvas, engine)
 	const camera = new BABYLON.UniversalCamera('cam', new BABYLON.Vector3(0, 7, -15), scene);
 	camera.setTarget(BABYLON.Vector3.Zero());
 	camera.attachControl(canvas, true);
-	// window.requestAnimationFrame(() =>
-	// {
-	// 	moveCamera(camera);
-	// });
 
 	/* Light */
 	const light = new BABYLON.PointLight('pl', camera.position, scene);
@@ -52,31 +48,31 @@ function createScene(canvas, engine)
 
 
 
-	// //ground
-	// const ground = BABYLON.MeshBuilder.CreateGround('ground',
-	// {width: 20, height: 20}, scene);
-	// ground.position.y = -5;
-	//
-	// const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
-	// groundMat.diffuseColor = new BABYLON.Color3(0, 1, 0);
-	// ground.material = groundMat;
-	//
-	// // Taurus
-	// const tk = BABYLON.MeshBuilder.CreateTorusKnot('tk',
-	// {
-	// 	radialSegments: 100,
-	// 	tubularSegments: 100,
-	// 	p: 4
-	// }, scene);
-	//
-	// const tkMat = new BABYLON.StandardMaterial('tkmat', scene);
-	// tkMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
-	// tk.material = tkMat;
-	//
-	// // shadows
-	// const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
-	// shadowGenerator.addShadowCaster(tk);
-	// ground.receiveShadows = true;
+	//ground
+	const ground = BABYLON.MeshBuilder.CreateGround('ground',
+	{width: 20, height: 20}, scene);
+	ground.position.y = -5;
+
+	const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
+	groundMat.diffuseColor = new BABYLON.Color3(0, 1, 0);
+	ground.material = groundMat;
+
+	// Taurus
+	const tk = BABYLON.MeshBuilder.CreateTorusKnot('tk',
+	{
+		radialSegments: 100,
+		tubularSegments: 100,
+		p: 4
+	}, scene);
+
+	const tkMat = new BABYLON.StandardMaterial('tkmat', scene);
+	tkMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+	tk.material = tkMat;
+
+	// shadows
+	const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
+	shadowGenerator.addShadowCaster(tk);
+	ground.receiveShadows = true;
 
 
 
