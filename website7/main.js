@@ -8,41 +8,98 @@ function createScene(canvas, engine)
 	const camera = new BABYLON.UniversalCamera('cam', new BABYLON.Vector3(0, 7, -15), scene);
 	camera.setTarget(BABYLON.Vector3.Zero());
 	camera.attachControl(canvas, true);
-	window.requestAnimationFrame(() =>
-	{
-		moveCamera(camera);
-	});
+	// window.requestAnimationFrame(() =>
+	// {
+	// 	moveCamera(camera);
+	// });
 
 	/* Light */
-	const light = new BABYLON.PointLight('pl', new BABYLON.Vector3(0, 10, 0), scene);
+	const light = new BABYLON.PointLight('pl', camera.position, scene);
 
-	//ground
-	const ground = BABYLON.MeshBuilder.CreateGround('ground',
-	{width: 20, height: 20}, scene);
-	ground.position.y = -5;
 
-	const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
-	groundMat.diffuseColor = new BABYLON.Color3(0, 1, 0);
-	ground.material = groundMat;
+	const p = getPositions(10);
+	const boxes = [];
+	p.forEach((pos, i) => {
+		const box = new BABYLON.MeshBuilder.CreateBox('box' + i,
+		{width: .1, height: 1, depth: .1}, scene);
+		box.position = pos;
 
-	// Taurus
-	const tk = BABYLON.MeshBuilder.CreateTorusKnot('tk',
-	{
-		radialSegments: 100,
-		tubularSegments: 100,
-		p: 4
-	}, scene);
+		const anim = new BABYLON.Animation('anim', 'rotate.x', 30,
+		BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
-	const tkMat = new BABYLON.StandardMaterial('tkmat', scene);
-	tkMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
-	tk.material = tkMat;
+		const keys = [];
+		keys.push({
+			frame: 0,
+			value: 0
+		});
 
-	// shadows
-	const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
-	shadowGenerator.addShadowCaster(tk);
-	ground.receiveShadows = true;
+		keys.push({
+			frame: 100,
+			value: Math.PI * 2
+		});
+
+		anim.setKeys(keys);
+
+		box.animations = [anim];
+		boxes.push(box);
+
+		setTimeout(() =>
+		{
+			console.log(box);
+			scene.beginAnimation(box, 0, 100, true);
+		}, i * 100);
+	});
+
+
+
+	// //ground
+	// const ground = BABYLON.MeshBuilder.CreateGround('ground',
+	// {width: 20, height: 20}, scene);
+	// ground.position.y = -5;
+	//
+	// const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
+	// groundMat.diffuseColor = new BABYLON.Color3(0, 1, 0);
+	// ground.material = groundMat;
+	//
+	// // Taurus
+	// const tk = BABYLON.MeshBuilder.CreateTorusKnot('tk',
+	// {
+	// 	radialSegments: 100,
+	// 	tubularSegments: 100,
+	// 	p: 4
+	// }, scene);
+	//
+	// const tkMat = new BABYLON.StandardMaterial('tkmat', scene);
+	// tkMat.diffuseColor = new BABYLON.Color3(1, 0, 0);
+	// tk.material = tkMat;
+	//
+	// // shadows
+	// const shadowGenerator = new BABYLON.ShadowGenerator(1024, light);
+	// shadowGenerator.addShadowCaster(tk);
+	// ground.receiveShadows = true;
+
+
 
 	return scene;
+}
+
+function getPositions(rows)
+{
+
+	const p = [];
+	const margin = .5;
+	const max = 10;
+	const spacing = 10 / rows;
+
+	for (let i = 0; i < rows; ++i)
+	{
+		for (let j = 0; j < rows; ++j)
+		{
+			p.push(new BABYLON.Vector3(i * spacing + (i * margin), j * spacing + (j * margin), 0));
+		}
+	}
+
+	return p;
 }
 
 const step = .1;
