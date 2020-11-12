@@ -4,17 +4,16 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	const scene = new BABYLON.Scene(engine);
 	scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
-	/* Lights */
-	new BABYLON.PointLight('pl', new BABYLON.Vector3(100, 200, 0), scene);
-	new BABYLON.HemisphericLight("hemilight1", new BABYLON.Vector3(0, 1, 0), scene);
-	//new BABYLON.HemisphericLight("hemilight2", new BABYLON.Vector3(0, -1, 0), scene);
+	/* Light */
+	const light = new BABYLON.HemisphericLight("hemilight1", new BABYLON.Vector3(-1, 1, 0), scene);
+	light.groundColor = BABYLON.Color3.Red();
 
 	/* SolidParticleSystem */
-	const sps = new BABYLON.SolidParticleSystem('sps', scene, {updatable: false});
+	const sps = new BABYLON.SolidParticleSystem('sps', scene);
 	const particle = BABYLON.MeshBuilder.CreateBox('particle', {}, scene);
-	const numParticles = 10000;
+	const numParticles = Math.pow(100, 2);
 	const numRows = Math.floor(Math.sqrt(numParticles));
-	const particleWidth = 2;
+	const particleWidth = 5;
 
 	let camTarget: BABYLON.Vector3;
 	sps.addShape(particle, numParticles, { positionFunction: (p: BABYLON.SolidParticle, i: number) =>
@@ -22,24 +21,21 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 		const row = Math.floor(i / numRows);
 		const col = i % numRows;
 
-		const heightFactor = 5
+		const heightFactor = 5;
 		const height = Math.sin(i) * heightFactor + heightFactor;
 
 		const x = col * particleWidth;
-		const z = row * particleWidth
-		p.position = new BABYLON.Vector3(x, 0, z);
+		const z = row * particleWidth;
 
+		p.position = new BABYLON.Vector3(x, 0, z);
 		p.scaling = new BABYLON.Vector3(particleWidth, height, particleWidth);
 
-		const particleColor3 = BABYLON.Color3.FromHexString('#00FF00');
+		const particleColor3 = (i % 2 === 0) ? BABYLON.Color3.FromHexString('#35a23a') : BABYLON.Color3.FromHexString('#236d27');
 		const particleColor4 = BABYLON.Color4.FromColor3(particleColor3);
 		p.color = particleColor4;
 
 		if (row === Math.floor(numRows / 2) && col === Math.floor(numRows / 2))
-		{
-			console.log('yeet');
 			camTarget = new BABYLON.Vector3(x, 0, z);
-		}
 	}});
 
 	sps.buildMesh();
@@ -47,7 +43,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 
 	/* Camera */
 	const camera = new BABYLON.ArcRotateCamera('cam',
-	Math.PI / 4, Math.PI / 3, 300,
+	Math.PI / 4, Math.PI / 3, 1000,
 	camTarget!, scene);
 	camera.attachControl(canvas, true);
 
