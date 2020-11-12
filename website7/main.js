@@ -31,8 +31,24 @@ function createScene(canvas, engine) {
     sps.buildMesh();
     particle.dispose();
     /* Camera */
-    var camera = new BABYLON.ArcRotateCamera('cam', Math.PI / 4, Math.PI / 3, 1000, camTarget, scene);
-    camera.attachControl(canvas, true);
+    // const camera = new BABYLON.ArcRotateCamera('cam',
+    // Math.PI / 4, Math.PI / 3, 1000,
+    // camTarget!, scene);
+    var camera = new BABYLON.ArcRotateCamera('cam', 0, Math.PI / 3, 50, camTarget, scene);
+    //camera.attachControl(canvas, true);
+    var anim = new BABYLON.Animation('anim', 'alpha', 17, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
+    var keys = [];
+    keys.push({
+        frame: 0,
+        value: 0
+    });
+    keys.push({
+        frame: 120,
+        value: Math.PI / 2
+    });
+    anim.setKeys(keys);
+    camera.animations = [anim];
+    scene.beginAnimation(camera, 0, 120, true);
     return scene;
 }
 window.addEventListener('load', function () {

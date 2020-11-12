@@ -42,10 +42,30 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	particle.dispose();
 
 	/* Camera */
+	// const camera = new BABYLON.ArcRotateCamera('cam',
+	// Math.PI / 4, Math.PI / 3, 1000,
+	// camTarget!, scene);
 	const camera = new BABYLON.ArcRotateCamera('cam',
-	Math.PI / 4, Math.PI / 3, 1000,
+	0, Math.PI / 3, 50,
 	camTarget!, scene);
-	camera.attachControl(canvas, true);
+	//camera.attachControl(canvas, true);
+
+	const anim = new BABYLON.Animation('anim', 'alpha', 17,
+	BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
+	const keys = [];
+	keys.push({
+		frame: 0,
+		value: 0
+	});
+	keys.push({
+		frame: 120,
+		value: Math.PI / 2
+	})
+	anim.setKeys(keys);
+
+	camera.animations = [anim];
+
+	scene.beginAnimation(camera, 0, 120, true);
 
 	return scene;
 }
