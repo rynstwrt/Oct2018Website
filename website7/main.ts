@@ -2,6 +2,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 {
 	/* Scene */
 	const scene = new BABYLON.Scene(engine);
+	scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 
 	/* Lights */
 	new BABYLON.PointLight('pl', new BABYLON.Vector3(100, 200, 0), scene);

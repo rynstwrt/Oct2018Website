@@ -2,6 +2,7 @@
 function createScene(canvas, engine) {
     /* Scene */
     var scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
     /* Lights */
     new BABYLON.PointLight('pl', new BABYLON.Vector3(100, 200, 0), scene);
     new BABYLON.HemisphericLight("hemilight1", new BABYLON.Vector3(0, 1, 0), scene);
