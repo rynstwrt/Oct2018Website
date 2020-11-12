@@ -13,10 +13,15 @@ html, body
 body
 {
 	background-color: black;
+	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 2px rgba(0, 0, 0, .25);
 }
 
 canvas
@@ -28,8 +33,35 @@ canvas
 
 h1
 {
-	color: white;
-	font-size: 4rem;
-	text-transform: uppercase;
+	font-size: 3rem;
+	font-weight: 700;
+	letter-spacing: .5rem;
 	z-index: 1;
+	//300 400 500 600 700 800 900
+}
+
+ul
+{
+	display: flex;
+	margin-top: .25rem;
+	list-style: none;
+	z-index: 1;
+}
+
+ul > li
+{
+	margin: 0 .5rem;
+}
+
+ul > li > a
+{
+	color: inherit;
+	font-size: .75rem;
+	letter-spacing: .125rem;
+	text-decoration: none;
+}
+
+ul > li > a:hover
+{
+	text-decoration: underline;
 }

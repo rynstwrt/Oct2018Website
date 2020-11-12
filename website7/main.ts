@@ -42,13 +42,9 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	particle.dispose();
 
 	/* Camera */
-	// const camera = new BABYLON.ArcRotateCamera('cam',
-	// Math.PI / 4, Math.PI / 3, 1000,
-	// camTarget!, scene);
 	const camera = new BABYLON.ArcRotateCamera('cam',
 	0, Math.PI / 3, 50,
 	camTarget!, scene);
-	//camera.attachControl(canvas, true);
 
 	const anim = new BABYLON.Animation('anim', 'alpha', 17,
 	BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
