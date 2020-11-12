@@ -6,8 +6,8 @@ function createScene(canvas, engine) {
     var camera = new BABYLON.ArcRotateCamera('cam', Math.PI / 4, Math.PI / 3, 300, BABYLON.Vector3.Zero(), scene);
     camera.attachControl(canvas, true);
     /* Lights */
-    //const pointLight = new BABYLON.PointLight('pl', camera.position, scene);
-    var hemiLight = new BABYLON.HemisphericLight("hemilight", new BABYLON.Vector3(0, 1, -.5), scene);
+    new BABYLON.PointLight('pl', new BABYLON.Vector3(100, 200, 0), scene);
+    new BABYLON.HemisphericLight("hemilight", new BABYLON.Vector3(0, 1, 0), scene);
     /* Ground */
     var groundWidth = 100;
     var groundHeight = groundWidth;
@@ -22,14 +22,20 @@ function createScene(canvas, engine) {
     var particleWidth = 10;
     var minParticleHeight = particleWidth / 2;
     var maxParticleHeight = particleWidth * 5;
+    var startingPoint = new BABYLON.Vector3(-groundWidth / 2 + particleWidth / 2, 0, -groundHeight / 2 + particleWidth / 2);
     sps.addShape(particle, numParticles, { positionFunction: function (p, i) {
             var height = Math.random() * (maxParticleHeight - minParticleHeight) + minParticleHeight;
             p.scaling = new BABYLON.Vector3(particleWidth, height, particleWidth);
-            var xMin = -groundWidth / 2 + particleWidth / 2;
-            var xMax = groundWidth / 2 - particleWidth / 2;
-            var zMin = -groundHeight / 2 + particleWidth / 2;
-            var zMax = groundHeight / 2 - particleWidth / 2;
-            p.position = new BABYLON.Vector3(Math.random() * (xMax - xMin) + xMin, height / 2, Math.random() * (zMax - zMin) + zMin);
+            // const xMin = -groundWidth / 2 + particleWidth / 2;
+            // const xMax = groundWidth / 2 - particleWidth / 2;
+            // const zMin = -groundHeight / 2 + particleWidth / 2;
+            // const zMax = groundHeight / 2 - particleWidth / 2;
+            //
+            // p.position = new BABYLON.Vector3(
+            // 	Math.random() * (xMax - xMin) + xMin,
+            // 	height / 2,
+            // 	Math.random() * (zMax - zMin) + zMin);
+            var rowCount = Math.floor(Math.sqrt(numParticles));
             var particleColor3 = BABYLON.Color3.FromHexString('#ff6b6b');
             var particleColor4 = BABYLON.Color4.FromColor3(particleColor3);
             p.color = particleColor4;
