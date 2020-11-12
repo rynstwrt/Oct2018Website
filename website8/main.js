@@ -3,8 +3,11 @@ function createScene(canvas, engine) {
     // Scene
     var scene = new BABYLON.Scene(engine);
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+    scene.collisionsEnabled = true;
+    scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
     // Light
-    new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), scene);
+    var light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = .7;
     // Buildings
     var buildingProportions = [
         new BABYLON.Vector3(2, 1, 1),
@@ -15,16 +18,13 @@ function createScene(canvas, engine) {
         new BABYLON.Vector3(1, 2, 2)
     ];
     var buildings = [];
-    var buildingUnit = 5;
-    var rows = 10;
-    var cols = 10;
+    var buildingUnit = 2;
+    var rows = 20;
+    var cols = 20;
     var margin = 5;
     var currentXPosition = 0;
     var currentZPosition = 0;
     var maxDepth = 0;
-    var middlePos = BABYLON.Vector3.Zero();
-    // const buildingMat = new BABYLON.StandardMaterial('buildingmat', scene);
-    // buildingMat.diffuseColor = BABYLON.Color3.FromHexString('#1e1e1e');
     for (var i = 0; i < rows; ++i) {
         for (var j = 0; j < cols; ++j) {
             var proportion = buildingProportions[Math.floor(Math.random() * buildingProportions.length)];
@@ -35,12 +35,13 @@ function createScene(canvas, engine) {
             building.position.x = currentXPosition + width / 2;
             building.position.y = height / 2;
             building.position.z = currentZPosition + depth / 2;
-            //building.material = buildingMat;
+            building.checkCollisions = true;
             buildings.push(building);
+            var plPos = building.position.add(new BABYLON.Vector3(0, 0, depth));
+            var pl = new BABYLON.PointLight('pointlight', plPos, scene);
+            pl.intensity = .1;
             if (depth > maxDepth)
                 maxDepth = depth;
-            if (i === Math.floor(rows / 2) && j === Math.floor(cols / 2))
-                middlePos = building.position;
             currentXPosition += width + margin;
         }
         currentXPosition = 0;
@@ -58,11 +59,20 @@ function createScene(canvas, engine) {
         height: groundHeight
     }, scene);
     ground.position = new BABYLON.Vector3(groundWidth / 2, 0, groundHeight / 2);
-    var groundMat = new BABYLON.StandardMaterial('groundmat', scene);
-    groundMat.diffuseColor = BABYLON.Color3.FromHexString('#3c3c3c');
-    ground.material = groundMat;
+    ground.checkCollisions = true;
     // Camera
-    var camera = new BABYLON.ArcRotateCamera('camera', -3 * Math.PI / 4, Math.PI / 4, 300, middlePos, scene);
+    var camSize = 1.1;
+    var camOffset = Math.min(groundWidth, groundHeight) / 2 + camSize;
+    var camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(camOffset, camSize, camOffset), scene);
+    camera.speed = .25;
+    camera.ellipsoid = new BABYLON.Vector3(camSize, camSize, camSize);
+    camera.ellipsoidOffset = new BABYLON.Vector3(0, camSize, 0);
+    camera.checkCollisions = true;
+    camera.applyGravity = true;
+    camera.keysUp.push(87); // w
+    camera.keysLeft.push(65); // a
+    camera.keysDown.push(83); // s
+    camera.keysRight.push(68); // d
     camera.attachControl(canvas, true);
     return scene;
 }
