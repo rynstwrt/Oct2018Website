@@ -11,16 +11,18 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	/* SolidParticleSystem */
 	const sps = new BABYLON.SolidParticleSystem('sps', scene, {updatable: false});
 	const particle = BABYLON.MeshBuilder.CreateBox('particle', {}, scene);
-	const numParticles = 1000;
-	const rowCount = Math.floor(Math.sqrt(numParticles));
+	const numParticles = 10000;
+	const numRows = Math.floor(Math.sqrt(numParticles));
 	const particleWidth = 2;
 
-	const particles = [];
+	let camTarget: BABYLON.Vector3;
 	sps.addShape(particle, numParticles, { positionFunction: (p: BABYLON.SolidParticle, i: number) =>
 	{
-		const row = Math.floor(i / rowCount);
-		const col = i % rowCount;
-		const height = Math.sin(i) * 25;
+		const row = Math.floor(i / numRows);
+		const col = i % numRows;
+
+		const heightFactor = 5
+		const height = Math.sin(i) * heightFactor + heightFactor;
 
 		const x = col * particleWidth;
 		const z = row * particleWidth
@@ -28,22 +30,24 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 
 		p.scaling = new BABYLON.Vector3(particleWidth, height, particleWidth);
 
-		const particleColor3 = BABYLON.Color3.FromHexString('#ff6b6b');
+		const particleColor3 = BABYLON.Color3.FromHexString('#00FF00');
 		const particleColor4 = BABYLON.Color4.FromColor3(particleColor3);
 		p.color = particleColor4;
 
-		particles.push(p);
+		if (row === Math.floor(numRows / 2) && col === Math.floor(numRows / 2))
+		{
+			console.log('yeet');
+			camTarget = new BABYLON.Vector3(x, 0, z);
+		}
 	}});
 
 	sps.buildMesh();
 	particle.dispose();
 
-	const camTarget = particles[Math.floor((particles.length - 1) / 2)].position;
-
 	/* Camera */
 	const camera = new BABYLON.ArcRotateCamera('cam',
 	Math.PI / 4, Math.PI / 3, 300,
-	camTarget, scene);
+	camTarget!, scene);
 	camera.attachControl(canvas, true);
 
 	return scene;
