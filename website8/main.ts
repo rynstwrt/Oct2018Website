@@ -1,14 +1,14 @@
-function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
+// diffuse: basic color of object
+// groundColor: light in opposite direction color
+// specular: highlight color of object
+
+function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: number, cols: number)
 {
 	// Scene
 	const scene = new BABYLON.Scene(engine);
 	scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
 	scene.collisionsEnabled = true;
 	scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
-
-	// Light
-	const light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), scene);
-	light.intensity = .7;
 
 	// Buildings
 	const buildingProportions = [
@@ -20,15 +20,26 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 		new BABYLON.Vector3(1, 2, 2)
 	];
 
-	const buildings = [];
-	const buildingUnit = 2;
-	const rows = 20;
-	const cols = 20;
-	const margin = 5;
+	const buildings: BABYLON.Mesh[] = [];
+	const buildingUnit = 5;
 
+	const buildingMat = new BABYLON.StandardMaterial('buildingmat', scene);
+	const buildingTexture = new BABYLON.Texture('assets/building.jpg', scene);
+	buildingTexture.uScale = 1;
+	buildingTexture.vScale = 1;
+	buildingTexture.uAng = Math.PI / 2;
+	buildingMat.diffuseTexture = buildingTexture;
+
+	const spacing = 5;
+	let margin = 0;
 	let currentXPosition = 0;
 	let currentZPosition = 0;
-	let maxDepth = 0;
+
+	buildingProportions.forEach(proportion =>
+	{
+		const prop = Math.max(proportion.x, proportion.z);
+		if (prop * buildingUnit + spacing > margin) margin = prop * buildingUnit + spacing;
+	});
 
 	for (let i = 0; i < rows; ++i)
 	{
@@ -40,44 +51,67 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 			const depth = proportion.z * buildingUnit;
 			const building = BABYLON.MeshBuilder.CreateBox('box', { width: width, height: height, depth: depth }, scene);
 
-			building.position.x = currentXPosition + width / 2;
+			building.position.x = currentXPosition;
 			building.position.y = height / 2;
-			building.position.z = currentZPosition + depth / 2;
+			building.position.z = currentZPosition;
 			building.checkCollisions = true;
+			//building.material = buildingMat;
 			buildings.push(building);
 
-			const plPos = building.position.add(new BABYLON.Vector3(0, 0, depth));
-			const pl = new BABYLON.PointLight('pointlight', plPos, scene);
-			pl.intensity = .1;
-
-			if (depth > maxDepth) maxDepth = depth;
-			currentXPosition += width + margin;
+			currentXPosition += margin;
 		}
 		currentXPosition = 0;
-		currentZPosition += maxDepth + margin;
+		currentZPosition += margin;
 	}
 
 	// Ground
-	let groundWidth = 0;
-	let groundHeight = 0;
-
-	buildings.forEach(building => {
-		groundWidth = Math.max(groundWidth, building.position.x);
-		groundHeight = Math.max(groundHeight, building.position.z);
-	});
+	const groundOffset = new BABYLON.Vector3(buildingUnit / 2 + margin / 2, 0, buildingUnit / 2 + margin / 2);
+	let groundWidth = rows * margin;
+	let groundHeight = cols * margin;
 
 	const ground = BABYLON.MeshBuilder.CreateGround('ground', {
 		width: groundWidth,
 		height: groundHeight
 	}, scene);
-	ground.position = new BABYLON.Vector3(groundWidth / 2, 0, groundHeight / 2);
+
+	const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
+	const groundTexture =  new BABYLON.Texture('assets/grass.jpg', scene);
+	groundMat.diffuseTexture = groundTexture;
+	groundTexture.uScale = groundWidth * .6;
+	groundTexture.vScale = groundHeight * .6;
+	ground.material = groundMat;
+
+	ground.position = new BABYLON.Vector3(groundWidth / 2, 0, groundHeight / 2).subtract(groundOffset);
 	ground.checkCollisions = true;
+
+	// Roads
+	const roads = [];
+	const roadWidth = buildingUnit / 1.25;
+
+	for (let i = 0; i < rows - 1; ++i)
+	{
+		const road = BABYLON.MeshBuilder.CreateGround('road',
+		{ width: roadWidth, height: groundHeight }, scene);
+		road.position = new BABYLON.Vector3(buildingUnit / 2, .001, groundHeight / 2).subtract(groundOffset);
+		road.position = road.position.add(new BABYLON.Vector3(i * margin, 0, 0));
+		roads.push(road);
+	}
+
+	for (let i = 0; i < rows - 1; ++i)
+	{
+		const road = BABYLON.MeshBuilder.CreateGround('road',
+		{ width: groundWidth, height: roadWidth }, scene);
+		road.position = new BABYLON.Vector3(groundWidth / 2, .0011, buildingUnit / 2).subtract(groundOffset);
+		road.position = road.position.add(new BABYLON.Vector3(0, 0, i * margin));
+		roads.push(road);
+	}
 
 	// Camera
 	const camSize = 1.1;
-	const camOffset =  Math.min(groundWidth, groundHeight) / 2 +  camSize;
-	const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(camOffset, camSize, camOffset), scene);
+	const camPos = roads[Math.floor(Math.random() * (roads.length - 1))].position.add(new BABYLON.Vector3(0, camSize, 0));
+	const camera = new BABYLON.UniversalCamera('camera', camPos, scene);
 	camera.speed = .25;
+	camera.fov = Math.PI / 3;
 	camera.ellipsoid = new BABYLON.Vector3(camSize, camSize, camSize);
 	camera.ellipsoidOffset = new BABYLON.Vector3(0, camSize, 0);
 	camera.checkCollisions = true;
@@ -88,6 +122,12 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	camera.keysRight.push(68) // d
 	camera.attachControl(canvas, true);
 
+	// Lights
+	const pl1 = new BABYLON.PointLight('pl1', ground.position.add(new BABYLON.Vector3(-groundWidth / 2, Math.max(groundWidth, groundHeight), -groundHeight / 2)), scene);
+	const pl2 = new BABYLON.PointLight('pl2', ground.position.add(new BABYLON.Vector3(groundWidth / 2, Math.max(groundWidth, groundHeight), groundHeight / 2)), scene);
+	pl1.intensity = pl2.intensity = .7;
+
+	// Return
 	return scene;
 }
 
@@ -95,7 +135,15 @@ window.addEventListener('DOMContentLoaded', () =>
 {
 	const canvas = document.querySelector('canvas');
 	const engine = new BABYLON.Engine(canvas, true);
-	const scene = createScene(canvas!, engine);
+	const scene = createScene(canvas!, engine, 10, 10);
+
+	const lineContainer = document.querySelector('#line-container');
+	for (let i = 0; i < 200; ++i)
+	{
+		const line = document.createElement('div');
+		line.classList.add('line');
+		lineContainer!.append(line);
+	}
 
 	engine.runRenderLoop(() => scene.render());
 	window.addEventListener('resize', () => engine.resize());
