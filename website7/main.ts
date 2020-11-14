@@ -7,6 +7,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	/* Light */
 	const light = new BABYLON.HemisphericLight("hemilight1", new BABYLON.Vector3(-1, 1, 0), scene);
 	light.groundColor = BABYLON.Color3.Red();
+	light.intensity = .7;
 
 	/* SolidParticleSystem */
 	const sps = new BABYLON.SolidParticleSystem('sps', scene);
@@ -45,6 +46,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 	const camera = new BABYLON.ArcRotateCamera('cam',
 	0, Math.PI / 3, 50,
 	camTarget!, scene);
+	camera.lowerBetaLimit = camera.upperBetaLimit = Math.PI / 3;
 
 	const anim = new BABYLON.Animation('anim', 'alpha', 17,
 	BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
@@ -58,10 +60,8 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 		value: Math.PI / 2
 	})
 	anim.setKeys(keys);
-
 	camera.animations = [anim];
-
-	scene.beginAnimation(camera, 0, 120, true);
+	scene.beginAnimation(camera, 0, 120, true, .25);
 
 	return scene;
 }
@@ -72,13 +72,7 @@ window.addEventListener('load', () =>
 	const engine = new BABYLON.Engine(canvas, true);
 	const scene = createScene(canvas, engine);
 
-	engine.runRenderLoop(() =>
-	{
-		scene.render();
-	});
+	engine.runRenderLoop(() => scene.render());
 
-	window.addEventListener('resize', () =>
-	{
-		engine.resize();
-	});
+	window.addEventListener('resize', () => engine.resize());
 });

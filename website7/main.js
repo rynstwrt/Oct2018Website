@@ -6,6 +6,7 @@ function createScene(canvas, engine) {
     /* Light */
     var light = new BABYLON.HemisphericLight("hemilight1", new BABYLON.Vector3(-1, 1, 0), scene);
     light.groundColor = BABYLON.Color3.Red();
+    light.intensity = .7;
     /* SolidParticleSystem */
     var sps = new BABYLON.SolidParticleSystem('sps', scene);
     var particle = BABYLON.MeshBuilder.CreateBox('particle', {}, scene);
@@ -32,6 +33,7 @@ function createScene(canvas, engine) {
     particle.dispose();
     /* Camera */
     var camera = new BABYLON.ArcRotateCamera('cam', 0, Math.PI / 3, 50, camTarget, scene);
+    camera.lowerBetaLimit = camera.upperBetaLimit = Math.PI / 3;
     var anim = new BABYLON.Animation('anim', 'alpha', 17, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
     var keys = [];
     keys.push({
@@ -44,17 +46,13 @@ function createScene(canvas, engine) {
     });
     anim.setKeys(keys);
     camera.animations = [anim];
-    scene.beginAnimation(camera, 0, 120, true);
+    scene.beginAnimation(camera, 0, 120, true, .25);
     return scene;
 }
 window.addEventListener('load', function () {
     var canvas = document.querySelector('canvas');
     var engine = new BABYLON.Engine(canvas, true);
     var scene = createScene(canvas, engine);
-    engine.runRenderLoop(function () {
-        scene.render();
-    });
-    window.addEventListener('resize', function () {
-        engine.resize();
-    });
+    engine.runRenderLoop(function () { return scene.render(); });
+    window.addEventListener('resize', function () { return engine.resize(); });
 });
