@@ -1,7 +1,6 @@
 // diffuse: basic color of object
 // groundColor: light in opposite direction color
 // specular: highlight color of object
-
 function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: number, cols: number)
 {
 	// Scene
@@ -24,11 +23,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 	const buildingUnit = 5;
 
 	const buildingMat = new BABYLON.StandardMaterial('buildingmat', scene);
-	const buildingTexture = new BABYLON.Texture('assets/building.jpg', scene);
-	buildingTexture.uScale = 1;
-	buildingTexture.vScale = 1;
-	buildingTexture.uAng = Math.PI / 2;
-	buildingMat.diffuseTexture = buildingTexture;
+	buildingMat.alpha = .9;
 
 	const spacing = 5;
 	let margin = 0;
@@ -55,7 +50,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 			building.position.y = height / 2;
 			building.position.z = currentZPosition;
 			building.checkCollisions = true;
-			//building.material = buildingMat;
+			building.material = buildingMat;
 			buildings.push(building);
 
 			currentXPosition += margin;
@@ -75,52 +70,143 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 	}, scene);
 
 	const groundMat = new BABYLON.StandardMaterial('groundmat', scene);
-	const groundTexture =  new BABYLON.Texture('assets/grass.jpg', scene);
-	groundMat.diffuseTexture = groundTexture;
-	groundTexture.uScale = groundWidth * .6;
-	groundTexture.vScale = groundHeight * .6;
+	groundMat.diffuseColor = BABYLON.Color3.Black();
 	ground.material = groundMat;
 
 	ground.position = new BABYLON.Vector3(groundWidth / 2, 0, groundHeight / 2).subtract(groundOffset);
 	ground.checkCollisions = true;
 
+	// Windows
+	const windowMat = new BABYLON.StandardMaterial('buildingmat', scene);
+	windowMat.diffuseColor = BABYLON.Color3.Black();
+
+	const windowWidth = buildingUnit / 4;
+	const windowHeight = buildingUnit / 2;
+	const windowDepth = buildingUnit / 100;
+	const windowMargin = buildingUnit / 50;
+
+	const wInc = windowWidth + windowMargin * 2;
+	const hInc = windowHeight + windowMargin * 2;
+
+	buildings.forEach(building =>
+	{
+		// const bWidth = building.scaling.x * buildingUnit;
+		// const bHeight = building.scaling.y * buildingUnit;
+		// const bDepth = building.scaling.z * buildingUnit;
+		const vw = building.getBoundingInfo().boundingBox.vectorsWorld;
+
+
+		let numWindowsHoriz, numWindowsVert;
+
+		// numWindowsHoriz = bDepth * 2 / wInc;
+		// numWindowsVert = bHeight * 2 / hInc;
+		// for (let i = 0; i < numWindowsHoriz; ++i)
+		// {
+		// 	for (let j = 0; j < numWindowsVert; ++j)
+		// 	{
+		// 		const w = BABYLON.MeshBuilder.CreateBox('window', {}, scene);
+		// 		w.material = windowMat;
+		// 		w.scaling = new BABYLON.Vector3(windowDepth, windowHeight, windowWidth);
+		// 		w.position = new BABYLON.Vector3(building.position.x, building.position.y + (bHeight / 2), building.position.z);
+		// 		//w.position = startPos.add(new BABYLON.Vector3(0, -j * hInc, i * wInc));
+		// 	}
+		// }
+
+	});
+
+
 	// Roads
 	const roads = [];
 	const roadWidth = buildingUnit / 1.25;
 
-	for (let i = 0; i < rows - 1; ++i)
+	const roadMat = new BABYLON.StandardMaterial('roadmat', scene);
+	const roadAnimation = new BABYLON.Animation('roadanimation', 'material.diffuseColor', 15,
+		BABYLON.Animation.ANIMATIONTYPE_COLOR3,
+		BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+
+	const keys = [];
+	const numKeys = 8;
+	const frames = 120;
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#FF0000')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#FFA500')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#FFFF00')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#00FF00')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#0000FF')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#4B0082')
+	});
+	keys.push({
+		frame: (frames / numKeys) * keys.length,
+		value: BABYLON.Color3.FromHexString('#FF0000')
+	});
+	roadAnimation.setKeys(keys);
+
+	for (let i = 0; i < rows; ++i)
 	{
 		const road = BABYLON.MeshBuilder.CreateGround('road',
 		{ width: roadWidth, height: groundHeight }, scene);
-		road.position = new BABYLON.Vector3(buildingUnit / 2, .001, groundHeight / 2).subtract(groundOffset);
+		road.position = new BABYLON.Vector3(buildingUnit / 2, .1, groundHeight / 2).subtract(groundOffset);
 		road.position = road.position.add(new BABYLON.Vector3(i * margin, 0, 0));
+		road.material = roadMat;
+		road.animations.push(roadAnimation);
+		scene.beginAnimation(road, 0, frames, true);
 		roads.push(road);
 	}
 
-	for (let i = 0; i < rows - 1; ++i)
+	for (let i = 0; i < rows; ++i)
 	{
 		const road = BABYLON.MeshBuilder.CreateGround('road',
 		{ width: groundWidth, height: roadWidth }, scene);
-		road.position = new BABYLON.Vector3(groundWidth / 2, .0011, buildingUnit / 2).subtract(groundOffset);
+		road.position = new BABYLON.Vector3(groundWidth / 2, .11, buildingUnit / 2).subtract(groundOffset);
 		road.position = road.position.add(new BABYLON.Vector3(0, 0, i * margin));
+		road.material = roadMat;
+		road.animations.push(roadAnimation);
+		scene.beginAnimation(road, 0, 210, false);
 		roads.push(road);
 	}
 
 	// Camera
-	const camSize = 1.1;
-	const camPos = roads[Math.floor(Math.random() * (roads.length - 1))].position.add(new BABYLON.Vector3(0, camSize, 0));
-	const camera = new BABYLON.UniversalCamera('camera', camPos, scene);
-	camera.speed = .25;
-	camera.fov = Math.PI / 3;
-	camera.ellipsoid = new BABYLON.Vector3(camSize, camSize, camSize);
-	camera.ellipsoidOffset = new BABYLON.Vector3(0, camSize, 0);
-	camera.checkCollisions = true;
-	camera.applyGravity = true;
-	camera.keysUp.push(87); // w
-	camera.keysLeft.push(65) // a
-	camera.keysDown.push(83); // s
-	camera.keysRight.push(68) // d
-	camera.attachControl(canvas, true);
+	let camera;
+	const debugCam = true;
+	if (debugCam)
+	{
+		camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 4, 150, ground.position, scene);
+		//camera = new BABYLON.ArcRotateCamera('camera', 0, 0, 400, ground.position, scene);
+		camera.attachControl(canvas, false);
+	}
+	else
+	{
+		const camSize = 1.1;
+		const camPos = roads[Math.floor(Math.random() * (roads.length - 1))].position.add(new BABYLON.Vector3(0, camSize, 0));
+		camera = new BABYLON.UniversalCamera('camera', camPos, scene);
+		camera.speed = .15;
+		camera.fov = Math.PI / 3;
+		camera.ellipsoid = new BABYLON.Vector3(camSize, camSize, camSize);
+		camera.ellipsoidOffset = new BABYLON.Vector3(0, camSize, 0);
+		camera.checkCollisions = true;
+		camera.applyGravity = true;
+		camera.keysUp.push(87); // w
+		camera.keysLeft.push(65) // a
+		camera.keysDown.push(83); // s
+		camera.keysRight.push(68) // d
+		camera.attachControl(canvas, false);
+	}
 
 	// Lights
 	const pl1 = new BABYLON.PointLight('pl1', ground.position.add(new BABYLON.Vector3(-groundWidth / 2, Math.max(groundWidth, groundHeight), -groundHeight / 2)), scene);
@@ -131,20 +217,44 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 	return scene;
 }
 
+function createBackground(container: HTMLDivElement, shapeSize: number, margin: number)
+{
+	const rows = Math.ceil(document.documentElement!.clientWidth / shapeSize);
+	const cols = Math.ceil(document.documentElement!.clientHeight / shapeSize);
+
+	for (let i = 0; i < rows; ++i)
+	{
+		for (let j = 0; j < cols; ++j)
+		{
+			const shape = document.createElement('div');
+			shape.classList.add('shape');
+
+			const x = (i * shapeSize) + (margin * 2 * (i + 1));
+			const y = (j * shapeSize) + (margin * 2 * (j + 1));
+			shape.style.left = `${x}px`;
+			shape.style.top = `${y}px`;
+
+			container!.append(shape);
+		}
+	}
+}
+
 window.addEventListener('DOMContentLoaded', () =>
 {
 	const canvas = document.querySelector('canvas');
 	const engine = new BABYLON.Engine(canvas, true);
 	const scene = createScene(canvas!, engine, 10, 10);
 
-	const lineContainer = document.querySelector('#line-container');
-	for (let i = 0; i < 200; ++i)
-	{
-		const line = document.createElement('div');
-		line.classList.add('line');
-		lineContainer!.append(line);
-	}
+	const shapeContainer = <HTMLDivElement> document.querySelector('#bg-container');
+	const shapeSize = parseInt(getComputedStyle(document.documentElement!).getPropertyValue('--shape-size'));
+	const margin = 2;
+
+	createBackground(shapeContainer, shapeSize, margin);
 
 	engine.runRenderLoop(() => scene.render());
-	window.addEventListener('resize', () => engine.resize());
+	window.addEventListener('resize', () => {
+		engine.resize();
+		while (shapeContainer.firstChild) shapeContainer.firstChild.remove();
+		createBackground(shapeContainer, shapeSize, margin);
+	});
 });
