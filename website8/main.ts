@@ -23,7 +23,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 	const buildingUnit = 5;
 
 	const buildingMat = new BABYLON.StandardMaterial('buildingmat', scene);
-	buildingMat.alpha = .9;
+	buildingMat.diffuseColor = BABYLON.Color3.White();
 
 	const spacing = 5;
 	let margin = 0;
@@ -59,6 +59,42 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 		currentZPosition += margin;
 	}
 
+	// Corner Things
+	const cornerMat = new BABYLON.StandardMaterial('cornermat', scene);
+	cornerMat.diffuseColor = BABYLON.Color3.Black();
+
+	const cornerAnim = new BABYLON.Animation('corneranim', 'scaling', 60,
+	BABYLON.Animation.ANIMATIONTYPE_VECTOR3,
+	BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+
+	const cornerKeys = [];
+	cornerKeys.push({
+		frame: 0,
+		value: new BABYLON.Vector3(1, 1, 1)
+	})
+	cornerKeys.push({
+		frame: 60,
+		value: new BABYLON.Vector3(2, 2, 2)
+	});
+	cornerKeys.push({
+		frame: 120,
+		value: new BABYLON.Vector3(1, 1, 1)
+	})
+	cornerAnim.setKeys(cornerKeys);
+
+	buildings.forEach(building =>
+	{
+		const vw = building.getBoundingInfo().boundingBox.vectorsWorld;
+		vw.forEach(vector =>
+		{
+			const corner = BABYLON.MeshBuilder.CreateSphere('box', { diameter: .25 }, scene);
+			corner.position = building.position.add(vector);
+			corner.animations.push(cornerAnim);
+			scene.beginAnimation(corner, 0, 120, true);
+			corner.material = cornerMat;
+		});
+	});
+
 	// Ground
 	const groundOffset = new BABYLON.Vector3(buildingUnit / 2 + margin / 2, 0, buildingUnit / 2 + margin / 2);
 	let groundWidth = rows * margin;
@@ -76,45 +112,6 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 	ground.position = new BABYLON.Vector3(groundWidth / 2, 0, groundHeight / 2).subtract(groundOffset);
 	ground.checkCollisions = true;
 
-	// Windows
-	const windowMat = new BABYLON.StandardMaterial('buildingmat', scene);
-	windowMat.diffuseColor = BABYLON.Color3.Black();
-
-	const windowWidth = buildingUnit / 4;
-	const windowHeight = buildingUnit / 2;
-	const windowDepth = buildingUnit / 100;
-	const windowMargin = buildingUnit / 50;
-
-	const wInc = windowWidth + windowMargin * 2;
-	const hInc = windowHeight + windowMargin * 2;
-
-	buildings.forEach(building =>
-	{
-		// const bWidth = building.scaling.x * buildingUnit;
-		// const bHeight = building.scaling.y * buildingUnit;
-		// const bDepth = building.scaling.z * buildingUnit;
-		const vw = building.getBoundingInfo().boundingBox.vectorsWorld;
-
-
-		let numWindowsHoriz, numWindowsVert;
-
-		// numWindowsHoriz = bDepth * 2 / wInc;
-		// numWindowsVert = bHeight * 2 / hInc;
-		// for (let i = 0; i < numWindowsHoriz; ++i)
-		// {
-		// 	for (let j = 0; j < numWindowsVert; ++j)
-		// 	{
-		// 		const w = BABYLON.MeshBuilder.CreateBox('window', {}, scene);
-		// 		w.material = windowMat;
-		// 		w.scaling = new BABYLON.Vector3(windowDepth, windowHeight, windowWidth);
-		// 		w.position = new BABYLON.Vector3(building.position.x, building.position.y + (bHeight / 2), building.position.z);
-		// 		//w.position = startPos.add(new BABYLON.Vector3(0, -j * hInc, i * wInc));
-		// 	}
-		// }
-
-	});
-
-
 	// Roads
 	const roads = [];
 	const roadWidth = buildingUnit / 1.25;
@@ -124,38 +121,17 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 		BABYLON.Animation.ANIMATIONTYPE_COLOR3,
 		BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
 
-	const keys = [];
-	const numKeys = 8;
+	const roadColors = ['#FF0000', '#FFA500', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#FF0000'];
+	const roadKeys = [];
 	const frames = 120;
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#FF0000')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#FFA500')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#FFFF00')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#00FF00')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#0000FF')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#4B0082')
-	});
-	keys.push({
-		frame: (frames / numKeys) * keys.length,
-		value: BABYLON.Color3.FromHexString('#FF0000')
-	});
-	roadAnimation.setKeys(keys);
+	for (let i = 0; i < roadColors.length; ++i)
+	{
+		roadKeys.push({
+			frame: (frames / roadColors.length) * i,
+			value: BABYLON.Color3.FromHexString(roadColors[i])
+		});
+	}
+	roadAnimation.setKeys(roadKeys);
 
 	for (let i = 0; i < rows; ++i)
 	{
@@ -183,10 +159,10 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine, rows: nu
 
 	// Camera
 	let camera;
-	const debugCam = true;
+	const debugCam = false;
 	if (debugCam)
 	{
-		camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 4, 150, ground.position, scene);
+		camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 4, Math.PI / 4, 150, ground.position, scene);
 		//camera = new BABYLON.ArcRotateCamera('camera', 0, 0, 400, ground.position, scene);
 		camera.attachControl(canvas, false);
 	}
