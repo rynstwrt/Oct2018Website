@@ -24,23 +24,19 @@ body
 	font-family: 'Raleway', sans-serif;
 }
 
-#content-box
+canvas
 {
-	width: 90vmin;
-	height: 90vmin;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
+	$size: 75vmin;
+	width: $size;
+	height: $size;
 }
 
 #links
 {
 	position: relative;
-	top: -20vw;
+	top: -15rem;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 
 	a
 	{

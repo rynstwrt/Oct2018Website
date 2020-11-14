@@ -1,94 +1,40 @@
-let container;
-let width;
-let height;
-let camera;
-
-function init()
-{
-	container = document.querySelector('#content-box');
-	width = container.offsetWidth;
-	height = container.offsetHeight;
-
-	const scene = new THREE.Scene();
-	camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
-	const renderer = new THREE.WebGLRenderer( { alpha: true } );
-
-	const points = getPoints(50, 10);
-	const material = new THREE.LineBasicMaterial( { color: 0xff7866 } );
-
-	for (let i = 0; i < points.length - 1; ++i)
-	{
-		const thisAndNext = [points[i], points[i + 1]];
-		const geo = new THREE.BufferGeometry().setFromPoints(thisAndNext);
-		const line = new THREE.Line(geo, material);
-		scene.add(line);
-	}
-
-	const thisAndNext = [points[points.length - 1], points[0]];
-	const geo = new THREE.BufferGeometry().setFromPoints(thisAndNext);
-	const line = new THREE.Line(geo, material);
-	scene.add(line);
-
-	camera.position.z = 25;
-	camera.position.x = 0;
-	camera.position.y = 0;
-
-	camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-	renderer.setSize(width, height);
-	container.appendChild(renderer.domElement);
-	renderer.render(scene, camera);
-
-	window.requestAnimationFrame(() =>
-	{
-		update(renderer, scene);
-	});
+"use strict";
+function createScene(canvas, engine) {
+    var scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+    var sphere = BABYLON.MeshBuilder.CreateIcoSphere('sphere', {
+        radius: 100,
+        subdivisions: 1
+    }, scene);
+    var sphereMat = new BABYLON.StandardMaterial('spheremat', scene);
+    sphereMat.emissiveColor = BABYLON.Color3.FromHexString('#96f28a');
+    sphereMat.wireframe = true;
+    sphereMat.alpha = .5;
+    sphere.material = sphereMat;
+    var cameraAnimY = new BABYLON.Animation('camanimy', 'rotation.y', 60, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+    var cameraAnimZ = new BABYLON.Animation('camanimz', 'rotation.z', 60, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+    var cameraKeys = [];
+    cameraKeys.push({
+        frame: 0,
+        value: 0
+    });
+    cameraKeys.push({
+        frame: 120,
+        value: Math.PI * 2
+    });
+    cameraAnimY.setKeys(cameraKeys);
+    cameraAnimZ.setKeys(cameraKeys);
+    sphere.animations.push(cameraAnimY);
+    sphere.animations.push(cameraAnimZ);
+    scene.beginAnimation(sphere, 0, 120, true, .025);
+    var camera = new BABYLON.ArcRotateCamera('camera', 0, Math.PI / 2, 300, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, false);
+    return scene;
 }
-
-function getPoints(amount, range)
-{
-	const points = [];
-
-	for (let i = 0; i < amount; ++i)
-	{
-		const min = -range;
-		const max = range;
-		const x = Math.random() * (max - min) + min;
-		const y = Math.random() * (max - min) + min;
-		const z = Math.random() * (max - min) + min;
-		points.push(new THREE.Vector3(x, y, z));
-	}
-
-	return points;
-}
-
-const radius = 35;
-let angle = 0;
-function update(renderer, scene)
-{
-	camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
-	camera.position.x = radius * Math.sin(angle);
-	camera.position.z = radius * Math.cos(angle);
-	angle += .001;
-
-	camera.lookAt(scene.position);
-
-	renderer.setSize(width, height);
-	renderer.render(scene, camera);
-
-	window.requestAnimationFrame(() =>
-	{
-		update(renderer, scene, camera);
-	});
-}
-
-window.addEventListener('load', () =>
-{
-	init();
-});
-
-window.addEventListener('resize', () =>
-{
-	width = container.offsetWidth;
-	height = container.offsetHeight;
+window.addEventListener('DOMContentLoaded', function () {
+    var canvas = document.querySelector('canvas');
+    var engine = new BABYLON.Engine(canvas, true);
+    var scene = createScene(canvas, engine);
+    engine.runRenderLoop(function () { return scene.render(); });
+    window.addEventListener('resize', function () { return engine.resize(); });
 });
