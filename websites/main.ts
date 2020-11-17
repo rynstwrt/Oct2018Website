@@ -15,7 +15,7 @@ function createScene(canvas: HTMLCanvasElement, engine: BABYLON.Engine)
 
 	// Camera
 	const camera = new BABYLON.ArcRotateCamera('camera', 0, Math.PI / 2, 300, BABYLON.Vector3.Zero(), scene);
-	camera.attachControl(canvas, false);
+	//camera.attachControl(canvas, false);
 
 	const cameraAnimY = new BABYLON.Animation('cameraanimy', 'alpha', 60,
 	BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE);
