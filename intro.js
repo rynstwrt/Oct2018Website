@@ -1,4 +1,4 @@
-const skipIntro = true;
+const skipIntro = false;
 
 const intro = document.getElementById("intro");
 const screw = document.getElementById("screw-round");
