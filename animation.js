@@ -12,7 +12,7 @@ function createScene()
     shapeMat.wireframe = true;
 
     const camera = new BABYLON.ArcRotateCamera("camera", 0, 0, 20, BABYLON.Vector3.Zero());
-    // camera.attachControl(canvas, true);
+    camera.attachControl(canvas, true);
 
     return scene;
 }
