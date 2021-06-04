@@ -128,7 +128,9 @@ header
         text-align: center;
 
         a {
+            width: 100%;
             text-transform: uppercase;
+
             &:hover {
                 text-decoration: underline;
             }
