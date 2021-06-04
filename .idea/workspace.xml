@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8aba529-020c-4a59-8461-b26b3faf6afa" name="Default Changelist" comment="" />
+    <list default="true" id="a8aba529-020c-4a59-8461-b26b3faf6afa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/contact.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/contact.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/home.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/projects.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/projects.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/projects.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/babylon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/hamburgermenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/babylon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hamburgermenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects.scss" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +57,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -57,11 +87,15 @@
       <option name="presentableId" value="Default" />
       <updated>1622767840083</updated>
       <workItem from="1622767843661" duration="4286000" />
-      <workItem from="1622772275431" duration="506000" />
+      <workItem from="1622772275431" duration="523000" />
+      <workItem from="1622772881674" duration="317000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
