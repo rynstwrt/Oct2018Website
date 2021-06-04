@@ -118,44 +118,22 @@ header
     }
 }
 
-#projects
-{
+#projects {
     width: 300px;
     margin: 0 auto;
     padding: 1rem;
 
-    li
-    {
-        display: flex;
-        align-items: center;
+    li{
         margin: 1rem 0;
+        text-align: center;
 
-<<<<<<< HEAD:css/projects.scss
         a {
             width: 100%;
             text-transform: uppercase;
 
             &:hover {
-=======
-        a
-        {
-            text-transform: uppercase;
-
-            &:hover
-            {
->>>>>>> parent of 00659f1 (Start Updating):projects.scss
                 text-decoration: underline;
             }
-        }
-
-        img
-        {
-            margin-right: 1rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            object-fit: cover;
-            filter: brightness(50%);
         }
     }
 }

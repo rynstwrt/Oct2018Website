@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="a8aba529-020c-4a59-8461-b26b3faf6afa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/projects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/projects.scss" afterDir="false" />
     </list>
-=======
-    <list default="true" id="a8aba529-020c-4a59-8461-b26b3faf6afa" name="Default Changelist" comment="" />
->>>>>>> parent of 00659f1 (Start Updating)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +42,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -76,17 +73,16 @@
       <option name="presentableId" value="Default" />
       <updated>1622767840083</updated>
       <workItem from="1622767843661" duration="4286000" />
-<<<<<<< HEAD
       <workItem from="1622772275431" duration="523000" />
       <workItem from="1622772881674" duration="501000" />
       <workItem from="1622773410290" duration="338000" />
-=======
-      <workItem from="1622772275431" duration="506000" />
->>>>>>> parent of 00659f1 (Start Updating)
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
