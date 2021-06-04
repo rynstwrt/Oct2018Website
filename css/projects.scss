@@ -118,26 +118,32 @@ header
     }
 }
 
-#projects {
+#projects
+{
     width: 300px;
     margin: 0 auto;
     padding: 1rem;
-    list-style: disc;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    li
+    {
+        margin: .25rem 0;
 
-    li{
-        margin: 1rem 0;
-        text-align: center;
-
-        a {
+        a
+        {
+            text-align: center;
             text-transform: uppercase;
-            margin: 0 auto;
 
-            &:hover {
+            &:hover
+            {
                 text-decoration: underline;
             }
         }
     }
+
 }
 
 @media only screen and (min-width: 600px)
