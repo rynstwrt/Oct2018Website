@@ -130,12 +130,20 @@ header
         align-items: center;
         margin: 1rem 0;
 
+<<<<<<< HEAD:css/projects.scss
+        a {
+            width: 100%;
+            text-transform: uppercase;
+
+            &:hover {
+=======
         a
         {
             text-transform: uppercase;
 
             &:hover
             {
+>>>>>>> parent of 00659f1 (Start Updating):projects.scss
                 text-decoration: underline;
             }
         }
