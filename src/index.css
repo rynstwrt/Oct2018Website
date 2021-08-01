@@ -105,12 +105,12 @@ button:hover
     padding: .6rem 1.5rem;
     transition: box-shadow .15s ease-in-out;
     box-shadow: 0 0 5px rgba(0, 0, 0, .15);
-    margin: .5rem 0;
+    margin: .75rem 0;
 }
 
 .card:hover
 {
-    box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .45);
 }
 
 .project-card-img-container

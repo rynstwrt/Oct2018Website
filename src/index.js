@@ -135,7 +135,9 @@ function ProjectCard(props)
 function ContactCard(props)
 {
     return (
-        <div className={"card use-pointer"} onClick={() => window.open(props.url, "__blank")}>
+        <div className={"card use-pointer"}
+             onClick={() => window.open(props.url, "__blank")}
+             style={{ margin: ".5rem 0" }}>
             <LineIcon name={props.iconName} />
             <p>{props.text}</p>
         </div>
