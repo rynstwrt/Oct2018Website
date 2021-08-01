@@ -1,0 +1,86 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    height: 100%;
+}
+
+body
+{
+    background-color: #F3F4F5;
+    color: #273036;
+    font-family: "Roboto", sans-serif;
+    padding: .75rem 1rem;
+}
+
+h1
+{
+    font-family: "Major Mono Display", monospace;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+ul
+{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+li
+{
+    margin: .25rem 0;
+}
+
+@media only screen and (min-width: 600px)
+{
+    ul
+    {
+        flex-direction: row;
+    }
+
+    li
+    {
+        margin: 0 .6rem;
+    }
+}
+
+button
+{
+    font-family: inherit;
+    font-size: inherit;
+    border: 0;
+    border-bottom: 1px solid rgba(39, 48, 54, 0);
+    transition: border-bottom-color .1s ease-in-out;
+}
+
+button:hover
+{
+    border-bottom: 1px solid rgba(39, 48, 54, 1);
+}
+
+.use-pointer
+{
+    cursor: pointer;
+}
+
+.unselectable
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
