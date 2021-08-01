@@ -1,6 +1,7 @@
 /** IMPORTS **/
 import React from "react"
 import ReactDOM from "react-dom"
+import LineIcon from "react-lineicons"
 import "./index.css"
 
 
@@ -10,7 +11,7 @@ const pages = {
     PROJECTS: "PROJECTS",
     CONTACT: "CONTACT"
 }
-const startPage = pages.PROJECTS
+const startPage = pages.CONTACT
 
 
 /** HEADER **/
@@ -87,7 +88,34 @@ function PageContent(props)
     if (props.page === pages.CONTACT)
     {
         return (
-            <h2>Contact Page</h2>
+            <div className={"card-container"}>
+                <div className={"cards"}>
+                    <ContactCard
+                        text={"MY E-MAIL"}
+                        url={"mailto:ryanstewartalex@gmail.com"}
+                        iconName={"envelope"} />
+                    <ContactCard
+                        text={"MY GITHUB"}
+                        url={"https://github.com/rynstwrt"}
+                        iconName={"github"} />
+                    <ContactCard
+                        text={"MY TWITTER"}
+                        url={"https://twitter.com/rynstwrt"}
+                        iconName={"twitter"} />
+                    <ContactCard
+                        text={"MY INSTAGRAM"}
+                        url={"https://instagram.com/rynstwrt"}
+                        iconName={"instagram"} />
+                    <ContactCard
+                        text={"MY UNSPLASH"}
+                        url={"https://unsplash.com/@rynstwrt"}
+                        iconName={"unsplash"} />
+                    <ContactCard
+                        text={"MY CODEPEN"}
+                        url={"https://codepen.io/ryanstewartalex"}
+                        iconName={"codepen"} />
+                </div>
+            </div>
         )
     }
 }
@@ -98,6 +126,17 @@ function ProjectCard(props)
     return (
         <div className={"card use-pointer"} onClick={() => window.open(props.url, "__blank")}>
             <div className={"project-card-img-container"} style={{ backgroundImage: `url(${props.imageSrc})` }} />
+            <p>{props.text}</p>
+        </div>
+    )
+}
+
+// ContactCard component
+function ContactCard(props)
+{
+    return (
+        <div className={"card use-pointer"} onClick={() => window.open(props.url, "__blank")}>
+            <LineIcon name={props.iconName} />
             <p>{props.text}</p>
         </div>
     )
