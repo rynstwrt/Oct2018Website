@@ -1,14 +1,16 @@
+/** IMPORTS **/
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 
 
-/** ENUMS **/
+/** CONSTANTS **/
 const pages = {
     HOME: "HOME",
     PROJECTS: "PROJECTS",
     CONTACT: "CONTACT"
 }
+const startPage = pages.PROJECTS
 
 
 /** HEADER **/
@@ -59,7 +61,26 @@ function PageContent(props)
     if (props.page === pages.PROJECTS)
     {
         return (
-            <h2>Projects Page</h2>
+            <div className={"card-container"}>
+                <div className={"cards"}>
+                    <ProjectCard
+                        text={"CHORD PROGRESSION GENERATOR"}
+                        url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
+                        imageSrc={"chordgenerator.png"} />
+                    <ProjectCard
+                        text={"CSS ANIMATION GALLERY"}
+                        url={"https://rynstwrt.github.io/CSS-Animations/"}
+                        imageSrc={"animationgallery.png"} />
+                    <ProjectCard
+                        text={"MY OTHER WEBSITE"}
+                        url={"https://www.ryanstewart.gay/"}
+                        imageSrc={"otherwebsite.png"} />
+                    <ProjectCard
+                        text={"BLOCKY WEBSITE DESIGN CONCEPT"}
+                        url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
+                        imageSrc={"blockywebsite.png"} />
+                </div>
+            </div>
         )
     }
 
@@ -69,9 +90,16 @@ function PageContent(props)
             <h2>Contact Page</h2>
         )
     }
+}
 
+// ProjectCard component
+function ProjectCard(props)
+{
     return (
-        <h3>Unknown page: "{props.page}"</h3>
+        <div className={"card use-pointer"} onClick={() => window.open(props.url, "__blank")}>
+            <div className={"project-card-img-container"} style={{ backgroundImage: `url(${props.imageSrc})` }} />
+            <p>{props.text}</p>
+        </div>
     )
 }
 
@@ -84,7 +112,7 @@ class Website extends React.Component
     {
         super(props)
 
-        this.state = { page: pages.HOME }
+        this.state = { page: startPage }
 
         this.changeDisplayingPage = this.changeDisplayingPage.bind(this)
     }
