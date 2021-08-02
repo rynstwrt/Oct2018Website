@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee811a3d-5bc1-4797-8780-0facc69385df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/console-art/ahegao.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/console-art/amogus.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/console-art/horny.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/console-art/imposter.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/console-art/squidward.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/consoleart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/console-art/horny.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/console-art/uwu.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627851086412</updated>
-      <workItem from="1627851087902" duration="13485000" />
+      <workItem from="1627851087902" duration="13583000" />
     </task>
     <servers />
   </component>
