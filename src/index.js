@@ -1,21 +1,15 @@
 /** IMPORTS **/
 import React from "react"
 import ReactDOM from "react-dom"
-import LineIcon from "react-lineicons"
-import {
-    Engine,
-    Scene,
-    ArcRotateCamera,
-    MeshBuilder,
-    StandardMaterial,
-    Vector3,
-    Color4
-} from "babylonjs"
+import { Engine, Scene, ArcRotateCamera, MeshBuilder,
+    StandardMaterial, Vector3, Color4 } from "babylonjs"
+import { makeStyles } from "@material-ui/core/styles"
+import { Button, Grid, Container } from "@material-ui/core"
 import { ConsoleArt } from "./consoleart"
 import "./index.css"
 
 
-/** SHOW THE CONSOLE ART **/
+/** CONSOLE ART **/
 const consoleArt = new ConsoleArt("console-art")
 consoleArt.showRandomConsoleArt()
 
@@ -26,6 +20,7 @@ const pages = {
     PROJECTS: "PROJECTS",
     CONTACT: "CONTACT"
 }
+const smallerCardImageSize = "40px"
 
 
 /** HEADER **/
@@ -64,75 +59,6 @@ function PageButton(props)
 
 /** PAGE CONTENT **/
 // PageContent component
-// function PageContent(props)
-// {
-//     if (props.page === pages.HOME)
-//     {
-//         return (
-//             <canvas id={"babylon-canvas"} onLoad={attachBabylonJS()} />
-//         )
-//     }
-//
-//     if (props.page === pages.PROJECTS)
-//     {
-//         return (
-//             <div className={"card-container"}>
-//                 <div className={"cards"}>
-//                     <ProjectCard
-//                         text={"CHORD PROGRESSION GENERATOR"}
-//                         url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
-//                         imageSrc={"chordgenerator.png"} />
-//                     <ProjectCard
-//                         text={"CSS ANIMATION GALLERY"}
-//                         url={"https://rynstwrt.github.io/CSS-Animations/"}
-//                         imageSrc={"animationgallery.png"} />
-//                     <ProjectCard
-//                         text={"MY OTHER WEBSITE"}
-//                         url={"https://www.ryanstewart.gay/"}
-//                         imageSrc={"otherwebsite.png"} />
-//                     <ProjectCard
-//                         text={"BLOCKY WEBSITE DESIGN CONCEPT"}
-//                         url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
-//                         imageSrc={"blockywebsite.png"} />
-//                 </div>
-//             </div>
-//         )
-//     }
-//
-//     if (props.page === pages.CONTACT)
-//     {
-//         return (
-//             <div className={"card-container"}>
-//                 <div className={"cards"}>
-//                     <ContactCard
-//                         text={"MY E-MAIL"}
-//                         url={"mailto:ryanstewartalex@gmail.com"}
-//                         iconName={"envelope"} />
-//                     <ContactCard
-//                         text={"MY GITHUB"}
-//                         url={"https://github.com/rynstwrt"}
-//                         iconName={"github"} />
-//                     <ContactCard
-//                         text={"MY TWITTER"}
-//                         url={"https://twitter.com/rynstwrt"}
-//                         iconName={"twitter"} />
-//                     <ContactCard
-//                         text={"MY INSTAGRAM"}
-//                         url={"https://instagram.com/rynstwrt"}
-//                         iconName={"instagram"} />
-//                     <ContactCard
-//                         text={"MY UNSPLASH"}
-//                         url={"https://unsplash.com/@rynstwrt"}
-//                         iconName={"unsplash"} />
-//                     <ContactCard
-//                         text={"MY CODEPEN"}
-//                         url={"https://codepen.io/ryanstewartalex"}
-//                         iconName={"codepen"} />
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
 class PageContent extends React.Component
 {
     constructor(props)
@@ -175,61 +101,80 @@ class PageContent extends React.Component
         if (this.props.page === pages.PROJECTS)
         {
             return (
-                <div className={"card-container"}>
-                    <div className={"cards"}>
-                        <ProjectCard
-                            text={"CHORD PROGRESSION GENERATOR"}
-                            url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
-                            imageSrc={"chordgenerator.png"} />
-                        <ProjectCard
-                            text={"CSS ANIMATION GALLERY"}
-                            url={"https://rynstwrt.github.io/CSS-Animations/"}
-                            imageSrc={"animationgallery.png"} />
-                        <ProjectCard
-                            text={"MY OTHER WEBSITE"}
-                            url={"https://www.ryanstewart.gay/"}
-                            imageSrc={"otherwebsite.png"} />
-                        <ProjectCard
-                            text={"BLOCKY WEBSITE DESIGN CONCEPT"}
-                            url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
-                            imageSrc={"blockywebsite.png"} />
-                    </div>
-                </div>
+                <Container maxWidth={"xs"}>
+                    <Grid container spacing={3} direction={"column"} >
+                        <Grid item >
+                            <LinkCard
+                                text={"CHORD PROGRESSION GENERATOR"}
+                                url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
+                                imgSrc={"project-images/chordgenerator.png"} />
+                        </Grid>
+                        <Grid item>
+                            <LinkCard
+                                text={"CSS ANIMATION GALLERY"}
+                                url={"https://rynstwrt.github.io/CSS-Animations/"}
+                                imgSrc={"project-images/animationgallery.png"} />
+                        </Grid>
+                        <Grid item>
+                            <LinkCard
+                                text={"MY OTHER WEBSITE"}
+                                url={"https://www.ryanstewart.gay/"}
+                                imgSrc={"project-images/otherwebsite.png"} />
+                        </Grid>
+                        <Grid item>
+                            <LinkCard
+                                text={"BLOCKY WEBSITE DESIGN CONCEPT"}
+                                url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
+                                imgSrc={"project-images/blockywebsite.png"} />
+                        </Grid>
+                    </Grid>
+                </Container>
             )
         }
 
         if (this.props.page === pages.CONTACT)
         {
-            return (
-                <div className={"card-container"}>
-                    <div className={"cards"}>
-                        <ContactCard
+            return <Container maxWidth={"xs"}>
+                <Grid container spacing={3} direction={"column"} >
+                    <Grid item >
+                        <LinkCard
                             text={"MY E-MAIL"}
                             url={"mailto:ryanstewartalex@gmail.com"}
-                            iconName={"envelope"} />
-                        <ContactCard
+                            imgSrc={"icons/lineicons/envelope.png"} />
+                    </Grid>
+
+                    <Grid item >
+                        <LinkCard
                             text={"MY GITHUB"}
                             url={"https://github.com/rynstwrt"}
-                            iconName={"github"} />
-                        <ContactCard
+                            imgSrc={"icons/lineicons/github-original.png"} />
+                    </Grid>
+                    <Grid item>
+                        <LinkCard
                             text={"MY TWITTER"}
                             url={"https://twitter.com/rynstwrt"}
-                            iconName={"twitter"} />
-                        <ContactCard
+                            imgSrc={"icons/lineicons/twitter-filled.png"} />
+                    </Grid>
+                    <Grid item >
+                        <LinkCard
                             text={"MY INSTAGRAM"}
                             url={"https://instagram.com/rynstwrt"}
-                            iconName={"instagram"} />
-                        <ContactCard
+                            imgSrc={"icons/lineicons/instagram-filled.png"} />
+                    </Grid>
+                    <Grid item >
+                        <LinkCard
                             text={"MY UNSPLASH"}
                             url={"https://unsplash.com/@rynstwrt"}
-                            iconName={"unsplash"} />
-                        <ContactCard
+                            imgSrc={"icons/lineicons/unsplash.png"} />
+                    </Grid>
+                    <Grid item >
+                        <LinkCard
                             text={"MY CODEPEN"}
                             url={"https://codepen.io/ryanstewartalex"}
-                            iconName={"codepen"} />
-                    </div>
-                </div>
-            )
+                            imgSrc={"icons/lineicons/codepen.png"} />
+                    </Grid>
+                </Grid>
+            </Container>
         }
     }
 
@@ -275,27 +220,49 @@ class PageContent extends React.Component
 
 }
 
-// ProjectCard component
-function ProjectCard(props)
-{
-    return (
-        <div className={"card use-pointer"} onClick={() => window.open(props.url, "__blank")}>
-            <div className={"project-card-img-container"} style={{ backgroundImage: `url(${props.imageSrc})` }} />
-            <p>{props.text}</p>
-        </div>
-    )
-}
+// LinkCard style
+const usesCardStyle = makeStyles(() =>
+({
+    root:
+    {
+        backgroundColor: "#FEFEFE",
+        padding: ".5rem 1.25rem",
+        fontFamily: "Roboto, sans-serif",
+        fontSize: ".95rem",
 
-// ContactCard component
-function ContactCard(props)
+        "&:hover":
+        {
+            backgroundColor: "#EEE"
+        }
+    }
+}))
+
+// LinkCard component
+function LinkCard(props)
 {
+    let cardImageStyle = {
+        backgroundImage: `url("${props.imgSrc}")`,
+    }
+
+    if (props.imgSrc.toString().startsWith("icons/lineicons/"))
+    {
+        cardImageStyle.minWidth = smallerCardImageSize
+        cardImageStyle.width = smallerCardImageSize
+        cardImageStyle.height = smallerCardImageSize
+        cardImageStyle.borderRadius = "0"
+    }
+
     return (
-        <div className={"card use-pointer"}
-             onClick={() => window.open(props.url, "__blank")}
-             style={{ margin: ".5rem 0" }}>
-            <LineIcon name={props.iconName} />
-            <p>{props.text}</p>
-        </div>
+        <Button className={usesCardStyle().root}
+                variant={"contained"}
+                color={"default"}
+                fullWidth={true}
+                onClick={() => { window.open(props.url, "__blank") }}>
+            <div className={"card-content"}>
+                <div className={"card-image"} style={cardImageStyle} />
+                <p>{props.text}</p>
+            </div>
+        </Button>
     )
 }
 
@@ -308,7 +275,7 @@ class Website extends React.Component
     {
         super(props)
 
-        this.state = { page: pages.HOME }
+        this.state = { page: pages.CONTACT }
 
         this.changeDisplayingPage = this.changeDisplayingPage.bind(this)
     }
