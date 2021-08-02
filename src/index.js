@@ -275,7 +275,7 @@ class Website extends React.Component
     {
         super(props)
 
-        this.state = { page: pages.CONTACT }
+        this.state = { page: pages.HOME }
 
         this.changeDisplayingPage = this.changeDisplayingPage.bind(this)
     }
