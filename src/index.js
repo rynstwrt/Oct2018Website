@@ -2,16 +2,30 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import LineIcon from "react-lineicons"
+import {
+    Engine,
+    Scene,
+    ArcRotateCamera,
+    MeshBuilder,
+    StandardMaterial,
+    Vector3,
+    Color4
+} from "babylonjs"
+import { ConsoleArt } from "./consoleart"
 import "./index.css"
 
 
-/** CONSTANTS **/
+/** SHOW THE CONSOLE ART **/
+const consoleArt = new ConsoleArt("console-art")
+consoleArt.showRandomConsoleArt()
+
+
+/** VARIABLES **/
 const pages = {
     HOME: "HOME",
     PROJECTS: "PROJECTS",
     CONTACT: "CONTACT"
 }
-const startPage = pages.CONTACT
 
 
 /** HEADER **/
@@ -50,74 +64,215 @@ function PageButton(props)
 
 /** PAGE CONTENT **/
 // PageContent component
-function PageContent(props)
+// function PageContent(props)
+// {
+//     if (props.page === pages.HOME)
+//     {
+//         return (
+//             <canvas id={"babylon-canvas"} onLoad={attachBabylonJS()} />
+//         )
+//     }
+//
+//     if (props.page === pages.PROJECTS)
+//     {
+//         return (
+//             <div className={"card-container"}>
+//                 <div className={"cards"}>
+//                     <ProjectCard
+//                         text={"CHORD PROGRESSION GENERATOR"}
+//                         url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
+//                         imageSrc={"chordgenerator.png"} />
+//                     <ProjectCard
+//                         text={"CSS ANIMATION GALLERY"}
+//                         url={"https://rynstwrt.github.io/CSS-Animations/"}
+//                         imageSrc={"animationgallery.png"} />
+//                     <ProjectCard
+//                         text={"MY OTHER WEBSITE"}
+//                         url={"https://www.ryanstewart.gay/"}
+//                         imageSrc={"otherwebsite.png"} />
+//                     <ProjectCard
+//                         text={"BLOCKY WEBSITE DESIGN CONCEPT"}
+//                         url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
+//                         imageSrc={"blockywebsite.png"} />
+//                 </div>
+//             </div>
+//         )
+//     }
+//
+//     if (props.page === pages.CONTACT)
+//     {
+//         return (
+//             <div className={"card-container"}>
+//                 <div className={"cards"}>
+//                     <ContactCard
+//                         text={"MY E-MAIL"}
+//                         url={"mailto:ryanstewartalex@gmail.com"}
+//                         iconName={"envelope"} />
+//                     <ContactCard
+//                         text={"MY GITHUB"}
+//                         url={"https://github.com/rynstwrt"}
+//                         iconName={"github"} />
+//                     <ContactCard
+//                         text={"MY TWITTER"}
+//                         url={"https://twitter.com/rynstwrt"}
+//                         iconName={"twitter"} />
+//                     <ContactCard
+//                         text={"MY INSTAGRAM"}
+//                         url={"https://instagram.com/rynstwrt"}
+//                         iconName={"instagram"} />
+//                     <ContactCard
+//                         text={"MY UNSPLASH"}
+//                         url={"https://unsplash.com/@rynstwrt"}
+//                         iconName={"unsplash"} />
+//                     <ContactCard
+//                         text={"MY CODEPEN"}
+//                         url={"https://codepen.io/ryanstewartalex"}
+//                         iconName={"codepen"} />
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
+class PageContent extends React.Component
 {
-    if (props.page === pages.HOME)
+    constructor(props)
     {
-        return (
-            <h2>Home Page</h2>
-        )
+        super(props)
+        this.canvasRef = React.createRef()
+
+        this.state = {
+            engine: undefined
+        }
     }
 
-    if (props.page === pages.PROJECTS)
+    render()
     {
-        return (
-            <div className={"card-container"}>
-                <div className={"cards"}>
-                    <ProjectCard
-                        text={"CHORD PROGRESSION GENERATOR"}
-                        url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
-                        imageSrc={"chordgenerator.png"} />
-                    <ProjectCard
-                        text={"CSS ANIMATION GALLERY"}
-                        url={"https://rynstwrt.github.io/CSS-Animations/"}
-                        imageSrc={"animationgallery.png"} />
-                    <ProjectCard
-                        text={"MY OTHER WEBSITE"}
-                        url={"https://www.ryanstewart.gay/"}
-                        imageSrc={"otherwebsite.png"} />
-                    <ProjectCard
-                        text={"BLOCKY WEBSITE DESIGN CONCEPT"}
-                        url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
-                        imageSrc={"blockywebsite.png"} />
+        if (this.props.page === pages.HOME)
+        {
+            if (this.state.engine)
+            {
+                return (
+                    <canvas id={"babylon-canvas"} ref={this.canvasRef} />
+                )
+            }
+            else
+            {
+                return (
+                    <canvas ref={this.canvasRef} onLoad={this.attachBabylonJS()} />
+                )
+            }
+        }
+
+        setTimeout(() =>
+        {
+            if (this.state.engine)
+            {
+                this.state.engine.stopRenderLoop()
+                this.setState({ engine: undefined })
+            }
+        }, 0)
+
+        if (this.props.page === pages.PROJECTS)
+        {
+            return (
+                <div className={"card-container"}>
+                    <div className={"cards"}>
+                        <ProjectCard
+                            text={"CHORD PROGRESSION GENERATOR"}
+                            url={"https://rynstwrt.github.io/ChordProgressionGenerator/"}
+                            imageSrc={"chordgenerator.png"} />
+                        <ProjectCard
+                            text={"CSS ANIMATION GALLERY"}
+                            url={"https://rynstwrt.github.io/CSS-Animations/"}
+                            imageSrc={"animationgallery.png"} />
+                        <ProjectCard
+                            text={"MY OTHER WEBSITE"}
+                            url={"https://www.ryanstewart.gay/"}
+                            imageSrc={"otherwebsite.png"} />
+                        <ProjectCard
+                            text={"BLOCKY WEBSITE DESIGN CONCEPT"}
+                            url={"https://rynstwrt.github.io/ryanstew.artold/website7"}
+                            imageSrc={"blockywebsite.png"} />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+
+        if (this.props.page === pages.CONTACT)
+        {
+            return (
+                <div className={"card-container"}>
+                    <div className={"cards"}>
+                        <ContactCard
+                            text={"MY E-MAIL"}
+                            url={"mailto:ryanstewartalex@gmail.com"}
+                            iconName={"envelope"} />
+                        <ContactCard
+                            text={"MY GITHUB"}
+                            url={"https://github.com/rynstwrt"}
+                            iconName={"github"} />
+                        <ContactCard
+                            text={"MY TWITTER"}
+                            url={"https://twitter.com/rynstwrt"}
+                            iconName={"twitter"} />
+                        <ContactCard
+                            text={"MY INSTAGRAM"}
+                            url={"https://instagram.com/rynstwrt"}
+                            iconName={"instagram"} />
+                        <ContactCard
+                            text={"MY UNSPLASH"}
+                            url={"https://unsplash.com/@rynstwrt"}
+                            iconName={"unsplash"} />
+                        <ContactCard
+                            text={"MY CODEPEN"}
+                            url={"https://codepen.io/ryanstewartalex"}
+                            iconName={"codepen"} />
+                    </div>
+                </div>
+            )
+        }
     }
 
-    if (props.page === pages.CONTACT)
+    // Attach BabylonJS if not done already
+    attachBabylonJS()
     {
-        return (
-            <div className={"card-container"}>
-                <div className={"cards"}>
-                    <ContactCard
-                        text={"MY E-MAIL"}
-                        url={"mailto:ryanstewartalex@gmail.com"}
-                        iconName={"envelope"} />
-                    <ContactCard
-                        text={"MY GITHUB"}
-                        url={"https://github.com/rynstwrt"}
-                        iconName={"github"} />
-                    <ContactCard
-                        text={"MY TWITTER"}
-                        url={"https://twitter.com/rynstwrt"}
-                        iconName={"twitter"} />
-                    <ContactCard
-                        text={"MY INSTAGRAM"}
-                        url={"https://instagram.com/rynstwrt"}
-                        iconName={"instagram"} />
-                    <ContactCard
-                        text={"MY UNSPLASH"}
-                        url={"https://unsplash.com/@rynstwrt"}
-                        iconName={"unsplash"} />
-                    <ContactCard
-                        text={"MY CODEPEN"}
-                        url={"https://codepen.io/ryanstewartalex"}
-                        iconName={"codepen"} />
-                </div>
-            </div>
-        )
+        setTimeout(() =>
+        {
+            const canvas = this.canvasRef.current
+            const engine = new Engine(canvas, true)
+            this.setState({ engine: engine })
+
+            const scene = new Scene(engine)
+            scene.clearColor = new Color4(0, 0, 0, 0)
+
+            const shape = MeshBuilder.CreatePolyhedron("shape", {type: 3, size: 5}, scene);
+            const shapeMat = new StandardMaterial("shapeMat", scene);
+            shape.material = shapeMat;
+            shapeMat.wireframe = true;
+
+            const camera = new ArcRotateCamera("camera",
+                Math.random() * (Math.PI * 2),
+                Math.random() * (Math.PI * 2),
+                20,
+                Vector3.Zero(),
+                scene);
+            camera.attachControl(canvas, true);
+
+            window.addEventListener("resize", () => { engine.resize(); });
+
+            const inc = .00075;
+            engine.runRenderLoop(() =>
+            {
+                scene.render()
+                const shape = scene.getMeshByName("shape");
+                shape.rotation.x += inc;
+                shape.rotation.y += inc;
+                shape.rotation.z += inc;
+            })
+
+        }, 0)
     }
+
 }
 
 // ProjectCard component
@@ -153,7 +308,7 @@ class Website extends React.Component
     {
         super(props)
 
-        this.state = { page: startPage }
+        this.state = { page: pages.HOME }
 
         this.changeDisplayingPage = this.changeDisplayingPage.bind(this)
     }
