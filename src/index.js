@@ -170,7 +170,7 @@ class PageContent extends React.Component
                     <Grid item >
                         <LinkCard
                             text={"MY CODEPEN"}
-                            url={"https://codepen.io/ryanstewartalex"}
+                            url={"https://codepen.io/rynstwrt"}
                             imgSrc={"icons/lineicons/codepen.png"} />
                     </Grid>
                 </Grid>

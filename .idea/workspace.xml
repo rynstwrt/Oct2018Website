@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee811a3d-5bc1-4797-8780-0facc69385df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/project-images/animationgallery.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/project-images/animationgallery.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/project-images/blockywebsite.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/project-images/blockywebsite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/project-images/chordgenerator.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/project-images/chordgenerator.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/project-images/otherwebsite.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/project-images/otherwebsite.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +33,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1w8rW15l6oeU8Uqs2svwZxRiAHM" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -49,7 +46,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Pixelblaze-Desktop" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -82,7 +79,13 @@
       <workItem from="1627923305561" duration="5000" />
       <workItem from="1627925738406" duration="3061000" />
       <workItem from="1627940406813" duration="4495000" />
-      <workItem from="1627945266241" duration="343000" />
+      <workItem from="1627945266241" duration="424000" />
+      <workItem from="1627959827537" duration="22000" />
+      <workItem from="1628023042351" duration="20000" />
+      <workItem from="1628023071507" duration="52000" />
+      <workItem from="1628023183473" duration="18000" />
+      <workItem from="1628599050166" duration="106000" />
+      <workItem from="1628600763770" duration="2000" />
     </task>
     <servers />
   </component>
