@@ -63,6 +63,7 @@ header button
     border: 0;
     border-bottom: 1px solid rgba(39, 48, 54, 0);
     transition: border-bottom-color .1s ease-in-out;
+    color: #273036;
 }
 
 header button:hover
