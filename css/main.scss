@@ -41,11 +41,18 @@ $breakpoints: (
 }
 
 
+html
+{
+    overflow-x: hidden;
+}
+
+
 body
 {
     background-color: $background-color;
     color: $primary-text-color;
     overflow-x: hidden;
+    overflow-y: visible;
     scroll-behavior: smooth;
 }
 
