@@ -392,22 +392,27 @@ h2
 
     div
     {
-        margin: 10% 0;
+        margin: 3% 0;
 
         @include breakpoint(sm)
         {
-            margin: 2% 0;
+            margin: 0;
         }
 
         @include breakpoint(md)
         {
-            margin: 7% 0;
+            margin: 6% 0;
         }
 
         h2
         {
             text-align: right;
-            margin: 5% 0;
+            margin: 15% 0;
+
+            @include breakpoint(sm)
+            {
+                margin: 6% 0;
+            }
 
             @include breakpoint(md)
             {
@@ -434,7 +439,17 @@ h2
 
             li
             {
-                margin: 0 17px;
+                margin: 0 13%;
+
+                @include breakpoint(sm)
+                {
+                    margin: 0 20%;
+                }
+
+                @include breakpoint(md)
+                {
+                    margin: 0 10%;
+                }
 
                 a
                 {
@@ -442,6 +457,11 @@ h2
                     text-decoration: none;
                     font-size: 1.75em;
                     transition: transform .2s ease-out, color .2s ease-out;
+
+                    @include breakpoint(md)
+                    {
+                        font-size: 2.25em;
+                    }
 
                     &:hover
                     {
