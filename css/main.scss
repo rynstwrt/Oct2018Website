@@ -20,7 +20,7 @@ $breakpoints: (
     md: 768px, // tablets
     lg: 992px, // landscape tablets
     xl: 1200px, // desktops
-    xxl: 1400px // larger desktops
+    xxl: 1500px // larger desktops
 );
 
 
@@ -268,7 +268,8 @@ h2
     h2
     {
         text-align: right;
-        margin: 10% 0;
+        margin: 3% 0;
+        padding-left: 20%;
 
         @include breakpoint(sm)
         {
@@ -290,10 +291,11 @@ h2
         &:nth-child(2)
         {
             text-align: left;
+            padding-left: 0;
+            padding-right: 20%;
 
             @include breakpoint(md)
             {
-                padding-left: 0;
                 padding-right: 40%;
             }
 
@@ -339,7 +341,7 @@ h2
 
         @include breakpoint(sm)
         {
-            margin: 2% 0;
+            margin: 3px 0;
         }
 
         @include breakpoint(md)
@@ -438,6 +440,7 @@ h2
 
             @include breakpoint(md)
             {
+                margin: 8%;
                 padding-left: 15%;
             }
 
@@ -468,11 +471,6 @@ h2
             li
             {
                 margin: 0 13%;
-
-                @include breakpoint(sm)
-                {
-                    margin: 0 20%;
-                }
 
                 @include breakpoint(md)
                 {

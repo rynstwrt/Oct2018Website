@@ -189,7 +189,8 @@ h2 {
 }
 #info-page h2 {
   text-align: right;
-  margin: 10% 0;
+  margin: 3% 0;
+  padding-left: 20%;
 }
 @media (min-width: 576px) {
   #info-page h2 {
@@ -210,10 +211,11 @@ h2 {
 }
 #info-page h2:nth-child(2) {
   text-align: left;
+  padding-left: 0;
+  padding-right: 20%;
 }
 @media (min-width: 768px) {
   #info-page h2:nth-child(2) {
-    padding-left: 0;
     padding-right: 40%;
   }
 }
@@ -248,7 +250,7 @@ h2 {
 }
 @media (min-width: 576px) {
   #projects-page div {
-    margin: 2% 0;
+    margin: 3px 0;
   }
 }
 @media (min-width: 768px) {
@@ -330,6 +332,7 @@ h2 {
 }
 @media (min-width: 768px) {
   #contact-page div h2 {
+    margin: 8%;
     padding-left: 15%;
   }
 }
@@ -355,11 +358,6 @@ h2 {
 }
 #contact-page #social-list-container ul li {
   margin: 0 13%;
-}
-@media (min-width: 576px) {
-  #contact-page #social-list-container ul li {
-    margin: 0 20%;
-  }
 }
 @media (min-width: 768px) {
   #contact-page #social-list-container ul li {
