@@ -22,13 +22,13 @@ anime.timeline({ loop: false, autoplay: true })
         translateY: [100, 0],
         opacity: [0, 1],
         easing: "easeOutExpo",
-        duration: 500,
-        endDelay: 100
+        duration: 500
     }, "-=300")
     .add({
         targets: "#down-arrow-container",
         opacity: [0, 1],
-        easing: "easeOutExpo",
-        duration: 700,
+        easing: "linear",
+        duration: 300,
+        endDelay: 200,
         complete: platterAnim.play
     });

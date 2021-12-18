@@ -56,14 +56,11 @@ h2
     font-size: 2em;
     letter-spacing: 4px;
     line-height: 1.1em;
-}
 
-
-a, p
-{
-    font-family: "Neue Helvetica", sans-serif;
-    font-size: 1em;
-    letter-spacing: 1px;
+    @include breakpoint(md)
+    {
+        font-size: 3em;
+    }
 }
 
 
@@ -94,6 +91,12 @@ a, p
         margin-bottom: 7px;
         transform-origin: 0 100%;
         width: 240px;
+        z-index: 0;
+        font-size: 2.5em;
+        letter-spacing: 3px;
+        line-height: 1em;
+        font-family: "Neue Helvetica Extra Black", sans-serif;
+        text-transform: uppercase;
 
         @include breakpoint(sm)
         {
@@ -101,18 +104,22 @@ a, p
             font-size: 2.15em;
         }
 
-        z-index: 0;
-        font-size: 2.5em;
-        letter-spacing: 3px;
-        line-height: 1em;
-        font-family: "Neue Helvetica Extra Black", sans-serif;
-        text-transform: uppercase;
+        @include breakpoint(md)
+        {
+            width: 290px;
+            font-size: 2.85em;
+        }
     }
 
     #turntable
     {
         width: 250px;
         height: 250px;
+        background-color: $turntable-color;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+        border-radius: 10px;
 
         @include breakpoint(sm)
         {
@@ -120,11 +127,11 @@ a, p
             height: 200px;
         }
 
-        background-color: $turntable-color;
-        padding: 20px;
-        position: relative;
-        z-index: 1;
-        border-radius: 10px;
+        @include breakpoint(md)
+        {
+            width: 300px;
+            height: 300px;
+        }
 
         #arm-container
         {
@@ -237,6 +244,12 @@ a, p
         position: absolute;
         bottom: 2%;
 
+        @include breakpoint(md)
+        {
+            width: 40px;
+            bottom: 5%;
+        }
+
         img
         {
             width: 100%;
@@ -262,9 +275,21 @@ a, p
             margin: 5% 0;
         }
 
+        @include breakpoint(md)
+        {
+            margin: 10% 0;
+            padding-left: 40%;
+        }
+
         &:nth-child(2)
         {
             text-align: left;
+
+            @include breakpoint(md)
+            {
+                padding-left: 0;
+                padding-right: 40%;
+            }
         }
 
         .highlight
@@ -305,6 +330,11 @@ a, p
             margin: 2% 0;
         }
 
+        @include breakpoint(md)
+        {
+            margin: 7% 0;
+        }
+
         h2
         {
             margin-bottom: 5px;
@@ -332,6 +362,14 @@ a, p
                 {
                     color: inherit;
                     text-decoration: none;
+                    font-family: "Neue Helvetica", sans-serif;
+                    font-size: 1em;
+                    letter-spacing: 1px;
+
+                    @include breakpoint(md)
+                    {
+                        font-size: 1.25em;
+                    }
 
                     &:hover
                     {
@@ -358,15 +396,23 @@ a, p
 
         @include breakpoint(sm)
         {
-            margin: 5% 0;
+            margin: 2% 0;
         }
-    }
 
-    & > div
-    {
+        @include breakpoint(md)
+        {
+            margin: 7% 0;
+        }
+
         h2
         {
             text-align: right;
+            margin: 5% 0;
+
+            @include breakpoint(md)
+            {
+                padding-left: 15%;
+            }
         }
     }
 
