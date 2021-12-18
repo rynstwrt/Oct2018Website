@@ -209,6 +209,11 @@ h2 {
     padding-left: 50%;
   }
 }
+@media (min-width: 1200px) {
+  #info-page h2 {
+    padding-left: 55%;
+  }
+}
 #info-page h2:nth-child(2) {
   text-align: left;
   padding-left: 0;
@@ -221,8 +226,12 @@ h2 {
 }
 @media (min-width: 992px) {
   #info-page h2:nth-child(2) {
-    padding-left: 0;
     padding-right: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  #info-page h2:nth-child(2) {
+    padding-right: 55%;
   }
 }
 #info-page h2 .highlight {
@@ -289,7 +298,17 @@ h2 {
 }
 @media (min-width: 768px) {
   #projects-page div ul li a {
-    font-size: 1.25em;
+    font-size: 1.1em;
+  }
+}
+@media (min-width: 992px) {
+  #projects-page div ul li a {
+    font-size: 1.075em;
+  }
+}
+@media (min-width: 1200px) {
+  #projects-page div ul li a {
+    font-size: 1.125em;
   }
 }
 #projects-page div ul li a:hover {
@@ -321,6 +340,11 @@ h2 {
     margin: 1% 0;
   }
 }
+@media (min-width: 1200px) {
+  #contact-page div {
+    margin: 4% 0;
+  }
+}
 #contact-page div h2 {
   text-align: right;
   margin: 15% 0;
@@ -340,6 +364,12 @@ h2 {
   #contact-page div h2 {
     margin: 4% 0;
     padding-left: 40%;
+  }
+}
+@media (min-width: 1200px) {
+  #contact-page div h2 {
+    margin: 5% 0;
+    padding-left: 47%;
   }
 }
 #contact-page #social-list-container {
@@ -378,6 +408,11 @@ h2 {
 @media (min-width: 992px) {
   #contact-page #social-list-container ul li a {
     font-size: 2em;
+  }
+}
+@media (min-width: 1200px) {
+  #contact-page #social-list-container ul li a {
+    font-size: 2.125em;
   }
 }
 #contact-page #social-list-container ul li a:hover {

@@ -288,6 +288,11 @@ h2
             padding-left: 50%;
         }
 
+        @include breakpoint(xl)
+        {
+            padding-left: 55%;
+        }
+
         &:nth-child(2)
         {
             text-align: left;
@@ -301,8 +306,12 @@ h2
 
             @include breakpoint(lg)
             {
-                padding-left: 0;
                 padding-right: 50%;
+            }
+
+            @include breakpoint(xl)
+            {
+                padding-right: 55%;
             }
         }
 
@@ -387,7 +396,17 @@ h2
 
                     @include breakpoint(md)
                     {
-                        font-size: 1.25em;
+                        font-size: 1.1em;
+                    }
+
+                    @include breakpoint(lg)
+                    {
+                        font-size: 1.075em;
+                    }
+
+                    @include breakpoint(xl)
+                    {
+                        font-size: 1.125em;
                     }
 
                     &:hover
@@ -428,6 +447,11 @@ h2
             margin: 1% 0;
         }
 
+        @include breakpoint(xl)
+        {
+            margin: 4% 0;
+        }
+
         h2
         {
             text-align: right;
@@ -448,6 +472,12 @@ h2
             {
                 margin: 4% 0;
                 padding-left: 40%;
+            }
+
+            @include breakpoint(xl)
+            {
+                margin: 5% 0;
+                padding-left: 47%;
             }
         }
     }
@@ -492,6 +522,11 @@ h2
                     @include breakpoint(lg)
                     {
                         font-size: 2em;
+                    }
+
+                    @include breakpoint(xl)
+                    {
+                        font-size: 2.125em;
                     }
 
                     &:hover
