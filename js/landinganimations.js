@@ -3,7 +3,7 @@ const platterAnim = anime({
     rotate: "360deg",
     autoplay: false,
     easing: "linear",
-    duration: 1500,
+    duration: 3000,
     loop: true
 });
 
@@ -25,13 +25,14 @@ anime.timeline({ loop: false, autoplay: true })
         easing: "easeOutExpo",
         duration: 750,
         delay: 1000
-    }).add({
+    })
+    .add({
         targets: "#ryan-stewart-text",
         translateY: [100, 0],
         opacity: [0, 1],
         easing: "easeOutExpo",
-        duration: 700,
-        endDelay: 500,
+        duration: 500,
+        endDelay: 100,
         complete: () =>
         {
             platterAnim.play();

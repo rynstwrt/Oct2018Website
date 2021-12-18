@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +12,19 @@ body {
   scroll-behavior: smooth;
 }
 
+h2 {
+  font-family: "Neue Helvetica Extra Black", sans-serif;
+  font-size: 2em;
+  letter-spacing: 3px;
+  line-height: 1em;
+}
+
 .page {
   width: 100vw;
   height: 100vh;
+}
+.page:not(#landing-page) {
+  padding: 0 7%;
 }
 
 #landing-page {
@@ -26,7 +37,7 @@ body {
 #landing-page #ryan-stewart-text {
   margin-bottom: 7px;
   transform-origin: 0 100%;
-  width: 250px;
+  width: 240px;
   z-index: 0;
   font-size: 2.5em;
   letter-spacing: 3px;
@@ -37,10 +48,11 @@ body {
 #landing-page #turntable {
   width: 250px;
   height: 250px;
-  background-color: #8f8f8f;
+  background-color: #BDBDBE;
   padding: 20px;
   position: relative;
   z-index: 1;
+  border-radius: 10px;
 }
 #landing-page #turntable #arm-container {
   position: absolute;
@@ -55,7 +67,7 @@ body {
   width: 15%;
   height: 15%;
   border-radius: 50%;
-  background-color: black;
+  background-color: #161616;
   margin: 10px;
   z-index: 2;
 }
@@ -63,7 +75,7 @@ body {
   z-index: 6;
   width: 60%;
   height: 5%;
-  background-color: #bfbfbf;
+  background-color: #919193;
   position: absolute;
   top: calc(5px + 7.5% - 2.5%);
   right: calc(9px + 7.5%);
@@ -73,7 +85,7 @@ body {
 #landing-page #turntable #platter {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #161616;
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -83,7 +95,7 @@ body {
 }
 #landing-page #turntable #platter .platter-line {
   position: absolute;
-  border: 2px solid #3f3f3f;
+  border: 2px solid #0e0e0e;
   border-radius: 50%;
   z-index: 4;
 }
@@ -137,15 +149,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 7%;
 }
 #info-page h2 {
-  font-family: "Neue Helvetica Extra Black", sans-serif;
-  font-size: 2em;
-  letter-spacing: 3px;
-  line-height: 1em;
   text-align: right;
-  margin: 50px 0;
+  margin: 15% 0;
 }
 #info-page h2:nth-child(2) {
   text-align: left;
@@ -155,19 +162,85 @@ body {
   text-decoration: underline;
   text-decoration-color: #EF8354;
 }
-
-#projects-page .projects-section h2 {
-  text-align: center;
+#info-page h2 #some-emphasis {
+  display: inline-flex;
+  flex-direction: column;
 }
-#projects-page .projects-section ul {
+#info-page h2 #some-emphasis #some-emphasis-line {
+  background-color: #EF8354;
+  height: 2px;
+  transform-origin: 100% 50%;
+}
+
+#projects-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#projects-page div {
+  margin: 10% 0;
+}
+#projects-page div h2 {
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-decoration-color: #EF8354;
+}
+#projects-page div ul {
+  display: flex;
+  flex-direction: column;
   list-style: none;
 }
-#projects-page .projects-section ul li {
-  background-color: orange;
-  width: auto;
+#projects-page div ul li {
+  margin: 5px 0;
 }
-#projects-page .projects-section ul li a {
+#projects-page div ul li:before {
+  content: "▪";
+  color: #EF8354;
+}
+#projects-page div ul li a {
   color: inherit;
+  font-family: "Neue Helvetica", sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+#projects-page div ul li a:hover {
+  text-decoration: underline;
+  text-decoration-color: #EF8354;
+}
+
+#contact-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contact-page div {
+  margin: 15% 0;
+}
+#contact-page div:last-of-type h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+#contact-page div:last-of-type ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contact-page div:last-of-type ul li {
+  margin: 0 10px;
+}
+#contact-page div:last-of-type ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.75em;
+}
+#contact-page div:last-of-type ul li a:hover {
+  color: #EF8354;
+}
+#contact-page div h2 {
+  text-align: right;
 }
 
 /*# sourceMappingURL=main.css.map */

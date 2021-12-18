@@ -2,17 +2,17 @@ $background-color: #111111;
 $primary-text-color: white;
 $accent-color: #EF8354;
 
-$turntable-color: #8f8f8f;
+$turntable-color: #BDBDBE;
 
-$record-color: black;
-$record-lines-color: #3f3f3f;
+$record-color: lighten(#0e0e0e, 3%);
+$record-lines-color: #0e0e0e;
 $record-center-color: $accent-color;
 $record-hole-color: black;
 $record-highlight-color: white;
 $record-highlight-opacity: .05;
 
 $counterweight-color: $record-color;
-$arm-color: lighten($record-lines-color, 50%);
+$arm-color: darken($turntable-color, 17%);
 
 
 *
@@ -32,10 +32,24 @@ body
 }
 
 
+h2
+{
+    font-family: "Neue Helvetica Extra Black", sans-serif;
+    font-size: 2em;
+    letter-spacing: 3px;
+    line-height: 1em;
+}
+
+
 .page
 {
     width: 100vw;
     height: 100vh;
+
+    &:not(#landing-page)
+    {
+        padding: 0 7%;
+    }
 }
 
 
@@ -52,7 +66,7 @@ body
     {
         margin-bottom: 7px;
         transform-origin: 0 100%;
-        width: 250px;
+        width: 240px;
         z-index: 0;
         font-size: 2.5em;
         letter-spacing: 3px;
@@ -70,6 +84,7 @@ body
         padding: 20px;
         position: relative;
         z-index: 1;
+        border-radius: 10px;
 
         #arm-container
         {
@@ -196,16 +211,11 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 7%;
 
     h2
     {
-        font-family: "Neue Helvetica Extra Black", sans-serif;
-        font-size: 2em;
-        letter-spacing: 3px;
-        line-height: 1em;
         text-align: right;
-        margin: 50px 0;
+        margin: 15% 0;
 
         &:nth-child(2)
         {
@@ -218,34 +228,124 @@ body
             text-decoration: underline;
             text-decoration-color: $accent-color;
         }
+
+        #some-emphasis
+        {
+            display: inline-flex;
+            flex-direction: column;
+
+            #some-emphasis-line
+            {
+                background-color: $accent-color;
+                height: 2px;
+                transform-origin: 100% 50%;
+            }
+        }
     }
 }
 
 
 #projects-page
 {
-    .projects-section
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    div
     {
+        margin: 10% 0;
+
         h2
         {
-            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            text-decoration-color: $accent-color;
         }
 
         ul
         {
+            display: flex;
+            flex-direction: column;
             list-style: none;
 
             li
             {
-                background-color: orange;
-                width: auto;
+                margin: 5px 0;
+
+                &:before
+                {
+                    content: "▪";
+                    color: $accent-color;
+                }
 
                 a
                 {
                     color: inherit;
+                    font-family: "Neue Helvetica", sans-serif;
+                    font-size: 1em;
+                    letter-spacing: 1px;
+                    text-decoration: none;
 
+                    &:hover
+                    {
+                        text-decoration: underline;
+                        text-decoration-color: $accent-color;
+                    }
                 }
             }
+        }
+    }
+}
+
+
+#contact-page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div
+    {
+        margin: 15% 0;
+
+        &:last-of-type
+        {
+            h2
+            {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            ul
+            {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                li
+                {
+                    margin: 0 10px;
+
+                    a
+                    {
+                        color: $primary-text-color;
+                        text-decoration: none;
+                        font-size: 1.75em;
+
+                        &:hover
+                        {
+                            color: $accent-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        h2
+        {
+            text-align: right;
         }
     }
 }
