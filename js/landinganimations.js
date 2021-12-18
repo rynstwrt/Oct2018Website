@@ -8,15 +8,6 @@ const platterAnim = anime({
 });
 
 
-const downArrowAnim = anime({
-    targets: "#down-arrow-container",
-    opacity: [0, 1],
-    autoplay: false,
-    easing: "easeOutExpo",
-    duration: 700,
-});
-
-
 anime.timeline({ loop: false, autoplay: true })
     .add({
         targets: "#turntable",
@@ -32,10 +23,12 @@ anime.timeline({ loop: false, autoplay: true })
         opacity: [0, 1],
         easing: "easeOutExpo",
         duration: 500,
-        endDelay: 100,
-        complete: () =>
-        {
-            platterAnim.play();
-            downArrowAnim.play();
-        }
-    }, "-=300");
+        endDelay: 100
+    }, "-=300")
+    .add({
+        targets: "#down-arrow-container",
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 700,
+        complete: platterAnim.play
+    });
