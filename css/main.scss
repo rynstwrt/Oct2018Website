@@ -281,6 +281,12 @@ h2
             padding-left: 40%;
         }
 
+        @include breakpoint(lg)
+        {
+            margin: 3% 0;
+            padding-left: 50%;
+        }
+
         &:nth-child(2)
         {
             text-align: left;
@@ -289,6 +295,12 @@ h2
             {
                 padding-left: 0;
                 padding-right: 40%;
+            }
+
+            @include breakpoint(lg)
+            {
+                padding-left: 0;
+                padding-right: 50%;
             }
         }
 
@@ -333,6 +345,11 @@ h2
         @include breakpoint(md)
         {
             margin: 7% 0;
+        }
+
+        @include breakpoint(lg)
+        {
+            margin: 2% 0;
         }
 
         h2
@@ -404,6 +421,11 @@ h2
             margin: 6% 0;
         }
 
+        @include breakpoint(lg)
+        {
+            margin: 1% 0;
+        }
+
         h2
         {
             text-align: right;
@@ -417,6 +439,12 @@ h2
             @include breakpoint(md)
             {
                 padding-left: 15%;
+            }
+
+            @include breakpoint(lg)
+            {
+                margin: 4% 0;
+                padding-left: 40%;
             }
         }
     }
@@ -461,6 +489,11 @@ h2
                     @include breakpoint(md)
                     {
                         font-size: 2.25em;
+                    }
+
+                    @include breakpoint(lg)
+                    {
+                        font-size: 2em;
                     }
 
                     &:hover
