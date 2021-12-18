@@ -1,0 +1,251 @@
+$background-color: #111111;
+$primary-text-color: white;
+$accent-color: #EF8354;
+
+$turntable-color: #8f8f8f;
+
+$record-color: black;
+$record-lines-color: #3f3f3f;
+$record-center-color: $accent-color;
+$record-hole-color: black;
+$record-highlight-color: white;
+$record-highlight-opacity: .05;
+
+$counterweight-color: $record-color;
+$arm-color: lighten($record-lines-color, 50%);
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body
+{
+    background-color: $background-color;
+    color: $primary-text-color;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+.page
+{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#landing-page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+
+    #ryan-stewart-text
+    {
+        margin-bottom: 7px;
+        transform-origin: 0 100%;
+        width: 250px;
+        z-index: 0;
+        font-size: 2.5em;
+        letter-spacing: 3px;
+        line-height: 1em;
+        font-family: "Neue Helvetica Extra Black", sans-serif;
+        text-transform: uppercase;
+    }
+
+
+    #turntable
+    {
+        width: 250px;
+        height: 250px;
+        background-color: $turntable-color;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+
+        #arm-container
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: flex-end;
+
+            #counterweight
+            {
+                width: 15%;
+                height: 15%;
+                border-radius: 50%;
+                background-color: $counterweight-color;
+                margin: 10px;
+                z-index: 2;
+            }
+
+            #arm
+            {
+                z-index: 6;
+                width: 60%;
+                height: 5%;
+                background-color: $arm-color;
+                position: absolute;
+                top: calc(5px + 7.5% - 2.5%);
+                right: calc(9px + 7.5%);
+                transform-origin: 100% 50%;
+                transform: rotate(-80deg);
+            }
+        }
+
+        #platter
+        {
+            width: 100%;
+            height: 100%;
+            background-color: $record-color;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+
+            .platter-line
+            {
+                position: absolute;
+                border: 2px solid $record-lines-color;
+                border-radius: 50%;
+                z-index: 4;
+
+                &:nth-of-type(1)
+                {
+                    width: 90%;
+                    height: 90%;
+                }
+
+                &:nth-of-type(2)
+                {
+                    width: 75%;
+                    height: 75%;
+                }
+
+                &:nth-of-type(3)
+                {
+                    width: 60%;
+                    height: 60%;
+                }
+            }
+
+            #record-center
+            {
+                position: absolute;
+                width: 35%;
+                height: 35%;
+                border-radius: 50%;
+                background-color: $record-center-color;
+                z-index: 1;
+            }
+
+            #record-hole
+            {
+                position: absolute;
+                width: 4%;
+                height: 4%;
+                border-radius: 50%;
+                background-color: $record-hole-color;
+                z-index: 3;
+            }
+
+            #record-highlight
+            {
+                width: 100%;
+                height: 7%;
+                background-color: $record-highlight-color;
+                opacity: $record-highlight-opacity;
+                z-index: 5;
+                transform: rotate(-30deg);
+            }
+        }
+    }
+
+
+    #down-arrow-container
+    {
+        width: 35px;
+        position: absolute;
+        bottom: 2%;
+
+        img
+        {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+#info-page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 7%;
+
+    h2
+    {
+        font-family: "Neue Helvetica Extra Black", sans-serif;
+        font-size: 2em;
+        letter-spacing: 3px;
+        line-height: 1em;
+        text-align: right;
+        margin: 50px 0;
+
+        &:nth-child(2)
+        {
+            text-align: left;
+            line-height: initial;
+        }
+
+        .highlight
+        {
+            text-decoration: underline;
+            text-decoration-color: $accent-color;
+        }
+    }
+}
+
+
+#projects-page
+{
+    .projects-section
+    {
+        h2
+        {
+            text-align: center;
+        }
+
+        ul
+        {
+            list-style: none;
+
+            li
+            {
+                background-color: orange;
+                width: auto;
+
+                a
+                {
+                    color: inherit;
+
+                }
+            }
+        }
+    }
+}

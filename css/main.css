@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111111;
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+}
+
+#landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#landing-page #ryan-stewart-text {
+  margin-bottom: 7px;
+  transform-origin: 0 100%;
+  width: 250px;
+  z-index: 0;
+  font-size: 2.5em;
+  letter-spacing: 3px;
+  line-height: 1em;
+  font-family: "Neue Helvetica Extra Black", sans-serif;
+  text-transform: uppercase;
+}
+#landing-page #turntable {
+  width: 250px;
+  height: 250px;
+  background-color: #8f8f8f;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+#landing-page #turntable #arm-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+#landing-page #turntable #arm-container #counterweight {
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  background-color: black;
+  margin: 10px;
+  z-index: 2;
+}
+#landing-page #turntable #arm-container #arm {
+  z-index: 6;
+  width: 60%;
+  height: 5%;
+  background-color: #bfbfbf;
+  position: absolute;
+  top: calc(5px + 7.5% - 2.5%);
+  right: calc(9px + 7.5%);
+  transform-origin: 100% 50%;
+  transform: rotate(-80deg);
+}
+#landing-page #turntable #platter {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+#landing-page #turntable #platter .platter-line {
+  position: absolute;
+  border: 2px solid #3f3f3f;
+  border-radius: 50%;
+  z-index: 4;
+}
+#landing-page #turntable #platter .platter-line:nth-of-type(1) {
+  width: 90%;
+  height: 90%;
+}
+#landing-page #turntable #platter .platter-line:nth-of-type(2) {
+  width: 75%;
+  height: 75%;
+}
+#landing-page #turntable #platter .platter-line:nth-of-type(3) {
+  width: 60%;
+  height: 60%;
+}
+#landing-page #turntable #platter #record-center {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  background-color: #EF8354;
+  z-index: 1;
+}
+#landing-page #turntable #platter #record-hole {
+  position: absolute;
+  width: 4%;
+  height: 4%;
+  border-radius: 50%;
+  background-color: black;
+  z-index: 3;
+}
+#landing-page #turntable #platter #record-highlight {
+  width: 100%;
+  height: 7%;
+  background-color: white;
+  opacity: 0.05;
+  z-index: 5;
+  transform: rotate(-30deg);
+}
+#landing-page #down-arrow-container {
+  width: 35px;
+  position: absolute;
+  bottom: 2%;
+}
+#landing-page #down-arrow-container img {
+  width: 100%;
+  height: 100%;
+}
+
+#info-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 7%;
+}
+#info-page h2 {
+  font-family: "Neue Helvetica Extra Black", sans-serif;
+  font-size: 2em;
+  letter-spacing: 3px;
+  line-height: 1em;
+  text-align: right;
+  margin: 50px 0;
+}
+#info-page h2:nth-child(2) {
+  text-align: left;
+  line-height: initial;
+}
+#info-page h2 .highlight {
+  text-decoration: underline;
+  text-decoration-color: #EF8354;
+}
+
+#projects-page .projects-section h2 {
+  text-align: center;
+}
+#projects-page .projects-section ul {
+  list-style: none;
+}
+#projects-page .projects-section ul li {
+  background-color: orange;
+  width: auto;
+}
+#projects-page .projects-section ul li a {
+  color: inherit;
+}
+
+/*# sourceMappingURL=main.css.map */
