@@ -20,7 +20,8 @@ $breakpoints: (
     md: 768px, // tablets
     lg: 992px, // landscape tablets
     xl: 1200px, // desktops
-    xxl: 1500px // larger desktops
+    xxl: 1500px, // larger desktops
+    xxxl: 2000px // even larger desktops
 );
 
 
@@ -302,70 +303,69 @@ h2
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-end;
 
     h2
     {
         text-align: right;
         margin: 7% 0;
-        padding-left: 20%;
+        max-width: 70%;
 
         @include breakpoint(sm)
         {
-            margin: 3% 0;
-            padding-left: 30%;
+            margin: 2% 0;
+            max-width: 50%;
         }
 
         @include breakpoint(md)
         {
-            margin: 10% 0;
-            padding-left: 40%;
+            margin: 11% 0;
         }
 
         @include breakpoint(lg)
         {
             margin: 3% 0;
-            padding-left: 50%;
+            max-width: 40%;
         }
 
         @include breakpoint(xl)
         {
-            padding-left: 55%;
+            max-width: 35%;
         }
 
         @include breakpoint(xxl)
         {
-            padding-left: 60%;
+            max-width: 30%;
         }
 
         &:nth-child(2)
         {
             text-align: left;
-            padding-left: 0;
-            padding-right: 20%;
+            align-self: flex-start;
 
             @include breakpoint(sm)
             {
-                padding-right: 30%;
+                max-width: 50%;
             }
 
             @include breakpoint(md)
             {
-                padding-right: 40%;
+                max-width: 60%;
             }
 
             @include breakpoint(lg)
             {
-                padding-right: 50%;
+                max-width: 40%;
             }
 
             @include breakpoint(xl)
             {
-                padding-right: 55%;
+                max-width: 35%;
             }
 
             @include breakpoint(xxl)
             {
-                padding-right: 60%;
+                max-width: 30%;
             }
         }
 
@@ -480,26 +480,29 @@ h2
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
     div
     {
         width: 100%;
-        margin: 9% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        margin: 10% 0;
 
         @include breakpoint(sm)
         {
-            margin: 2% 0;
+            margin: 1% 0;
         }
 
         @include breakpoint(md)
         {
-            margin: 5% 0;
+            margin: 7% 0;
         }
 
         @include breakpoint(lg)
         {
-            margin: 5% 0;
+            margin: 0;
         }
 
         @include breakpoint(xl)
@@ -507,34 +510,42 @@ h2
             margin: 3% 0;
         }
 
+        @include breakpoint(xxl)
+        {
+            margin: 5% 0;
+        }
+
         h2
         {
             text-align: right;
-            margin: 12% 0;
-            padding-left: 5%;
+            margin: 6% 0;
+            max-width: 70%;
 
             @include breakpoint(sm)
             {
-                margin: 5% 0;
-                padding-left: 30%;
+                margin: 2% 0;
+                max-width: 50%;
             }
 
             @include breakpoint(md)
             {
-                margin: 13% 0;
-                padding-left: 23%;
+                margin: 7% 0;
             }
 
             @include breakpoint(lg)
             {
-                margin: 6% 0;
-                padding-left: 40%;
+                margin: 4% 0;
+                max-width: 40%;
             }
 
             @include breakpoint(xl)
             {
-                margin: 7% 0;
-                padding-left: 47%;
+                max-width: 35%;
+            }
+
+            @include breakpoint(xxl)
+            {
+                margin: 3% 0;
             }
         }
     }

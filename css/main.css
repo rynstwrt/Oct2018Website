@@ -222,68 +222,67 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
 }
 #info-page h2 {
   text-align: right;
   margin: 7% 0;
-  padding-left: 20%;
+  max-width: 70%;
 }
 @media (min-width: 576px) {
   #info-page h2 {
-    margin: 3% 0;
-    padding-left: 30%;
+    margin: 2% 0;
+    max-width: 50%;
   }
 }
 @media (min-width: 768px) {
   #info-page h2 {
-    margin: 10% 0;
-    padding-left: 40%;
+    margin: 11% 0;
   }
 }
 @media (min-width: 992px) {
   #info-page h2 {
     margin: 3% 0;
-    padding-left: 50%;
+    max-width: 40%;
   }
 }
 @media (min-width: 1200px) {
   #info-page h2 {
-    padding-left: 55%;
+    max-width: 35%;
   }
 }
 @media (min-width: 1500px) {
   #info-page h2 {
-    padding-left: 60%;
+    max-width: 30%;
   }
 }
 #info-page h2:nth-child(2) {
   text-align: left;
-  padding-left: 0;
-  padding-right: 20%;
+  align-self: flex-start;
 }
 @media (min-width: 576px) {
   #info-page h2:nth-child(2) {
-    padding-right: 30%;
+    max-width: 50%;
   }
 }
 @media (min-width: 768px) {
   #info-page h2:nth-child(2) {
-    padding-right: 40%;
+    max-width: 60%;
   }
 }
 @media (min-width: 992px) {
   #info-page h2:nth-child(2) {
-    padding-right: 50%;
+    max-width: 40%;
   }
 }
 @media (min-width: 1200px) {
   #info-page h2:nth-child(2) {
-    padding-right: 55%;
+    max-width: 35%;
   }
 }
 @media (min-width: 1500px) {
   #info-page h2:nth-child(2) {
-    padding-right: 60%;
+    max-width: 30%;
   }
 }
 #info-page h2 .highlight {
@@ -372,25 +371,28 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 #contact-page div {
   width: 100%;
-  margin: 9% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 10% 0;
 }
 @media (min-width: 576px) {
   #contact-page div {
-    margin: 2% 0;
+    margin: 1% 0;
   }
 }
 @media (min-width: 768px) {
   #contact-page div {
-    margin: 5% 0;
+    margin: 7% 0;
   }
 }
 @media (min-width: 992px) {
   #contact-page div {
-    margin: 5% 0;
+    margin: 0;
   }
 }
 @media (min-width: 1200px) {
@@ -398,33 +400,41 @@ h2 {
     margin: 3% 0;
   }
 }
+@media (min-width: 1500px) {
+  #contact-page div {
+    margin: 5% 0;
+  }
+}
 #contact-page div h2 {
   text-align: right;
-  margin: 12% 0;
-  padding-left: 5%;
+  margin: 6% 0;
+  max-width: 70%;
 }
 @media (min-width: 576px) {
   #contact-page div h2 {
-    margin: 5% 0;
-    padding-left: 30%;
+    margin: 2% 0;
+    max-width: 50%;
   }
 }
 @media (min-width: 768px) {
   #contact-page div h2 {
-    margin: 13% 0;
-    padding-left: 23%;
+    margin: 7% 0;
   }
 }
 @media (min-width: 992px) {
   #contact-page div h2 {
-    margin: 6% 0;
-    padding-left: 40%;
+    margin: 4% 0;
+    max-width: 40%;
   }
 }
 @media (min-width: 1200px) {
   #contact-page div h2 {
-    margin: 7% 0;
-    padding-left: 47%;
+    max-width: 35%;
+  }
+}
+@media (min-width: 1500px) {
+  #contact-page div h2 {
+    margin: 3% 0;
   }
 }
 #contact-page #social-list-container {
