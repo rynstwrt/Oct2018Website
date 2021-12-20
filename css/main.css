@@ -7,6 +7,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -14,7 +15,6 @@ body {
   color: white;
   overflow-x: hidden;
   overflow-y: visible;
-  scroll-behavior: smooth;
 }
 
 h2 {
@@ -38,6 +38,11 @@ h2 {
   h2 {
     font-size: 3em;
     letter-spacing: 3px;
+  }
+}
+@media (min-width: 2000px) {
+  h2 {
+    font-size: 4em;
   }
 }
 
@@ -88,6 +93,12 @@ h2 {
     font-size: 3em;
   }
 }
+@media (min-width: 2000px) {
+  #landing-page #ryan-stewart-text {
+    width: 440px;
+    font-size: 4em;
+  }
+}
 #landing-page #turntable {
   width: 250px;
   height: 250px;
@@ -113,6 +124,12 @@ h2 {
   #landing-page #turntable {
     width: 370px;
     height: 370px;
+  }
+}
+@media (min-width: 2000px) {
+  #landing-page #turntable {
+    width: 450px;
+    height: 450px;
   }
 }
 #landing-page #turntable #arm-container {
@@ -213,6 +230,12 @@ h2 {
     bottom: 6%;
   }
 }
+@media (min-width: 2000px) {
+  #landing-page #down-arrow-container {
+    width: 50px;
+    bottom: 4%;
+  }
+}
 #landing-page #down-arrow-container img {
   width: 100%;
   height: 100%;
@@ -256,6 +279,11 @@ h2 {
     max-width: 30%;
   }
 }
+@media (min-width: 2000px) {
+  #info-page h2 {
+    max-width: 25%;
+  }
+}
 #info-page h2:nth-child(2) {
   text-align: left;
   align-self: flex-start;
@@ -283,6 +311,11 @@ h2 {
 @media (min-width: 1500px) {
   #info-page h2:nth-child(2) {
     max-width: 30%;
+  }
+}
+@media (min-width: 2000px) {
+  #info-page h2:nth-child(2) {
+    max-width: 25%;
   }
 }
 #info-page h2 .highlight {
@@ -323,6 +356,11 @@ h2 {
     margin: 2% 0;
   }
 }
+@media (min-width: 2000px) {
+  #projects-page div {
+    margin: 4% 0;
+  }
+}
 #projects-page div h2 {
   margin-bottom: 5px;
   text-decoration: underline;
@@ -360,6 +398,11 @@ h2 {
 @media (min-width: 1200px) {
   #projects-page div ul li a {
     font-size: 1.125em;
+  }
+}
+@media (min-width: 2000px) {
+  #projects-page div ul li a {
+    font-size: 1.6em;
   }
 }
 #projects-page div ul li a:hover {
@@ -405,6 +448,11 @@ h2 {
     margin: 5% 0;
   }
 }
+@media (min-width: 2000px) {
+  #contact-page div {
+    margin: 7% 0;
+  }
+}
 #contact-page div h2 {
   text-align: right;
   margin: 6% 0;
@@ -435,6 +483,12 @@ h2 {
 @media (min-width: 1500px) {
   #contact-page div h2 {
     margin: 3% 0;
+  }
+}
+@media (min-width: 2000px) {
+  #contact-page div h2 {
+    margin: 2% 0;
+    max-width: 25%;
   }
 }
 #contact-page #social-list-container {
@@ -473,6 +527,11 @@ h2 {
 @media (min-width: 1200px) {
   #contact-page #social-list-container ul li a {
     font-size: 2.125em;
+  }
+}
+@media (min-width: 2000px) {
+  #contact-page #social-list-container ul li a {
+    font-size: 2.8em;
   }
 }
 #contact-page #social-list-container ul li a:hover {

@@ -45,6 +45,7 @@ $breakpoints: (
 html
 {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 
@@ -54,7 +55,6 @@ body
     color: $primary-text-color;
     overflow-x: hidden;
     overflow-y: visible;
-    scroll-behavior: smooth;
 }
 
 
@@ -80,6 +80,11 @@ h2
     {
         font-size: 3em;
         letter-spacing: 3px;
+    }
+
+    @include breakpoint(xxxl)
+    {
+        font-size: 4em;
     }
 }
 
@@ -136,6 +141,12 @@ h2
             width: 360px;
             font-size: 3em;
         }
+
+        @include breakpoint(xxxl)
+        {
+            width: 440px;
+            font-size: 4em;
+        }
     }
 
     #turntable
@@ -164,6 +175,12 @@ h2
         {
             width: 370px;
             height: 370px;
+        }
+
+        @include breakpoint(xxxl)
+        {
+            width: 450px;
+            height: 450px;
         }
 
         #arm-container
@@ -289,6 +306,12 @@ h2
             bottom: 6%;
         }
 
+        @include breakpoint(xxxl)
+        {
+            width: 50px;
+            bottom: 4%;
+        }
+
         img
         {
             width: 100%;
@@ -338,6 +361,11 @@ h2
             max-width: 30%;
         }
 
+        @include breakpoint(xxxl)
+        {
+            max-width: 25%;
+        }
+
         &:nth-child(2)
         {
             text-align: left;
@@ -366,6 +394,11 @@ h2
             @include breakpoint(xxl)
             {
                 max-width: 30%;
+            }
+
+            @include breakpoint(xxxl)
+            {
+                max-width: 25%;
             }
         }
 
@@ -417,6 +450,11 @@ h2
             margin: 2% 0;
         }
 
+        @include breakpoint(xxxl)
+        {
+            margin: 4% 0;
+        }
+
         h2
         {
             margin-bottom: 5px;
@@ -461,6 +499,11 @@ h2
                     @include breakpoint(xl)
                     {
                         font-size: 1.125em;
+                    }
+
+                    @include breakpoint(xxxl)
+                    {
+                        font-size: 1.6em;
                     }
 
                     &:hover
@@ -515,6 +558,11 @@ h2
             margin: 5% 0;
         }
 
+        @include breakpoint(xxxl)
+        {
+            margin: 7% 0;
+        }
+
         h2
         {
             text-align: right;
@@ -546,6 +594,12 @@ h2
             @include breakpoint(xxl)
             {
                 margin: 3% 0;
+            }
+
+            @include breakpoint(xxxl)
+            {
+                margin: 2% 0;
+                max-width: 25%;
             }
         }
     }
@@ -590,6 +644,11 @@ h2
                     @include breakpoint(xl)
                     {
                         font-size: 2.125em;
+                    }
+
+                    @include breakpoint(xxxl)
+                    {
+                        font-size: 2.8em;
                     }
 
                     &:hover
