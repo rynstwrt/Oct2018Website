@@ -1,3 +1,14 @@
+const projectsAnim = anime({
+    autoplay: false,
+    targets: ".item",
+    easing: "easeOutExpo",
+    duration: 500,
+    opacity: [0, 1],
+    scale: [0, 1],
+    delay: anime.stagger(100)
+});
+
+
 const socialAnim = anime({
     autoplay: false,
     targets: ".social-icon",
@@ -5,8 +16,13 @@ const socialAnim = anime({
     easing: "easeOutExpo",
     duration: 800,
     scale: [0, 1],
-    delay: anime.stagger(50, {start: 100})
+    delay: anime.stagger(50, {start: 100}),
+    complete: () =>
+    {
+        projectsAnim.play();
+    }
 });
+
 
 anime({
     targets: "#name-container",
