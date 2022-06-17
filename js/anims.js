@@ -31,6 +31,7 @@ anime({
     easing: "easeOutExpo",
     duration: 800,
     opacity: [0, 1],
+    delay: 1000,
     complete: () =>
     {
         socialAnim.play();
