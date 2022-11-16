@@ -2,77 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/main.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ryanstew.art</title>
-    <script src="js/anime.min.js"></script>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
 <body>
-    <div id="container">
-
-        <!-- RYANSTEW.ART SVG -->
-        <div id="name-container">
-            <img src="assets/name.svg" />
-        </div>
-
-        <!-- SOCIAL MEDIA ICONS -->
-        <ul id="social-media-icons">
-            <li class="social-icon">
-                <a href="https://github.com/rynstwrt" target="_blank">
-                    <img src="assets/icons/github-brands.svg" />
-                </a>
-            </li>
-
-            <li class="social-icon">
-                <a href="https://www.instagram.com/rynstwrt/" target="_blank">
-                    <img src="assets/icons/instagram-brands.svg" />
-                </a>
-            </li>
-
-            <li class="social-icon">
-                <a href="https://twitter.com/rynstwrt" target="_blank">
-                    <img src="assets/icons/twitter-brands.svg" />
-                </a>
-            </li>
-        </ul>
-
-        <!-- PROJECTS AND WEBSITES ACCORDION -->
-        <div id="accordion">
-            <div class="item">
-                <div class="heading" data-anijs="if: click, do: $removeClass open2, to: .open2; if: click, do: $toggleClass open1, to: target;">
-                    <span>PROJECTS</span>
-                </div>
-                <div class="content">
-                    <ul>
-                        <li><a href="assets/projects/ledmatrixcamera.mp4">Raspberry Pi powered 32x16 LED matrix camera display</a></li>
-                        <li><a href="assets/projects/minimacintosh.mp4">Seeduino XIAO mini Macintosh</a></li>
-                        <li><a href="assets/projects/ledgoggles.jpg">WLED LED goggles</a></li>
-                        <li><a href="assets/projects/ledmatrixplasma.mp4">16x16 LED matrix plasma effect</a></li>
-                        <li><a href="assets/projects/ledmatrixfiretext.mp4">16x16 LED matrix fire text effect</a></li>
-                    </ul>
-                </div>
+    <div id="landing-page" class="page">
+        <div class="page-content">
+            <p>Software developer working with desktop, web, and server technologies.</p>
+            <h1>Ryan<br/>Stewart</h1>
+            <div id="social-icons">
+                <a href="https://github.com/rynstwrt/" aria-label="GitHub" class="fa-brands fa-github"></a>
+                <a href="https://www.instagram.com/rynstwrt/" aria-label="Instagram" class="fa-brands fa-instagram"></a>
+                <a href="https://unsplash.com/@rynstwrt" aria-label="Unsplash" class="fa-brands fa-unsplash"></a>
             </div>
-
-            <div class="item">
-
-                <div class="heading" data-anijs="if: click, do: $removeClass open1, to: .open1; if: click, do: $toggleClass open2, to: target;">
-                    <span>WEBSITES</span>
-                </div>
-                <div class="content">
-                    <ul>
-                        <li><a href="https://rynstwrt.github.io/CSS-Animations/">CSS animation gallery</a></li>
-                        <li><a href="https://rynstwrt.github.io/ChordProgressionGenerator/">Chord progression generator</a></li>
-                        <li><a href="https://www.ryanstewart.gay">www.ryanstewart.gay</a></li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </div>
 
-    <script src="js/anims.js"></script>
-    <script src="js/anijs-min.js"></script>
-    <script src="js/anijs-helper-dom-min.js"></script>
+    <div id="about-page" class="page">
+        <div class="page-content">
+            <h2>ABOUT</h2>
+            <p>Hello!<br/>I'm Ryan.</p>
+            <br/>
+            <p>I love programming and (namely) working with microcontrollers.</p>
+            <br/>
+            <p>I recently accepted a job at IBM as a data server technician. (starting January 2023)</p>
+            <br/>
+            <p>I like making websites and DJing when I'm not at work or school.</p>
+        </div>
+    </div>
+
+    <div id="projects-page" class="page">
+        <div class="page-content">
+            <h2>PROJECTS</h2>
+
+            <div class="card">
+                <h3>RPi-powered 32x16 LED Matrix Camera Display</h3>
+                <p>A 32x16 WS2812B matrix that displays a live camera feed. Powered by a Raspberry Pi.</p>
+                <a href="assets/ledmatrixcamera.mp4">Demo Link</a>
+            </div>
+
+            <div class="card">
+                <h3>KI5CGK Log Book</h3>
+                <p>A log book for ham radio operators written in Python using PySide6.</p>
+                <a href="https://github.com/rynstwrt/KI5CGK-Log-Book">GitHub Link</a>
+            </div>
+
+            <div class="card">
+                <h3>CSS Animation Gallery</h3>
+                <p>A virtual art exhibit created entirely with CSS animations.</p>
+                <a href="https://rynstwrt.github.io/CSS-Animations/">Demo Link</a>
+                <p class="slash">/</p>
+                <a href="https://github.com/rynstwrt/CSS-Animations">GitHub Link</a>
+            </div>
+
+            <div class="card">
+                <h3>Chord Progression Generator</h3>
+                <p>A web-based chord progression generator for musicians.</p>
+                <a href="https://rynstwrt.github.io/ChordProgressionGenerator/">Demo Link</a>
+                <p class="slash">/</p>
+                <a href="https://github.com/rynstwrt/ChordProgressionGenerator">GitHub Link</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

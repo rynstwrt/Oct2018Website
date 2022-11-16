@@ -1,21 +1,6 @@
-$color-dark: black;
-$color-light: white;
-
-@font-face
-{
-    font-family: HelveticaNeueMedium;
-    src: url("/assets/fonts/HelveticaNeue-Medium.otf");
-    font-weight: 500;
-}
-
-
-@font-face
-{
-    font-family: HelveticaNeueLight;
-    src: url("/assets/fonts/HelveticaNeue-Medium.otf");
-    font-weight: 300;
-}
-
+$breakpoint-phone: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
 
 *
 {
@@ -24,145 +9,210 @@ $color-light: white;
     box-sizing: border-box;
 }
 
-
-body
+html, body
 {
-    background-color: $color-dark;
-    color: $color-light;
-    font-family: "HelveticaNeue", sans-serif;
-}
-
-
-h3
-{
-    letter-spacing: 2px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-}
-
-
-img
-{
-    width: 100%;
     height: 100%;
 }
 
+p
+{
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+h2
+{
+    letter-spacing: 4px;
+}
 
 a
 {
-    color: inherit;
     text-decoration: none;
-}
+    color: inherit;
 
-
-#name-container
-{
-    width: 250px;
-    height: 250px;
-}
-
-
-#container
-{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#social-media-icons
-{
-    width: 250px;
-    display: flex;
-    list-style: none;
-    margin-top: 7px;
-    margin-bottom: 60px;
-
-    .social-icon > a
+    &:hover
     {
-        display: block;
-        width: 30px;
-        height: 30px;
-        margin-right: 25px;
+        text-decoration: underline;
+        opacity: 1;
     }
 }
 
-
-#accordion
+.page
 {
-    width: 300px;
-    overflow: hidden;
+    min-height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 
-    .item
+    &:not(&:last-child)
     {
-        .heading
+        border-bottom: 1px solid white;
+    }
+
+    .page-content
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        font-family: "Sono", sans-serif;
+        color: white;
+        max-width: 600px;
+
+        h2
         {
-            height: 30px;
-            line-height: 30px;
-            cursor: pointer;
-            font-style: "HelveticaNeueMedium";
-            font-weight: bold;
-            padding: 0 6px;
-            background-position: right 20px top -95px;
-            border: 1px solid $color-light;
+            border: 1px solid white;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 5px 7px;
         }
 
-        .open1, .open2
+        h1
         {
-            background-position: right 20px top -5px;
-        }
-
-        .content
-        {
-            padding: 0 12px;
-            background: $color-light;
-            color: $color-dark;
-            font-style: "HelveticaNeueMedium";
             font-weight: 500;
-            height: 0;
-            overflow: hidden;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -ms-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
+            font-size: 3rem;
+            color: white;
+        }
 
-            ul
+        h2
+        {
+            font-size: 1.75rem;
+            font-weight: 400;
+        }
+    }
+}
+
+#landing-page
+{
+    align-items: center;
+    position: relative;
+
+    .page-content
+    {
+        h1
+        {
+            text-align: right;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 3.5rem;
+            margin-top: 50px;
+            text-decoration: underline;
+        }
+
+        p
+        {
+            max-width: 250px;
+            align-self: flex-start;
+        }
+
+        #social-icons
+        {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+    }
+}
+
+#about-page
+{
+    .page-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p
+        {
+            margin-bottom: 50px;
+            align-self: flex-start;
+            position: relative;
+            max-width: 275px;
+
+            &:after
             {
-                list-style: none;
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: white;
+                margin-top: 10px;
+            }
 
-                li
-                {
-                    margin-bottom: 7px;
-                    text-indent: -5px;
+            &:nth-of-type(2), &:nth-of-type(4)
+            {
+                align-self: flex-end;
+                text-align: right;
+            }
 
-                    &::before
-                    {
-                        content: "\25A1";
-                        margin-right: 5px;
-                        text-indent: -5px;
-                        vertical-align: 10%;
-                    }
-
-                    &:hover
-                    {
-                        &::before
-                        {
-                            content: "\25A0";
-                            margin-right: 5px;
-                            text-indent: -5px;
-                        }
-                    }
-                }
+            &:last-of-type
+            {
+                margin-bottom: 150px;
             }
         }
+    }
+}
 
-        .open1 ~ .content, .open2 ~ .content
+#projects-page
+{
+    .page-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card
         {
-            height: 210px;
-            padding-top: 8px;
+            border: 1px solid white;
+            padding: 20px 40px 20px 15px;
+            margin-bottom: 30px;
+            width: 100%;
+
+            h3
+            {
+                margin-bottom: 10px;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+
+            p
+            {
+                margin-bottom: 20px;
+            }
+
+            p, a
+            {
+                font-size: 1rem;
+                font-weight: 200;
+            }
+
+            a
+            {
+                //background-color: red;
+                text-transform: uppercase;
+                text-decoration: underline;
+
+                &:hover
+                {
+                    text-decoration: none;
+                }
+
+                &:nth-of-type(2)
+                {
+                    margin-left: 5px;
+                }
+            }
+
+
+            .slash
+            {
+                display: inline;
+            }
+
         }
     }
 }
