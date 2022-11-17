@@ -150,13 +150,7 @@ a:hover {
   display: inline;
 }
 
-#ascii-page {
-  min-height: unset;
-}
 #ascii-page .page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
 }
 
