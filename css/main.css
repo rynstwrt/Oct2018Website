@@ -44,9 +44,9 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  max-width: 600px;
   font-family: "Sono", sans-serif;
   color: white;
-  max-width: 600px;
 }
 .page .page-content h2 {
   border: 1px solid white;

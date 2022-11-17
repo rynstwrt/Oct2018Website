@@ -37,11 +37,6 @@ a
     }
 }
 
-pre
-{
-
-}
-
 .page
 {
     min-height: 100%;
@@ -64,9 +59,9 @@ pre
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
+        max-width: 600px;
         font-family: "Sono", sans-serif;
         color: white;
-        max-width: 600px;
 
         h2
         {
