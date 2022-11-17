@@ -35,8 +35,8 @@ a:hover {
   display: flex;
   justify-content: center;
 }
-.page:not(.page:last-child) {
-  border-bottom: 1px solid white;
+.page:not(.page:first-child) {
+  border-top: 2px dashed white;
 }
 .page .page-content {
   width: 100%;
@@ -148,6 +148,16 @@ a:hover {
 }
 #projects-page .page-content .card .slash {
   display: inline;
+}
+
+#ascii-page {
+  min-height: unset;
+}
+#ascii-page .page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
