@@ -27,7 +27,8 @@ a:hover {
 
 .border {
   width: 100%;
-  border-top: 1px solid white;
+  border-top: 1px dotted white;
+  margin-bottom: 20px;
 }
 
 .page {
