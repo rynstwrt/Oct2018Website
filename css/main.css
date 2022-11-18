@@ -23,7 +23,11 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  opacity: 1;
+}
+
+.border {
+  width: 100%;
+  border-top: 1px solid white;
 }
 
 .page {
@@ -34,9 +38,6 @@ a:hover {
   background-color: black;
   display: flex;
   justify-content: center;
-}
-.page:not(.page:first-child) {
-  border-top: 2px dashed white;
 }
 .page .page-content {
   width: 100%;
@@ -53,22 +54,19 @@ a:hover {
   margin-top: 20px;
   margin-bottom: 30px;
   padding: 5px 7px;
+  font-size: 1.75rem;
+  font-weight: 400;
 }
 .page .page-content h1 {
   font-weight: 500;
   font-size: 3rem;
   color: white;
 }
-.page .page-content h2 {
-  font-size: 1.75rem;
-  font-weight: 400;
-}
 
 #landing-page {
   align-items: center;
-  position: relative;
 }
-#landing-page .page-content h1 {
+#landing-page h1 {
   text-align: right;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -76,11 +74,11 @@ a:hover {
   margin-top: 50px;
   text-decoration: underline;
 }
-#landing-page .page-content p {
+#landing-page p {
   max-width: 250px;
   align-self: flex-start;
 }
-#landing-page .page-content #social-icons {
+#landing-page #social-icons {
   font-size: 1.5rem;
   margin-left: 10px;
 }
@@ -138,13 +136,12 @@ a:hover {
 }
 #projects-page .page-content .card a {
   text-transform: uppercase;
-  text-decoration: underline;
-}
-#projects-page .page-content .card a:hover {
-  text-decoration: none;
 }
 #projects-page .page-content .card a:nth-of-type(2) {
   margin-left: 5px;
+}
+#projects-page .page-content .card a:before {
+  content: "*";
 }
 #projects-page .page-content .card .slash {
   display: inline;
