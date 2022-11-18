@@ -34,7 +34,6 @@ a:hover {
 .page {
   min-height: 100%;
   width: 100%;
-  border: 1px solid black;
   padding: 20px;
   background-color: black;
   display: flex;
