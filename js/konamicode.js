@@ -1,8 +1,8 @@
-const konamiCode = ["ArrowUp", "ArrowDown", "ArrowUp", "ArrowDown",
+const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
                     "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
                     "b", "a"];
 const lastTenKeys = [];
-const hasDoneKonami = false;
+let hasDoneKonami = false;
 
 
 document.addEventListener("keydown", e =>
@@ -11,14 +11,17 @@ document.addEventListener("keydown", e =>
     if (lastTenKeys.length > 10)
         lastTenKeys.shift();
 
-    if (JSON.stringify(lastTenKeys) === JSON.stringify(konamiCode))
+    if (JSON.stringify(lastTenKeys) === JSON.stringify(konamiCode) && !hasDoneKonami)
+    {
+        hasDoneKonami = true;
         onKonamiCode();
+    }
 });
 
 
 function onKonamiCode()
 {
-    if (hasDoneKonami) return;
+    console.log("KONAMI CODE ENTERED! A winner is you!");
 
-    console.log("KONAMI");
+
 }
