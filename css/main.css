@@ -4,144 +4,60 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
-p {
-  font-size: 1.5rem;
-  font-weight: 200;
-}
-
-h2 {
-  letter-spacing: 4px;
+body {
+  background-color: #EBE9EA;
+  color: black;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  font-weight: 200;
+  border: 1px solid black;
 }
 a:hover {
-  text-decoration: underline;
-}
-
-.border {
-  width: 100%;
-  border-top: 1px dotted white;
-  margin-bottom: 20px;
+  border-bottom: 2px solid black;
 }
 
 .page {
-  min-height: 100%;
-  width: 100%;
-  padding: 20px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-}
-.page .page-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  max-width: 600px;
-  font-family: "Sono", sans-serif;
-  color: white;
-}
-.page .page-content h2 {
-  border: 1px solid white;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  padding: 5px 7px;
-  font-size: 1.75rem;
-  font-weight: 400;
-}
-.page .page-content h1 {
-  font-weight: 500;
-  font-size: 3rem;
-  color: white;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 35px 20px;
 }
 
-#landing-page {
-  align-items: center;
-}
-#landing-page h1 {
-  text-align: right;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  line-height: 3.5rem;
-  margin-top: 50px;
-  text-decoration: underline;
-}
-#landing-page p {
-  max-width: 250px;
-  align-self: flex-start;
-}
-#landing-page #social-icons {
-  font-size: 1.5rem;
-  margin-left: 10px;
-}
-
-#about-page .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#about-page .page-content p {
-  margin-bottom: 50px;
-  align-self: flex-start;
-  position: relative;
-  max-width: 275px;
-}
-#about-page .page-content p:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  margin-top: 10px;
-}
-#about-page .page-content p:nth-of-type(2), #about-page .page-content p:nth-of-type(4) {
-  align-self: flex-end;
-  text-align: right;
-}
-#about-page .page-content p:last-of-type {
-  margin-bottom: 150px;
-}
-
-#projects-page .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#projects-page .page-content .card {
-  border: 1px solid white;
-  padding: 20px 40px 20px 15px;
-  margin-bottom: 30px;
-  width: 100%;
-}
-#projects-page .page-content .card h3 {
+#home header {
   margin-bottom: 10px;
-  font-weight: 400;
-  text-transform: uppercase;
 }
-#projects-page .page-content .card p {
-  margin-bottom: 20px;
-}
-#projects-page .page-content .card p, #projects-page .page-content .card a {
-  font-size: 1rem;
+#home header h3 {
+  font-size: 25px;
   font-weight: 200;
+  letter-spacing: 1px;
+  text-align: center;
 }
-#projects-page .page-content .card a {
-  text-transform: uppercase;
+#home nav {
+  padding: 10px 0;
 }
-#projects-page .page-content .card a:nth-of-type(2) {
-  margin-left: 5px;
+#home nav ul {
+  display: flex;
+  justify-content: center;
 }
-#projects-page .page-content .card .slash {
-  display: inline;
+#home nav ul li {
+  list-style: none;
+  margin: 0 5px;
+}
+#home nav ul li a {
+  padding: 3px 5px;
+  font-size: 15px;
+}
+#home #introduction {
+  margin-top: 40px;
+}
+#home #introduction p {
+  font-size: 20px;
+}
+#home #introduction h1 {
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=main.css.map */
