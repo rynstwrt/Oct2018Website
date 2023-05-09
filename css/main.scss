@@ -13,6 +13,11 @@ $font-bold-weight: 700;
     box-sizing: border-box;
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
+
 body
 {
     background-color: $bg-color;
@@ -40,7 +45,7 @@ a
     padding: 35px 20px;
 }
 
-#home
+#about
 {
     header
     {
@@ -78,18 +83,80 @@ a
         }
     }
 
+    #introduction, .bubble
+    {
+        border: 1px solid $text-color;
+        border-radius: 20px;
+    }
+
     #introduction
     {
-        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 35px;
+        padding: 50px 20px;
+
+        #profile-picture
+        {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background-image: url("/assets/ryan.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #introduction-text
+        {
+            margin-top: 45px;
+
+            p
+            {
+                font-size: 21px;
+                letter-spacing: 1px;
+                font-weight: $font-bold-weight;
+            }
+
+            h1
+            {
+                font-size: 30px;
+                font-weight: $font-light-weight;
+            }
+        }
+    }
+
+    .bubble
+    {
+        margin-top: 25px;
+        padding: 20px 20px;
+
+        h2
+        {
+            font-size: 23px;
+            font-weight: $font-regular-weight;
+            letter-spacing: 1px;
+        }
+    }
+
+    #description
+    {
+        h2
+        {
+            font-size: 23px;
+            font-weight: $font-regular-weight;
+            line-height: 29px;
+
+            &:last-of-type
+            {
+                margin-bottom: 10px;
+            }
+        }
 
         p
         {
-            font-size: 20px;
-        }
-
-        h1
-        {
-            font-weight: $font-regular-weight;
+            font-weight: $font-light-weight;
+            font-size: 19px;
         }
     }
 }
