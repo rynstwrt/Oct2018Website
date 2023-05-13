@@ -17,23 +17,33 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a, button {
+  color: black;
+  padding: 10px 10px;
+  font-size: 15px;
   font-weight: 200;
   border: 1px solid black;
+  border-radius: 20px;
+  letter-spacing: 1px;
 }
-a:hover {
-  border-bottom: 2px solid black;
+
+a:hover, button:hover, .project:hover {
+  border-bottom: 2px solid black !important;
+  cursor: pointer;
 }
 
 .page {
   width: 100vw;
-  min-height: 100vh;
+  margin-bottom: 50px;
   padding: 0 20px;
 }
 
 .bubble {
   border: 1px solid #8D8D8D;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 20px 20px;
 }
 
@@ -48,6 +58,10 @@ h2 {
   font-size: 23px;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 29px;
+}
+h2:last-of-type {
+  margin-bottom: 10px;
 }
 
 h3 {
@@ -58,17 +72,24 @@ h3 {
   padding: 40px 0 10px 0;
 }
 
-a, button {
-  padding: 6px 10px;
-  font-size: 15px;
-  border-radius: 20px;
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 button {
-  border: 1px solid #8D8D8D;
   background-color: transparent;
   font: inherit;
+  font-weight: 200;
+  width: 100%;
+}
+
+p {
+  font-weight: 200;
+  font-size: 19px;
 }
 
 header .bubble {
@@ -84,14 +105,14 @@ header .bubble nav ul li {
   margin: 0 5px;
 }
 header .bubble nav ul li a {
-  color: black;
+  padding: 6px 10px;
 }
 
 #about #introduction {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 25px;
 }
 #about #introduction #profile-picture {
   min-width: 175px;
@@ -102,17 +123,27 @@ header .bubble nav ul li a {
   background-position: center;
   border: 1px solid black;
 }
-#about #description h2 {
-  font-size: 23px;
-  font-weight: 400;
-  line-height: 29px;
-}
 #about #description h2:last-of-type {
   margin-bottom: 10px;
 }
-#about #description p {
-  font-weight: 200;
-  font-size: 19px;
+#about #resume > div {
+  display: flex;
+  justify-content: center;
+}
+#about #resume > div button {
+  margin: 15px 0 0 0;
+}
+
+#portfolio .project {
+  display: block;
+  padding: 20px 20px;
+  border: 1px solid #8D8D8D;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+#contact button {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

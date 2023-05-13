@@ -19,6 +19,9 @@
 
     <!--  STYLESHEETS  -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!--  SCRIPTS  -->
+    <script src="js/buttons.js"></script>
 </head>
 <body>
     <div id="about" class="page">
@@ -46,18 +49,53 @@
             <p>Full stack developer with experience working with desktop, server, and web technologies.</p>
         </div>
 
+        <div id="personal" class="bubble">
+            <h2>My Hobbies Are</h2>
+            <p>Programming microcontrollers, making websites, producing music, and DJing. I'm also a ham radio operator and run a TikTok account about it!</p>
+        </div>
+
         <div id="resume" class="bubble">
             <h2>Download My Resume</h2>
-            <button>DOWNLOAD</button>
+            <div>
+                <button onclick="openLink('assets/resume.pdf')">DOWNLOAD</button>
+            </div>
         </div>
     </div>
 
     <div id="portfolio" class="page">
-
+        <div class="bubble">
+            <h2>My Projects</h2>
+            <a class="project">
+                <h4>Project One</h4>
+                <p>This is a description of project one.</p>
+            </a>
+            <a class="project">
+                <h4>Project One</h4>
+                <p>This is a description of project one.</p>
+            </a>
+            <a class="project">
+                <h4>Project One</h4>
+                <p>This is a description of project one.</p>
+            </a>
+            <a class="project">
+                <h4>Project One</h4>
+                <p>This is a description of project one.</p>
+            </a>
+            <a class="project">
+                <h4>Project One</h4>
+                <p>This is a description of project one.</p>
+            </a>
+        </div>
     </div>
 
     <div id="contact" class="page">
-
+        <div class="bubble">
+            <h2>Contact</h2>
+            <button>GITHUB</button>
+            <button>INSTAGRAM</button>
+            <button>TWITTER</button>
+            <button>TIKTOK</button>
+        </div>
     </div>
 </body>
 </html>
