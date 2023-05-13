@@ -92,6 +92,10 @@ p {
   font-size: 19px;
 }
 
+header {
+  background-color: #EBE9EA;
+  border-radius: 0 0 20px 20px;
+}
 header .bubble {
   margin-top: 0 !important;
   border-color: black;
@@ -139,10 +143,6 @@ header .bubble nav ul li a {
   padding: 20px 20px;
   border: 1px solid #8D8D8D;
   border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-#contact button {
   margin-bottom: 10px;
 }
 

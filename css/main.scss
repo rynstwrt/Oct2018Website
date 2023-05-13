@@ -121,6 +121,9 @@ p
 
 header
 {
+    background-color: $bg-color;
+    border-radius: 0 0 $border-radius $border-radius;
+
     .bubble
     {
         margin-top: 0 !important;
@@ -207,8 +210,13 @@ header
 
 #contact
 {
-    button
+    a
     {
-        margin-bottom: 10px;
+        
     }
+
+    //button
+    //{
+    //    margin-bottom: 10px;
+    //}
 }
