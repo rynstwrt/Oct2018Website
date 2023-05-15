@@ -9,6 +9,43 @@ $font-bold-weight: 700;
 
 $border-radius: 20px;
 
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+@mixin sm
+{
+    @media (min-width: #{$screen-sm-min})
+    {
+        @content;
+    }
+}
+
+@mixin md
+{
+    @media (min-width: #{$screen-md-min})
+    {
+        @content;
+    }
+}
+
+@mixin lg
+{
+    @media (min-width: #{$screen-lg-min})
+    {
+        @content;
+    }
+}
+
+@mixin xl
+{
+    @media (min-width: #{$screen-xl-min})
+    {
+        @content;
+    }
+}
+
 *
 {
     margin: 0;
@@ -64,6 +101,11 @@ a:hover, button:hover
     border-radius: $border-radius;
     margin-top: 15px;
     padding: 20px 20px;
+
+    @include md
+    {
+        width: 400px;
+    }
 }
 
 h1
@@ -123,6 +165,9 @@ header
 {
     background-color: $bg-color;
     border-radius: 0 0 $border-radius $border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .bubble
     {
@@ -199,7 +244,13 @@ header
 .project-links > a, #contact-links > a
 {
     font-size: 30px;
-    margin-right: 5px;
+}
+
+#about, #portfolio, #contact
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #portfolio
@@ -213,7 +264,15 @@ header
 
         p
         {
-            padding: 2px 0 5px 0;
+            padding: 2px 0 10px 0;
+        }
+
+        .project-links
+        {
+            a
+            {
+                margin-right: 3px;
+            }
         }
     }
 }
@@ -223,5 +282,12 @@ header
     #contact-links
     {
         display: flex;
+        justify-content: center;
+
+        a
+        {
+            margin-left: 3px;
+            margin-right: 3px;
+        }
     }
 }
