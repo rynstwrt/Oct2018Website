@@ -24,14 +24,16 @@
 
     <!--  STYLESHEETS  -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
 
     <!--  SCRIPTS  -->
     <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
+    <script src="js/aos.js"></script>
     <script src="js/buttons.js"></script>
 </head>
 <body>
     <div id="about" class="page">
-        <header>
+        <header data-aos="fade-in">
             <h3>RYAN STEWART</h3>
 
             <div class="bubble">
@@ -45,22 +47,22 @@
             </div>
         </header>
 
-        <div id="introduction">
+        <div id="introduction" data-aos="fade-in">
             <div id="profile-picture"></div>
         </div>
 
-        <div id="description" class="bubble">
+        <div id="description" class="bubble" data-aos="fade-in">
             <h2>Software Developer &</h2>
             <h2>Designer</h2>
             <p>Full stack developer with experience working with desktop, server, and web technologies.</p>
         </div>
 
-        <div id="personal" class="bubble">
+        <div id="personal" class="bubble" data-aos="fade-in">
             <h2>My Hobbies Are:</h2>
             <p>Programming microcontrollers, making websites, producing music, and DJing. I'm also a ham radio operator and run a TikTok account about it!</p>
         </div>
 
-        <div id="resume" class="bubble">
+        <div id="resume" class="bubble" data-aos="fade-in">
             <h2>Download My Resume</h2>
             <div>
                 <button onclick="openLink('assets/resume.pdf')">DOWNLOAD</button>
@@ -117,5 +119,6 @@
             </div>
         </div>
     </div>
+    <script src="js/aosInit.js"></script>
 </body>
 </html>

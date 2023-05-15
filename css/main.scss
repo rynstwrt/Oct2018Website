@@ -245,6 +245,11 @@ header
 .project-links > a, #contact-links > a
 {
     font-size: 30px;
+
+    @include md
+    {
+        font-size: 20px;
+    }
 }
 
 #about, #portfolio, #contact
