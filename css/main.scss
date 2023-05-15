@@ -45,7 +45,7 @@ a, button
     letter-spacing: 1px;
 }
 
-a:hover, button:hover, .project:hover
+a:hover, button:hover
 {
     border-bottom: 2px solid $text-color !important;
     cursor: pointer;
@@ -196,27 +196,32 @@ header
     }
 }
 
+.project-links > a, #contact-links > a
+{
+    font-size: 30px;
+    margin-right: 5px;
+}
+
 #portfolio
 {
     .project
     {
-        display: block;
         padding: 20px 20px;
         border: 1px solid $text-color-lighter;
         border-radius: $border-radius;
         margin-bottom: 10px;
+
+        p
+        {
+            padding: 2px 0 5px 0;
+        }
     }
 }
 
 #contact
 {
-    a
+    #contact-links
     {
-        
+        display: flex;
     }
-
-    //button
-    //{
-    //    margin-bottom: 10px;
-    //}
 }

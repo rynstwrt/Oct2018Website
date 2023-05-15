@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!--  SCRIPTS  -->
+    <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
     <script src="js/buttons.js"></script>
 </head>
 <body>
@@ -65,36 +66,50 @@
     <div id="portfolio" class="page">
         <div class="bubble">
             <h2>My Projects</h2>
-            <a class="project" onclick="openLink('https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix')">
+            <div class="project">
                 <h4>RPi-Powered 32x16 LED Matrix Camera</h4>
                 <p>A 32x16 WS2812B matrix that displays a live camera feed. Powered by a Raspberry Pi.</p>
-            </a>
-            <a class="project" onclick="openLink('https://github.com/rynstwrt/KI5CGK-Log-Book')">
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix" class="fa-brands fa-github"></a>
+                    <a href="./assets/ledmatrixcamera.mp4" class="fa-solid fa-computer"></a>
+                </div>
+            </div>
+            <div class="project">
                 <h4>KI5CGK Log Book</h4>
                 <p>A log book for ham radio operators written in Python using PySide6.</p>
-            </a>
-            <a class="project" onclick="openLink('https://github.com/rynstwrt/CSS-Animations')">
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/KI5CGK-Log-Book" class="fa-brands fa-github"></a>
+                </div>
+            </div>
+            <div class="project">
                 <h4>CSS Animation Gallery</h4>
                 <p>A virtual art exhibit created entirely with CSS animations.</p>
-            </a>
-            <a class="project" onclick="openLink('https://github.com/rynstwrt/ChordProgressionGenerator')">
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/CSS-Animations" class="fa-brands fa-github"></a>
+                    <a href="https://rynstwrt.github.io/CSS-Animations/" class="fa-solid fa-computer"></a>
+                </div>
+            </div>
+            <div class="project">
                 <h4>Chord Progression Generator</h4>
                 <p>A web-based chord progression generator for musicians.</p>
-            </a>
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/ChordProgressionGenerator" class="fa-brands fa-github"></a>
+                    <a href="https://rynstwrt.github.io/ChordProgressionGenerator/" class="fa-solid fa-computer"></a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="contact" class="page">
         <div class="bubble">
-            <h2>Contact</h2>
-            <a onclick="openLink('https://github.com/rynstwrt/')">
-                <i class="fa-brands fa-github"></i>
-            </a>
-<!--            <button onclick="openLink('https://github.com/rynstwrt/')">GITHUB</button>-->
-<!--            <button onclick="openLink('https://twitter.com/rynstwrt/')">TWITTER</button>-->
-<!--            <button onclick="openLink('https://instagram.com/rynstwrt/')">INSTAGRAM</button>-->
-<!--            <button onclic`k="openLink('https://www.tiktok.com/@radio.ryan')">TIKTOK</button>-->
-<!--            <button onclick="openLink('https://unsplash.com/@rynstwrt/')">UNSPLASH</button>-->
+            <h2>Contact / Socials</h2>
+            <div id="contact-links">
+                <a href="https://github.com/rynstwrt/" class="fa-brands fa-github"></a>
+                <a href="https://twitter.com/rynstwrt/" class="fa-brands fa-twitter"></a>
+                <a href="https://instagram.com/rynstwrt/" class="fa-brands fa-instagram"></a>
+                <a href="https://www.tiktok.com/@radio.ryan" class="fa-brands fa-tiktok"></a>
+                <a href="https://unsplash.com/@rynstwrt/" class="fa-brands fa-unsplash"></a>
+            </div>
         </div>
     </div>
 </body>

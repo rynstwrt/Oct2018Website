@@ -29,7 +29,7 @@ a, button {
   letter-spacing: 1px;
 }
 
-a:hover, button:hover, .project:hover {
+a:hover, button:hover {
   border-bottom: 2px solid black !important;
   cursor: pointer;
 }
@@ -138,12 +138,23 @@ header .bubble nav ul li a {
   margin: 15px 0 0 0;
 }
 
+.project-links > a, #contact-links > a {
+  font-size: 30px;
+  margin-right: 5px;
+}
+
 #portfolio .project {
-  display: block;
   padding: 20px 20px;
   border: 1px solid #8D8D8D;
   border-radius: 20px;
   margin-bottom: 10px;
+}
+#portfolio .project p {
+  padding: 2px 0 5px 0;
+}
+
+#contact #contact-links {
+  display: flex;
 }
 
 /*# sourceMappingURL=main.css.map */
