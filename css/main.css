@@ -4,144 +4,184 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
-p {
-  font-size: 1.5rem;
-  font-weight: 200;
-}
-
-h2 {
-  letter-spacing: 4px;
+body {
+  background-color: #EBE9EA;
+  color: black;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-}
-a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-.border {
-  width: 100%;
-  border-top: 1px dotted white;
-  margin-bottom: 20px;
+a, button {
+  color: black;
+  padding: 10px 10px;
+  font-size: 15px;
+  font-weight: 200;
+  border: 1px solid black;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+a:hover, button:hover {
+  border-bottom: 2px solid black !important;
+  cursor: pointer;
 }
 
 .page {
-  min-height: 100%;
-  width: 100%;
-  padding: 20px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-}
-.page .page-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  max-width: 600px;
-  font-family: "Sono", sans-serif;
-  color: white;
-}
-.page .page-content h2 {
-  border: 1px solid white;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  padding: 5px 7px;
-  font-size: 1.75rem;
-  font-weight: 400;
-}
-.page .page-content h1 {
-  font-weight: 500;
-  font-size: 3rem;
-  color: white;
-}
-
-#landing-page {
-  align-items: center;
-}
-#landing-page h1 {
-  text-align: right;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  line-height: 3.5rem;
-  margin-top: 50px;
-  text-decoration: underline;
-}
-#landing-page p {
-  max-width: 250px;
-  align-self: flex-start;
-}
-#landing-page #social-icons {
-  font-size: 1.5rem;
-  margin-left: 10px;
-}
-
-#about-page .page-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#about-page .page-content p {
+  width: 100vw;
   margin-bottom: 50px;
-  align-self: flex-start;
-  position: relative;
-  max-width: 275px;
-}
-#about-page .page-content p:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  margin-top: 10px;
-}
-#about-page .page-content p:nth-of-type(2), #about-page .page-content p:nth-of-type(4) {
-  align-self: flex-end;
-  text-align: right;
-}
-#about-page .page-content p:last-of-type {
-  margin-bottom: 150px;
+  padding: 0 20px;
 }
 
-#projects-page .page-content {
+.bubble {
+  border: 1px solid #8D8D8D;
+  border-radius: 20px;
+  margin-top: 15px;
+  padding: 20px 20px;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .bubble {
+    width: 375px;
+  }
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 29px;
+}
+h2:last-of-type {
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 40px 0 10px 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: transparent;
+  font: inherit;
+  font-weight: 200;
+  width: 100%;
+}
+
+p {
+  font-weight: 200;
+  font-size: 19px;
+}
+
+header {
+  background-color: #EBE9EA;
+  border-radius: 0 0 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#projects-page .page-content .card {
-  border: 1px solid white;
-  padding: 20px 40px 20px 15px;
-  margin-bottom: 30px;
-  width: 100%;
+header .bubble {
+  margin-top: 0 !important;
+  border-color: black;
 }
-#projects-page .page-content .card h3 {
+header .bubble nav ul {
+  display: flex;
+  justify-content: center;
+}
+header .bubble nav ul li {
+  list-style: none;
+  margin: 0 5px;
+}
+header .bubble nav ul li a {
+  padding: 6px 10px;
+}
+
+#about #introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+#about #introduction #profile-picture {
+  min-width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  background-image: url("/assets/ryan.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid black;
+}
+#about #description h2:last-of-type {
   margin-bottom: 10px;
-  font-weight: 400;
-  text-transform: uppercase;
 }
-#projects-page .page-content .card p {
-  margin-bottom: 20px;
+#about #resume > div {
+  display: flex;
+  justify-content: center;
 }
-#projects-page .page-content .card p, #projects-page .page-content .card a {
-  font-size: 1rem;
-  font-weight: 200;
+#about #resume > div button {
+  margin: 15px 0 0 0;
 }
-#projects-page .page-content .card a {
-  text-transform: uppercase;
+
+.project-links > a, #contact-links > a {
+  font-size: 30px;
 }
-#projects-page .page-content .card a:nth-of-type(2) {
-  margin-left: 5px;
+@media (min-width: 768px) {
+  .project-links > a, #contact-links > a {
+    font-size: 20px;
+  }
 }
-#projects-page .page-content .card .slash {
-  display: inline;
+
+#about, #portfolio, #contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#portfolio .project {
+  padding: 20px 20px;
+  border: 1px solid #8D8D8D;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+#portfolio .project p {
+  padding: 2px 0 10px 0;
+}
+#portfolio .project .project-links a {
+  margin-right: 3px;
+}
+
+#contact #contact-links {
+  display: flex;
+  justify-content: center;
+}
+#contact #contact-links a {
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /*# sourceMappingURL=main.css.map */

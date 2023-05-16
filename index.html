@@ -1,87 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- META TAGS   -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="The portfolio website of Ryan Stewart.">
+    <meta property="og:site_name" content="ryanstew.art">
+    <meta property="og:title" content="ryanstew.art">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="The portfolio website of Ryan Stewart.">
+    <meta property="og:url" content="https://ryanstew.art">
     <title>ryanstew.art</title>
+
+    <!--  GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200;400;500&family=Press+Start+2P:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap" rel="stylesheet">
+
+    <!--  ICONS  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!--  STYLESHEETS  -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/konami.css">
     <link rel="stylesheet" type="text/css" href="css/aos.css">
+
+    <!--  SCRIPTS  -->
     <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
-    <script src="js/konamicode.js" defer></script>
     <script src="js/aos.js"></script>
+    <script src="js/buttons.js"></script>
 </head>
 <body>
-    <div id="landing-page" class="page">
-        <div class="page-content">
-            <p data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400">Software developer working with desktop, web, and server technologies.</p>
-            <h1>Ryan<br/>Stewart</h1>
-            <div id="social-icons" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="500">
-                <a href="https://github.com/rynstwrt/" aria-label="GitHub" class="fa-brands fa-github"></a>
-                <a href="https://www.instagram.com/rynstwrt/" aria-label="Instagram" class="fa-brands fa-instagram"></a>
-                <a href="https://unsplash.com/@rynstwrt" aria-label="Unsplash" class="fa-brands fa-unsplash"></a>
+    <div id="about" class="page">
+        <header data-aos="fade-in">
+            <h3>RYAN STEWART</h3>
+
+            <div class="bubble">
+                <nav>
+                    <ul>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#portfolio">PORTFOLIO</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="introduction" data-aos="fade-in">
+            <div id="profile-picture"></div>
+        </div>
+
+        <div id="description" class="bubble" data-aos="fade-in">
+            <h2>Software Developer &</h2>
+            <h2>Designer</h2>
+            <p>Full stack developer with experience working with desktop, server, and web technologies.</p>
+        </div>
+
+        <div id="personal" class="bubble" data-aos="fade-in">
+            <h2>My Hobbies Are:</h2>
+            <p>Programming microcontrollers, making websites, producing music, and DJing. I'm also a ham radio operator and run a TikTok account about it!</p>
+        </div>
+
+        <div id="resume" class="bubble" data-aos="fade-in">
+            <h2>Download My Resume</h2>
+            <div>
+                <button onclick="openLink('assets/resume.pdf')">DOWNLOAD</button>
             </div>
         </div>
     </div>
 
-    <div id="about-page" class="page">
-        <div class="page-content">
-            <div class="border"></div>
-
-            <h2>ABOUT</h2>
-
-            <p data-aos="fade-up-right" data-aos-duration="500">Hello!<br/>I'm Ryan.</p>
-            <br/>
-            <p data-aos="fade-up-left" data-aos-duration="500">I love programming and working with microcontrollers.</p>
-            <br/>
-            <p data-aos="fade-up-right" data-aos-duration="500">I recently accepted a job at IBM as a data server technician.</p>
-            <br/>
-            <p  data-aos="fade-up-left" data-aos-duration="500">I like making websites and DJing when I'm not at work or school.</p>
-        </div>
-    </div>
-
-    <div id="projects-page" class="page">
-        <div class="page-content">
-            <div class="border"></div>
-            <h2>PROJECTS</h2>
-
-            <div class="card" data-aos="flip-down" data-aos-duration="500">
-                <h3>RPi-powered 32x16 LED Matrix Camera Display</h3>
+    <div id="portfolio" class="page">
+        <div class="bubble">
+            <h2>My Projects</h2>
+            <div class="project">
+                <h4>RPi-Powered 32x16 LED Matrix Camera</h4>
                 <p>A 32x16 WS2812B matrix that displays a live camera feed. Powered by a Raspberry Pi.</p>
-                <a href="assets/ledmatrixcamera.mp4">Demo Link</a>
-                <p class="slash">/</p>
-                <a href="https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix">GitHub link</a>
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix" class="fa-brands fa-github"></a>
+                    <a href="./assets/ledmatrixcamera.mp4" class="fa-solid fa-computer"></a>
+                </div>
             </div>
-
-            <div class="card" data-aos="flip-down" data-aos-duration="500">
-                <h3>KI5CGK Log Book</h3>
+            <div class="project">
+                <h4>KI5CGK Log Book</h4>
                 <p>A log book for ham radio operators written in Python using PySide6.</p>
-                <a href="https://github.com/rynstwrt/KI5CGK-Log-Book/releases">Download Link</a>
-                <p class="slash">/</p>
-                <a href="https://github.com/rynstwrt/KI5CGK-Log-Book">GitHub Link</a>
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/KI5CGK-Log-Book" class="fa-brands fa-github"></a>
+                </div>
             </div>
-
-            <div class="card" data-aos="flip-down" data-aos-duration="500">
-                <h3>CSS Animation Gallery</h3>
+            <div class="project">
+                <h4>CSS Animation Gallery</h4>
                 <p>A virtual art exhibit created entirely with CSS animations.</p>
-                <a href="https://rynstwrt.github.io/CSS-Animations/">Demo Link</a>
-                <p class="slash">/</p>
-                <a href="https://github.com/rynstwrt/CSS-Animations">GitHub Link</a>
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/CSS-Animations" class="fa-brands fa-github"></a>
+                    <a href="https://rynstwrt.github.io/CSS-Animations/" class="fa-solid fa-computer"></a>
+                </div>
             </div>
-
-            <div class="card" data-aos="flip-down" data-aos-duration="500">
-                <h3>Chord Progression Generator</h3>
+            <div class="project">
+                <h4>Chord Progression Generator</h4>
                 <p>A web-based chord progression generator for musicians.</p>
-                <a href="https://rynstwrt.github.io/ChordProgressionGenerator/">Demo Link</a>
-                <p class="slash">/</p>
-                <a href="https://github.com/rynstwrt/ChordProgressionGenerator">GitHub Link</a>
+                <div class="project-links">
+                    <a href="https://github.com/rynstwrt/ChordProgressionGenerator" class="fa-brands fa-github"></a>
+                    <a href="https://rynstwrt.github.io/ChordProgressionGenerator/" class="fa-solid fa-computer"></a>
+                </div>
             </div>
         </div>
     </div>
-    <script>AOS.init();</script>
+
+    <div id="contact" class="page">
+        <div class="bubble">
+            <h2>Contact / Socials</h2>
+            <div id="contact-links">
+                <a href="https://github.com/rynstwrt/" class="fa-brands fa-github"></a>
+                <a href="https://twitter.com/rynstwrt/" class="fa-brands fa-twitter"></a>
+                <a href="https://instagram.com/rynstwrt/" class="fa-brands fa-instagram"></a>
+                <a href="https://www.tiktok.com/@radio.ryan" class="fa-brands fa-tiktok"></a>
+                <a href="https://unsplash.com/@rynstwrt/" class="fa-brands fa-unsplash"></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/aosInit.js"></script>
 </body>
 </html>

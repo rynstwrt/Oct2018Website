@@ -1,5 +1,50 @@
-$background-color: black;
-$foreground-color: white;
+$bg-color: #EBE9EA;
+$text-color: black;
+$text-color-lighter: #8D8D8D;
+
+$font: "Nunito Sans", sans-serif;
+$font-light-weight: 200;
+$font-regular-weight: 400;
+$font-bold-weight: 700;
+
+$border-radius: 20px;
+
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+
+@mixin sm
+{
+    @media (min-width: #{$screen-sm-min})
+    {
+        @content;
+    }
+}
+
+@mixin md
+{
+    @media (min-width: #{$screen-md-min})
+    {
+        @content;
+    }
+}
+
+@mixin lg
+{
+    @media (min-width: #{$screen-lg-min})
+    {
+        @content;
+    }
+}
+
+@mixin xl
+{
+    @media (min-width: #{$screen-xl-min})
+    {
+        @content;
+    }
+}
 
 *
 {
@@ -8,194 +53,247 @@ $foreground-color: white;
     box-sizing: border-box;
 }
 
-html, body
+html
 {
-    height: 100%;
+    scroll-behavior: smooth;
 }
 
-p
+body
 {
-    font-size: 1.5rem;
-    font-weight: 200;
-}
-
-h2
-{
-    letter-spacing: 4px;
+    background-color: $bg-color;
+    color: $text-color;
+    font-family: $font;
 }
 
 a
 {
-    text-decoration: none;
     color: inherit;
-
-    &:hover
-    {
-        text-decoration: underline;
-    }
+    text-decoration: none;
 }
 
-.border
+a, button
 {
-    width: 100%;
-    border-top: 1px dotted white;
-    margin-bottom: 20px;
+    color: $text-color;
+    padding: 10px 10px;
+    font-size: 15px;
+    font-weight: $font-light-weight;
+    border: 1px solid $text-color;
+    border-radius: $border-radius;
+    letter-spacing: 1px;
+}
+
+a:hover, button:hover
+{
+    border-bottom: 2px solid $text-color !important;
+    cursor: pointer;
 }
 
 .page
 {
-    min-height: 100%;
+    width: 100vw;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.bubble
+{
+    border: 1px solid $text-color-lighter;
+    border-radius: $border-radius;
+    margin-top: 15px;
+    padding: 20px 20px;
     width: 100%;
-    padding: 20px;
-    background-color: $background-color;
-    display: flex;
-    justify-content: center;
 
-    .page-content
+    @include sm
     {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        max-width: 600px;
-        font-family: "Sono", sans-serif;
-        color: $foreground-color;
-
-        h2
-        {
-            border: 1px solid $foreground-color;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            padding: 5px 7px;
-            font-size: 1.75rem;
-            font-weight: 400;
-        }
-
-        h1
-        {
-            font-weight: 500;
-            font-size: 3rem;
-            color: $foreground-color;
-        }
+        width: 375px;
     }
 }
 
-#landing-page
+h1
 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: $font-bold-weight;
+    text-transform: uppercase;
+}
+
+h2
+{
+    font-size: 23px;
+    font-weight: $font-regular-weight;
+    letter-spacing: 1px;
+    line-height: 29px;
+
+    &:last-of-type
+    {
+        margin-bottom: 10px;
+    }
+}
+
+h3
+{
+    font-size: 30px;
+    font-weight: $font-light-weight;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 40px 0 10px 0;
+}
+
+h4
+{
+    font-size: 20px;
+    font-weight: $font-regular-weight;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+button
+{
+    background-color: transparent;
+    font: inherit;
+    font-weight: $font-light-weight;
+    width: 100%;
+}
+
+p
+{
+    font-weight: $font-light-weight;
+    font-size: 19px;
+}
+
+header
+{
+    background-color: $bg-color;
+    border-radius: 0 0 $border-radius $border-radius;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 
-    h1
+    .bubble
     {
-        text-align: right;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        line-height: 3.5rem;
-        margin-top: 50px;
-        text-decoration: underline;
-    }
+        margin-top: 0 !important;
+        border-color: $text-color;
 
-    p
-    {
-        max-width: 250px;
-        align-self: flex-start;
-    }
+        nav
+        {
+            ul
+            {
+                display: flex;
+                justify-content: center;
 
-    #social-icons
-    {
-        font-size: 1.5rem;
-        margin-left: 10px;
+                li
+                {
+                    list-style: none;
+                    margin: 0 5px;
+
+                    a
+                    {
+                        padding: 6px 10px;
+                    }
+                }
+            }
+        }
     }
 }
 
-#about-page
+#about
 {
-    .page-content
+    #introduction
     {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        padding-top: 25px;
+
+        #profile-picture
+        {
+            $pic-size: 175px;
+            min-width: $pic-size;
+            height: $pic-size;
+            border-radius: 50%;
+            background-image: url("/assets/ryan.jpg");
+            background-size: cover;
+            background-position: center;
+            border: 1px solid $text-color;
+        }
+    }
+
+    #description
+    {
+        h2:last-of-type
+        {
+            margin-bottom: 10px;
+        }
+    }
+
+    #resume
+    {
+        & > div
+        {
+            display: flex;
+            justify-content: center;
+
+            button
+            {
+                margin: 15px 0 0 0;
+            }
+        }
+    }
+}
+
+.project-links > a, #contact-links > a
+{
+    font-size: 30px;
+
+    @include md
+    {
+        font-size: 20px;
+    }
+}
+
+#about, #portfolio, #contact
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#portfolio
+{
+    .project
+    {
+        padding: 20px 20px;
+        border: 1px solid $text-color-lighter;
+        border-radius: $border-radius;
+        margin-bottom: 15px;
 
         p
         {
-            margin-bottom: 50px;
-            align-self: flex-start;
-            position: relative;
-            max-width: 275px;
+            padding: 2px 0 10px 0;
+        }
 
-            &:after
+        .project-links
+        {
+            a
             {
-                content: "";
-                position: absolute;
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: $foreground-color;
-                margin-top: 10px;
-            }
-
-            &:nth-of-type(2), &:nth-of-type(4)
-            {
-                align-self: flex-end;
-                text-align: right;
-            }
-
-            &:last-of-type
-            {
-                margin-bottom: 150px;
+                margin-right: 3px;
             }
         }
     }
 }
 
-#projects-page
+#contact
 {
-    .page-content
+    #contact-links
     {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
 
-        .card
+        a
         {
-            border: 1px solid $foreground-color;
-            padding: 20px 40px 20px 15px;
-            margin-bottom: 30px;
-            width: 100%;
-
-            h3
-            {
-                margin-bottom: 10px;
-                font-weight: 400;
-                text-transform: uppercase;
-            }
-
-            p
-            {
-                margin-bottom: 20px;
-            }
-
-            p, a
-            {
-                font-size: 1rem;
-                font-weight: 200;
-            }
-
-            a
-            {
-                text-transform: uppercase;
-
-                &:nth-of-type(2)
-                {
-                    margin-left: 5px;
-                }
-
-            }
-
-            .slash
-            {
-                display: inline;
-            }
+            margin-left: 3px;
+            margin-right: 3px;
         }
     }
 }
