@@ -77,14 +77,15 @@ a, button
     padding: 10px 10px;
     font-size: 15px;
     font-weight: $font-light-weight;
-    border: 1px solid $text-color;
+    border: 1px solid rgba(0, 0, 0, .5);
     border-radius: $border-radius;
     letter-spacing: 1px;
+    transition: border-color .1s ease-in-out;
 }
 
 a:hover, button:hover
 {
-    border-bottom: 2px solid $text-color !important;
+    border-color: rgba(0, 0, 0, 1);
     cursor: pointer;
 }
 
