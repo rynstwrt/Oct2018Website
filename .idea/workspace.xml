@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9bef68a5-dec3-4687-af23-950d659f8efc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ledmatrixcamera.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ryan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/aos.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/contact-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/contact-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/contact-page.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/contact-page.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/contact-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/contact-page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/aos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/aosInit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/buttons.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +33,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -53,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696191987587</updated>
-      <workItem from="1696191991964" duration="171000" />
+      <workItem from="1696191991964" duration="653000" />
     </task>
     <servers />
   </component>

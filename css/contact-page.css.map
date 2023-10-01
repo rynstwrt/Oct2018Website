@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["contact-page.scss"],"names":[],"mappings":"AAAA;EAEI;EACA;EACA;;AAEA;EAEI;;AAEA;EAEI;EACA","file":"contact-page.css"}
+{"version":3,"sourceRoot":"","sources":["contact-page.scss","partials/_colors.scss"],"names":[],"mappings":"AAEA;EAEI;EACA;EACA;;AAEA;EAEI;;AAEA;EAEI;EACA;EACA;;AAEA;EAEI,OClBP","file":"contact-page.css"}

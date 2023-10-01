@@ -9,6 +9,10 @@
 #contact-page #socials-row a {
   font-size: 30px;
   margin-right: 10px;
+  transition: color 0.1s ease-in-out;
+}
+#contact-page #socials-row a:hover {
+  color: #ff7129;
 }
 
 /*# sourceMappingURL=contact-page.css.map */
