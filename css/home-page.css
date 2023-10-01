@@ -25,6 +25,12 @@
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 1px;
+  max-width: 100px;
+}
+@media (min-width: 400px) {
+  #home-page header #logo-and-name h1 {
+    max-width: none;
+  }
 }
 #home-page header #logo-and-name #header-logo {
   display: none;

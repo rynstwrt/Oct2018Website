@@ -35,6 +35,12 @@
                 font-size: 26px;
                 font-weight: $header-5;
                 letter-spacing: 1px;
+                max-width: 100px;
+
+                @include sm
+                {
+                    max-width: none;
+                }
             }
 
             #header-logo
