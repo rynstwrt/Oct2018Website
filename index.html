@@ -1,124 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- META TAGS   -->
+    <!--  META TAGS  -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="The portfolio website of Ryan Stewart.">
-    <meta property="og:site_name" content="ryanstew.art">
-    <meta property="og:title" content="ryanstew.art">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="title" content="Ryan Stewart">
+    <meta name="description" content="The homepage of Ryan Stewart!">
+    <meta name="author" content="Ryan Stewart">
+    <meta name="theme-color" content="#14141A">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="The portfolio website of Ryan Stewart.">
-    <meta property="og:url" content="https://ryanstew.art">
-    <title>ryanstew.art</title>
+    <meta property="og:url" content="https://www.ryanstew.art/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ryan Stewart">
+    <meta property="og:description" content="The Homepage of Ryan Stewart!">
+    <meta property="og:image" content="./assets/website-previews/thiswebsite.png">
+    <meta property="og:image:alt" content="The website of Ryan Stewart.">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="678">
+    <meta property="og:image:height" content="382">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.ryanstew.art/">
+    <meta property="twitter:title" content="Ryan Stewart">
+    <meta property="twitter:description" content="The Homepage of Ryan Stewart!">
+    <meta property="twitter:image" content="./assets/website-previews/thiswebsite.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <title>Ryan Stewart</title>
+
+    <!--  FAVICONS  -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicons/safari-pinned-tab.svg" color="#ff7129">
 
     <!--  GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap" rel="stylesheet">
-
-    <!--  ICONS  -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&family=Victor+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!--  STYLESHEETS  -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/home-page.css">
+    <link rel="stylesheet" type="text/css" href="css/about-page.css">
+    <link rel="stylesheet" type="text/css" href="css/projects-page.css">
+    <link rel="stylesheet" type="text/css" href="css/contact-page.css">
 
     <!--  SCRIPTS  -->
-    <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/buttons.js"></script>
+    <script src="https://kit.fontawesome.com/d1ed772a88.js" crossorigin="anonymous" defer></script>
+    <script src="js/libraries/particles.min.js"></script>
+    <script src="js/particlesjs-handler.js" defer></script>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/get-started.js" defer></script>
+    <script src="js/resume.js" defer></script>
 </head>
 <body>
-    <div id="about" class="page">
-        <header data-aos="fade-in">
-            <h3>RYAN STEWART</h3>
+    <div id="particles"></div>
 
-            <div class="bubble">
-                <nav>
-                    <ul>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#portfolio">PORTFOLIO</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </nav>
+    <section id="home-page">
+        <header>
+            <div id="logo-and-name">
+                <div id="header-logo"></div>
+                <h1>Ryan <span class="accent">Stewart</span></h1>
             </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a id="nav-home" href="#home-page"><span class="accent">01.</span>Home</a>
+                    </li>
+                    <li>
+                        <a id="nav-about" href="#about-page"><span class="accent">02.</span>About</a>
+                    </li>
+                    <li>
+                        <a id="nav-projects" href="#projects-page"><span class="accent">03.</span>Projects</a>
+                    </li>
+                    <li>
+                        <a id="nav-contact" href="#contact-page"><span class="accent">04.</span>Contact</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
-        <div id="introduction" data-aos="fade-in">
-            <div id="profile-picture"></div>
+        <div id="center-content">
+            <h2>Hello!</h2>
+            <h2>I'm <span class="accent">Ryan</span>.</h2>
+            <h2>Full Stack Developer.</h2>
+            <p><span class="accent">Thanks</span> for checking out my site!</p>
+            <button id="get-started">Get Started</button>
         </div>
+    </section>
 
-        <div id="description" class="bubble" data-aos="fade-in">
-            <h2>Software Developer &</h2>
-            <h2>Designer</h2>
-            <p>Full stack developer with experience working with desktop, server, and web technologies.</p>
-        </div>
+    <div class="divider"></div>
 
-        <div id="personal" class="bubble" data-aos="fade-in">
-            <h2>My Hobbies Are:</h2>
-            <p>Programming microcontrollers, making websites, producing music, and DJing. I'm also a ham radio operator and run a TikTok account about it!</p>
-        </div>
-
-        <div id="resume" class="bubble" data-aos="fade-in">
-            <h2>Download My Resume</h2>
-            <div>
-                <button onclick="openLink('assets/resume.pdf')">DOWNLOAD</button>
+    <section id="about-page">
+        <div class="center-page-content">
+            <div class="section-header">
+                <h3>About</h3>
+            </div>
+            <div id="about-image-row">
+                <div id="about-image">
+                    <img src="assets/images/ryan.jpg" alt="A picture of Ryan Stewart.">
+                </div>
+            </div>
+            <div class="text-section">
+                <h4>My Profile</h4>
+                <p>Full stack developer with experience working with desktop, server, and web technologies.</p>
+            </div>
+            <div class="text-section">
+                <h4>My Hobbies</h4>
+                <p>I like programming microcontrollers, making websites, producing music, and DJing. I'm also a ham radio operator!</p>
+            </div>
+            <div class="text-section" id="resume-section">
+                <h4>Download My Resume:</h4>
+                <button id="resume-button">DOWNLOAD RESUME</button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="portfolio" class="page">
-        <div class="bubble">
-            <h2>My Projects</h2>
+    <div class="divider"></div>
+
+    <section id="projects-page">
+        <div class="center-page-content">
+            <div class="section-header">
+                <h3>Projects</h3>
+            </div>
+
             <div class="project">
-                <h4>RPi-Powered 32x16 LED Matrix Camera</h4>
+                <h4>RPI-POWERED 32X16 LED MATRIX CAMERA</h4>
                 <p>A 32x16 WS2812B matrix that displays a live camera feed. Powered by a Raspberry Pi.</p>
-                <div class="project-links">
-                    <a href="https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix" class="fa-brands fa-github"></a>
-                    <a href="./assets/ledmatrixcamera.mp4" class="fa-solid fa-computer"></a>
+                <div class="project-buttons">
+                    <a href="https://github.com/rynstwrt/Raspberry-Pi-LED-Matrix">GITHUB</a>
+                    <a href="./assets/videos/ledmatrixcamera.mp4">DEMO</a>
                 </div>
             </div>
-            <div class="project">
-                <h4>KI5CGK Log Book</h4>
-                <p>A log book for ham radio operators written in Python using PySide6.</p>
-                <div class="project-links">
-                    <a href="https://github.com/rynstwrt/KI5CGK-Log-Book" class="fa-brands fa-github"></a>
-                </div>
-            </div>
-            <div class="project">
-                <h4>CSS Animation Gallery</h4>
-                <p>A virtual art exhibit created entirely with CSS animations.</p>
-                <div class="project-links">
-                    <a href="https://github.com/rynstwrt/CSS-Animations" class="fa-brands fa-github"></a>
-                    <a href="https://rynstwrt.github.io/CSS-Animations/" class="fa-solid fa-computer"></a>
-                </div>
-            </div>
-            <div class="project">
-                <h4>Chord Progression Generator</h4>
-                <p>A web-based chord progression generator for musicians.</p>
-                <div class="project-links">
-                    <a href="https://github.com/rynstwrt/ChordProgressionGenerator" class="fa-brands fa-github"></a>
-                    <a href="https://rynstwrt.github.io/ChordProgressionGenerator/" class="fa-solid fa-computer"></a>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="contact" class="page">
-        <div class="bubble">
-            <h2>Contact / Socials</h2>
-            <div id="contact-links">
-                <a href="https://github.com/rynstwrt/" class="fa-brands fa-github"></a>
-                <a href="https://twitter.com/rynstwrt/" class="fa-brands fa-twitter"></a>
-                <a href="https://instagram.com/rynstwrt/" class="fa-brands fa-instagram"></a>
-                <a href="https://www.tiktok.com/@radio.ryan" class="fa-brands fa-tiktok"></a>
-                <a href="https://unsplash.com/@rynstwrt/" class="fa-brands fa-unsplash"></a>
+            <div class="project">
+                <h4>KI5CGK LOG BOOK</h4>
+                <p>A log book for ham radio operators written in Python using PySide6.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/rynstwrt/KI5CGK-Log-Book">GITHUB</a>
+                    <a href="https://github.com/rynstwrt/KI5CGK-Log-Book/releases">DOWNLOAD</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>CSS ANIMATION GALLERY</h4>
+                <p>A virtual art exhibit created entirely with CSS animations.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/rynstwrt/CSS-Animations">GITHUB</a>
+                    <a href="https://rynstwrt.github.io/CSS-Animations/">DEMO</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>CHORD PROGRESSION GENERATOR</h4>
+                <p>A web-based chord progression generator for musicians.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/rynstwrt/ChordProgressionGenerator">GITHUB</a>
+                    <a href="https://rynstwrt.github.io/ChordProgressionGenerator/">DEMO</a>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="js/aosInit.js"></script>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact-page">
+        <div class="center-page-content">
+            <div class="section-header">
+                <h3>Contact</h3>
+            </div>
+            <div id="socials-row">
+                <a href="https://github.com/rynstwrt/" target="_blank" class="fa-brands fa-github"></a>
+                <a href="https://twitter.com/rynstwrt/" target="_blank" class="fa-brands fa-x-twitter"></a>
+                <a href="https://instagram.com/rynstwrt/" target="_blank" class="fa-brands fa-instagram"></a>
+                <a href="https://unsplash.com/@rynstwrt" target="_blank" class="fa-brands fa-unsplash"></a>
+                <a href="mailto:ryanstewartalex@gmail.com" target="_blank" class="fa-regular fa-envelope"></a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

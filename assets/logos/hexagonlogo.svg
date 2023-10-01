@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Roboto-Bold, Roboto;
+        font-size: 339.01px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #ff7129;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="m450,48.64l347.59,200.68v401.36l-347.59,200.68-347.59-200.68V249.32L450,48.64m0-34.64L72.41,232v436l377.59,218,377.59-218V232L450,14h0Z"/>
+  <text class="cls-1" transform="translate(239.38 570.7)"><tspan x="0" y="0">RS</tspan></text>
+</svg>

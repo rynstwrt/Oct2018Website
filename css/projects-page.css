@@ -1,0 +1,20 @@
+#projects-page {
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+#projects-page .project {
+  border-bottom: 1px solid #ff7129;
+  padding-bottom: 15px;
+}
+#projects-page .project:not(#projects-page .project:last-of-type) {
+  margin-bottom: 60px;
+}
+#projects-page .project .project-buttons {
+  margin-top: 12px;
+}
+#projects-page .project .project-buttons a {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=projects-page.css.map */

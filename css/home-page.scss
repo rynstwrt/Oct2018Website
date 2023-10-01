@@ -1,0 +1,139 @@
+@import "partials/colors";
+@import "partials/breakpoints";
+@import "partials/fonts";
+
+#home-page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    header
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 35px 30px;
+
+        #logo-and-name, nav
+        {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo-and-name
+        {
+            display: flex;
+            align-items: center;
+
+            h1
+            {
+                font-size: 26px;
+                font-weight: $header-5;
+                letter-spacing: 1px;
+            }
+
+            #header-logo
+            {
+                @include md()
+                {
+                    display: flex;
+                }
+
+                display: none;
+                margin-right: 15px;
+                $size: 35px;
+                width: $size;
+                height: $size;
+                background-color: $accent;
+                mask: url("../assets/logos/hexagonlogo.svg") no-repeat center;
+                -webkit-mask: url("../assets/logos/hexagonlogo.svg") no-repeat center;
+            }
+        }
+
+        nav
+        {
+            justify-content: center;
+
+            ul
+            {
+                display: flex;
+                flex-direction: column;
+
+                @include md()
+                {
+                    flex-direction: row;
+                }
+
+                li
+                {
+                    list-style: none;
+                    margin: 0 8px;
+                    display: flex;
+                    $border-size: 1px;
+
+                    a
+                    {
+                        border-bottom: $border-size solid transparent;
+                        padding-bottom: 2px;
+                        margin-bottom: 2px;
+                        font-weight: $content-3;
+
+                        @include md()
+                        {
+                            padding-bottom: 5px;
+                        }
+
+                        span
+                        {
+                            margin-right: 4px;
+                        }
+
+                        &:hover
+                        {
+                            border-bottom: $border-size solid $accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #center-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h2
+        {
+            font-size: 23px;
+
+            @include md()
+            {
+                font-size: 40px;
+            }
+
+            letter-spacing: 2px;
+        }
+
+        p
+        {
+            margin-top: 10px;
+            padding-bottom: 7px;
+            color: $light-gray;
+            border-bottom: 1px solid $accent;
+            font-size: 17px;
+            font-weight: $content-3;
+        }
+
+        button
+        {
+            margin-top: 30px;
+        }
+    }
+}

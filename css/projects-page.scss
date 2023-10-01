@@ -1,0 +1,30 @@
+@import "partials/fonts";
+@import "partials/colors";
+
+#projects-page
+{
+    display: flex;
+    justify-content: center;
+    height: auto;
+
+    .project
+    {
+        border-bottom: 1px solid $accent;
+        padding-bottom: 15px;
+
+        &:not(&:last-of-type)
+        {
+            margin-bottom: 60px;
+        }
+
+        .project-buttons
+        {
+            margin-top: 12px;
+
+            a
+            {
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+#contact-page {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+#contact-page #socials-row {
+  width: 100%;
+}
+#contact-page #socials-row a {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=contact-page.css.map */

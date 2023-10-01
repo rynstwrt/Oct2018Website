@@ -1,0 +1,17 @@
+#contact-page
+{
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+    #socials-row
+    {
+        width: 100%;
+
+        a
+        {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+    }
+}
